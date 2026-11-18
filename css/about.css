@@ -50,25 +50,20 @@
 .btn-pill {
   display: inline-flex;
   align-items: center;
-  gap: 24px;
-  height: 48px;
+  gap: 18px;
+  height: 44px;
   margin-top: 59px;
-  padding: 0 28px 0 20px;
-  border-radius: 24px;
+  padding: 0 22px 0 18px;
+  border-radius: 22px;
   background: linear-gradient(90deg, #f98305, #fa9831);
   color: #fff;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
-  transition: transform 300ms ease;
 }
 
 .btn-pill svg {
   width: 12px;
   height: 11px;
-}
-
-.btn-pill:hover {
-  transform: scale(1.05);
 }
 
 /* Slider */

@@ -147,6 +147,17 @@
   transform: scale(0);
 }
 
+.pin__btn::after {
+  /* Invisible touch target: the dots themselves are only 5-14px wide. */
+  content: "";
+  position: absolute;
+  inset: 50% auto auto 50%;
+  width: max(100%, 32px);
+  height: max(100%, 32px);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
 .map.is-visible .pin__btn {
   animation: pin-pop 400ms ease-out forwards;
   animation-delay: calc(300ms + var(--i) * 40ms);
@@ -272,19 +283,19 @@
   border-radius: 20px;
   background: rgba(250, 142, 27, 0.16);
   color: #ffa94d;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 500;
   line-height: 16px;
 }
 
-.pin__card h3 {
+.pin__card .pin__city {
   margin-top: 9px;
   font-size: 17px;
   font-weight: 600;
   line-height: 24px;
 }
 
-.pin__card h3 small {
+.pin__card .pin__city small {
   display: block;
   color: #b5aca5;
   font-size: 12px;
@@ -613,15 +624,15 @@
 }
 
 .btn-submit {
-  width: 192px;
-  height: 57px;
+  width: 164px;
+  height: 46px;
   margin-left: auto;
   border: 0;
   border-radius: 6px;
   background: #dc7000;
   color: #fff;
   font: inherit;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
   cursor: pointer;
   transition: background 250ms ease, transform 250ms ease;

@@ -66,7 +66,7 @@ function pin(o, index, hq) {
     `  </button>`,
     `  <div class="pin__card" id="card-${esc(o.id)}" role="dialog" aria-label="${city} office">`,
     `    <span class="pin__role">${role}</span>`,
-    `    <h3>${city}<small>${esc(o.country)}</small></h3>`,
+    `    <p class="pin__city">${city}<small>${esc(o.country)}</small></p>`,
     `    <p class="pin__address">${esc(o.address)}</p>`,
     `    <a class="pin__phone" href="tel:${o.phone.replace(/[^+\d]/g, "")}">${esc(o.phone)}</a>`,
     `    <p class="pin__team"><strong>${o.team}</strong> people on site</p>`,

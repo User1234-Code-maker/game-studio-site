@@ -28,6 +28,25 @@ body {
   translate: 0 0;
 }
 
+/* Headline letters: assemble once, never come apart */
+.js .fx-split .w {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.js .fx-split .ch {
+  display: inline-block;
+  opacity: 0;
+  transform: translate(var(--dx), var(--dy)) rotate(var(--dr));
+  transition: opacity 450ms ease, transform 750ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition-delay: calc(var(--i) * var(--step, 20ms));
+}
+
+.js .fx-split.in .ch {
+  opacity: 1;
+  transform: none;
+}
+
 /* Header links */
 header nav ul li:not(.btn) a {
   position: relative;
@@ -168,9 +187,11 @@ header nav ul li:not(.btn):not(.active) a:hover::after {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .js .fx-split .ch,
   .js .rv {
     opacity: 1;
     translate: none;
+    transform: none;
     transition: none;
   }
 
