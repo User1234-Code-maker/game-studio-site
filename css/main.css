@@ -163,7 +163,8 @@ header nav ul li.btn a:hover,
 
 /* Секция с играми */
 .trending {
-  padding-top: 50px;
+  width: min(1144px, calc(100% - 40px));
+  padding-top: 39px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -171,8 +172,8 @@ header nav ul li.btn a:hover,
 }
 
 .trending h3 {
-  font-weight: 600;
-  font-size: 31px;
+  font-weight: 700;
+  font-size: 30px;
 }
 
 .trending .see-all,
@@ -180,14 +181,20 @@ header nav ul li.btn a:hover,
   color: #fff;
   background: #25211d;
   border-radius: 5px;
-  padding: 12px 23px;
+  padding: 13px 28px 13px 30px;
   float: right;
   display: block;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 31px;
+  letter-spacing: 1.4px;
   transition: all 500ms ease;
 }
 
 .trending .see-all {
   float: none;
+  position: relative;
+  top: -2px;
 }
 
 .trending .see-all:hover,
@@ -200,25 +207,28 @@ header nav ul li.btn a:hover,
   justify-content: space-between;
   width: 100%;
   flex-basis: 100%;
-  padding: 50px 0;
+  padding: 56px 0 90px;
 }
 
 .trending .games .block {
-  flex: 1 1 0;
+  flex: 0 1 250px;
   min-width: 0;
-  max-width: 251px;
+  max-width: 250px;
 }
 
 .trending .games .block > img {
   width: 100%;
-  height: auto;
+  aspect-ratio: 250 / 277;
+  object-fit: cover;
   display: block;
 }
 
 .trending .games span {
   display: block;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 28px;
+  font-size: 22px;
+  font-weight: 500;
 }
 
 .trending .games span img {
@@ -547,6 +557,41 @@ footer > p {
     border-radius: 2px;
     bottom: -10.5px;
     transform: translateX(calc(-50% - 2px));
+  }
+
+  .hero {
+    padding-bottom: 138px;
+  }
+
+  .hero--info {
+    margin-left: 128px;
+    padding-top: 61px;
+  }
+
+  .hero--info h2 {
+    color: #e87d0e;
+  }
+
+  .hero--info h1 {
+    margin-top: 17px;
+  }
+
+  .hero--info p {
+    line-height: 32px;
+    margin: 36px 0 54px;
+  }
+
+  .hero--info .btn {
+    background: #fa8e1b;
+    font-family: inherit;
+    height: 53px;
+    padding: 0 31px;
+    line-height: 53px;
+  }
+
+  .hero img {
+    top: -143px;
+    right: -20px;
   }
 }
 
