@@ -1,3 +1,23 @@
+const header = document.querySelector("header");
+const menuToggle = document.querySelector(".menu-toggle");
+
+function setMenu(open) {
+  if (!header || !menuToggle) return;
+  header.classList.toggle("menu-open", open);
+  menuToggle.setAttribute("aria-expanded", String(open));
+  menuToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+}
+
+if (header && menuToggle) {
+  menuToggle.addEventListener("click", () => {
+    setMenu(!header.classList.contains("menu-open"));
+  });
+
+  header.querySelectorAll("nav a").forEach((link) => {
+    link.addEventListener("click", () => setMenu(false));
+  });
+}
+
 const emailForm = document.querySelector(".email-form");
 const emailField = document.querySelector("#emailField");
 const emailMessage = document.querySelector("#emailMessage");
