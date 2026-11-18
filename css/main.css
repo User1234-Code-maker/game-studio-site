@@ -22,12 +22,13 @@ img {
 
 .wrapper {
   background: #000000;
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(74, 40, 0, 1) 100%
-  );
+  background: linear-gradient(180deg, #000000 0, #1b0e01 2517px);
+  background-color: #1b0e01;
   width: 100%;
+}
+
+.wrapper .wrapper {
+  background: linear-gradient(180deg, #090300 0%, #090300 35%, #110800 100%);
 }
 
 .container {
@@ -128,7 +129,7 @@ header nav ul li.btn a:hover,
 
 .hero--info h1 {
   font-size: 50px;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .hero--info p {
@@ -238,27 +239,29 @@ header nav ul li.btn a:hover,
 }
 
 .big-text {
-  padding: 50px 20px;
+  padding: 43px 20px 44px;
   font-size: 35px;
   font-weight: 600;
+  line-height: 66px;
   text-align: center;
   width: 100%;
   max-width: 840px;
 }
 
 .banner {
-  padding: 80px 0;
+  width: min(1144px, calc(100% - 40px));
+  padding: 29px 0 121px;
 }
 
 .banner h3 {
   font-size: 30px;
   font-weight: 600;
-  margin-bottom: 30px;
+  margin-bottom: 21px;
 }
 
 .banner p {
-  line-height: 170%;
-  margin-bottom: 30px;
+  line-height: 30px;
+  margin-bottom: 56px;
   width: 100%;
   max-width: 550px;
 }
@@ -269,9 +272,10 @@ header nav ul li.btn a:hover,
 }
 
 .features {
-  background: url("../img/features-bg.svg") no-repeat center center fixed;
-  background-size: cover;
-  padding: 80px 0;
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.843), rgba(0, 0, 0, 0.843)),
+    url("../img/features-bg.svg") center top / cover no-repeat;
+  padding: 94px 0 21px;
 }
 
 .features h3,
@@ -285,35 +289,63 @@ header nav ul li.btn a:hover,
 
 .features h3 {
   font-size: 30px;
+  line-height: 56px;
+  margin-bottom: 25px;
+}
+
+.features > .container > p {
+  max-width: 830px;
+  line-height: 30px;
+  margin-bottom: 98px;
+}
+
+.features > .container {
+  width: min(1144px, calc(100% - 40px));
 }
 
 .features .info {
   display: flex;
-  justify-self: center;
   flex-wrap: wrap;
+  justify-content: center;
+  column-gap: 103px;
+  row-gap: 0;
 }
 
 .features .info .block {
   text-align: center;
-  width: 20%;
-  margin: 30px 2%;
+  width: auto;
+  margin: 0 0 64px;
 }
 
 .features .info .block img {
-  margin-bottom: 15px;
+  display: block;
+  margin: 0 auto;
+}
+
+.features .info .block p {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  max-width: none;
+  margin: 34px 0 27px;
 }
 
 .projects {
-  padding: 100px 0;
+  width: min(1170px, calc(100% - 40px));
+  padding: 154px 0 100px;
 }
 
 .projects h3 {
   font-size: 30px;
+  font-weight: 700;
   text-align: center;
 }
 
 .projects p {
-  margin: 40px 0;
+  max-width: 480px;
+  margin: 19px auto 0;
+  font-size: 14px;
+  line-height: 26px;
   text-align: center;
 }
 
@@ -321,37 +353,45 @@ header nav ul li.btn a:hover,
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 20px;
-  margin-bottom: 25px;
+  align-items: flex-start;
+  gap: 33px 20px;
+  margin: 76px 0 72px;
 }
 
 .projects .images img {
-  width: calc(33.333% - 14px);
+  width: auto;
   max-width: 100%;
   height: auto;
 }
 
 .projects .see-all {
   float: none;
-  width: 60px;
-  text-align: center;
+  width: fit-content;
   margin: 0 auto;
 }
 
 .email {
-  padding-bottom: 120px;
+  width: min(1170px, calc(100% - 40px));
+  padding-bottom: 165px;
 }
 
 .email h3 {
-  margin-top: 60px;
+  margin-top: 11px;
   font-size: 30px;
+  font-weight: 600;
+}
+
+.email > p {
+  max-width: 560px;
+  margin-top: 22px;
+  line-height: 30px;
 }
 
 .email .block {
   background: #1c140f;
-  margin-top: 30px;
+  margin-top: 69px;
   border-radius: 10px;
-  padding: 40px 3%;
+  padding: 40px 50px 40px 57px;
   width: 100%;
   box-sizing: border-box;
   display: flex;
@@ -362,11 +402,14 @@ header nav ul li.btn a:hover,
 .email .block h4 {
   font-size: 30px;
   font-weight: 500;
+  margin-bottom: 11px;
 }
 
 .email .block p {
   width: 100%;
-  max-width: 500px;
+  max-width: 520px;
+  font-size: 17px;
+  line-height: 26px;
 }
 
 .email-field {
@@ -378,13 +421,14 @@ header nav ul li.btn a:hover,
   outline: none;
   border: 0;
   border-radius: 5px;
-  width: 420px;
+  width: 386px;
+  height: 48px;
   max-width: 100%;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
-  font-size: 16px;
-  padding: 18px 148px 18px 24px;
+  font-size: 13px;
+  padding: 0 150px 0 35px;
   position: relative;
   z-index: 1;
 }
@@ -392,8 +436,17 @@ header nav ul li.btn a:hover,
 .email .block .email-field button {
   position: absolute;
   top: 50%;
-  right: 8px;
+  right: 7px;
   transform: translateY(-50%);
+  height: 37px;
+  padding: 0 20px;
+  background: #dc7000;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.email .block .email-field button:hover {
+  background: #a02604;
 }
 
 .email .block .form-message {
@@ -422,8 +475,13 @@ header nav ul li.btn a:hover,
 
 /* Footer */
 footer {
-  background: #000;
-  padding: 50px 0;
+  background: #070707;
+  padding: 0;
+}
+
+footer .container {
+  width: min(1238px, calc(100% - 40px));
+  padding-top: 71px;
 }
 
 footer .block {
@@ -437,68 +495,122 @@ footer .block > div:last-child {
 }
 
 footer .block p {
-  margin: 15px 0;
+  margin: 16px 0 0;
+  line-height: 24px;
+}
+
+footer .block .handle {
+  margin-top: 35px;
+}
+
+footer .block .logo {
+  display: block;
+  margin-top: 1px;
+  font-size: 24px;
+  line-height: 36px;
 }
 
 footer .block h4 {
   font-weight: 500;
   font-size: 17px;
+  line-height: 26px;
+  margin-top: 6px;
 }
 
 footer .block ul {
   list-style: none;
   float: none;
   width: auto;
+  margin-top: 16px;
 }
 
 footer .block ul li {
-  margin: 7px 0;
-  opacity: 0.7;
+  line-height: 30px;
+}
+
+footer .block > div:last-child ul {
+  margin-top: 21px;
+}
+
+footer .block > div:last-child ul li {
+  line-height: 24px;
+}
+
+footer .block > div:last-child ul li + li {
+  margin-top: 15px;
 }
 
 footer hr {
-  margin: 30px 0;
+  margin: 0;
   border: 0;
   height: 1px;
-  background: rgba(255, 255, 255, 0.4);
+  background: #9f9f9f;
 }
 
-footer .container > p {
-  opacity: 0.7;
+footer .copyright {
+  padding: 32px 20px 31px;
+  font-size: 13px;
+  line-height: 20px;
+  text-align: center;
 }
 
 .social {
   display: flex;
   justify-content: flex-end;
-  gap: 12px;
+  gap: 16px;
   margin-top: 28px;
 }
 
 .social a {
-  width: 36px;
-  height: 36px;
-  border: 1px solid rgba(255, 255, 255, 0.55);
+  width: 34px;
+  height: 34px;
+  background: #fff;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  color: #000;
   transition: all 500ms ease;
 }
 
 .social a:hover {
   background: #dc7000;
-  border-color: #dc7000;
+  color: #fff;
 }
 
 .social svg {
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
   display: block;
 }
 
-footer > p {
-  text-align: center;
+@media (min-width: 1025px) {
+  footer .block {
+    display: grid;
+    grid-template-columns: 449px 220px 1fr;
+    position: relative;
+    min-height: 219px;
+  }
+
+  footer .block p,
+  footer .block > div:last-child {
+    width: auto;
+  }
+
+  footer .block > div:first-child p:not(.handle) {
+    max-width: 340px;
+  }
+
+  footer .block > div:last-child ul li:first-child {
+    max-width: 285px;
+  }
+
+  .social {
+    position: absolute;
+    right: 20px;
+    top: 123px;
+    margin-top: 0;
+  }
 }
 
 @media (min-width: 1025px) {
@@ -560,7 +672,7 @@ footer > p {
   }
 
   .hero {
-    padding-bottom: 138px;
+    padding-bottom: 141px;
   }
 
   .hero--info {
@@ -573,12 +685,13 @@ footer > p {
   }
 
   .hero--info h1 {
-    margin-top: 17px;
+    margin-top: 19px;
+    line-height: 77.5px;
   }
 
   .hero--info p {
     line-height: 32px;
-    margin: 36px 0 54px;
+    margin: 26px 0 54px;
   }
 
   .hero--info .btn {
