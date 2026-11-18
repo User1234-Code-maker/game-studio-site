@@ -12,6 +12,6 @@ export const config = {
   rateLimitPerMinute: Number(process.env.RATE_LIMIT_PER_MINUTE) || 10,
   // Only these paths are served as static files, so server code, .git and
   // storage are never exposed.
-  publicFiles: ["index.html", "about.html", "contact.html", "news.html", "favicon.svg"],
+  publicFiles: ["index.html", "about.html", "contact.html", "news.html", "404.html", "favicon.svg", "robots.txt", "sitemap.xml"],
   publicDirs: ["css", "js", "img", "data"],
 };

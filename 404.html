@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>Page not found | Game Website</title>
+    <script>
+      // This page is served for any missing address (e.g. /game-studio-site/foo/bar),
+      // so relative links need a base. GitHub Pages serves the site from /game-studio-site/.
+      document.write('<base href="' + (location.hostname.endsWith("github.io") ? "/game-studio-site/" : "/") + '" />');
+    </script>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/oops.css" />
+    <script>
+      try {
+        document.documentElement.dataset.theme = localStorage.getItem("theme") === "light" ? "light" : "dark";
+      } catch (e) {
+        document.documentElement.dataset.theme = "dark";
+      }
+    </script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <main class="notfound">
+        <div>
+          <img class="notfound__art" src="img/oops-controller.svg" alt="" width="240" height="180" />
+          <p class="notfound__code" aria-label="404">
+            <span class="ch" style="--i: 0" aria-hidden="true">4</span><span class="ch" style="--i: 1" aria-hidden="true">0</span><span class="ch" style="--i: 2" aria-hidden="true">4</span>
+          </p>
+          <h1>Level not found</h1>
+          <p>This page doesn't exist or was moved. Head back to the start and try again.</p>
+          <div class="notfound__actions">
+            <a href="index.html">Back to home</a>
+            <a href="contact.html">Contact us</a>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

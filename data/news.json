@@ -4,7 +4,7 @@
       "id": "n1",
       "size": "big",
       "title": "Lorem Ipsum is simply dummy text dummy text",
-      "image": "img/kda.jpg",
+      "image": "img/kda.webp",
       "alt": "Stylised character in neon light",
       "tag": {
         "label": "John smash",
@@ -29,7 +29,7 @@
       "id": "n2",
       "size": "big",
       "title": "Lorem Ipsum is simply dummy text dummy text",
-      "image": "img/hero-neon.jpg",
+      "image": "img/hero-neon.webp",
       "alt": "Character standing in a neon-lit city street",
       "tag": {
         "label": "John smash",
@@ -53,7 +53,7 @@
       "id": "n3",
       "size": "side",
       "title": "Lorem Ipsum is simply dummy text dummy text ?",
-      "image": "img/news-1.jpg",
+      "image": "img/news-1.webp",
       "alt": "Team discussing sticky notes in a meeting room",
       "tag": {
         "label": "John smash",
@@ -74,7 +74,7 @@
       "id": "n4",
       "size": "side",
       "title": "Lorem Ipsum is simply dummy text dummy text ?",
-      "image": "img/news-2.jpg",
+      "image": "img/news-2.webp",
       "alt": "Colleagues working together at laptops",
       "tag": {
         "label": "John smash",
@@ -94,7 +94,7 @@
       "id": "n5",
       "size": "side",
       "title": "Lorem Ipsum is simply dummy text dummy text ?",
-      "image": "img/news-3.jpg",
+      "image": "img/news-3.webp",
       "alt": "Child playing in a bright room",
       "tag": {
         "label": "John smash",
@@ -114,7 +114,7 @@
       "id": "n6",
       "size": "side",
       "title": "Lorem Ipsum is simply dummy text dummy text ?",
-      "image": "img/news-4.jpg",
+      "image": "img/news-4.webp",
       "alt": "Colourful jigsaw puzzle pieces",
       "tag": {
         "label": "John smash",
@@ -133,7 +133,7 @@
       "id": "n7",
       "size": "side",
       "title": "Lorem Ipsum is simply dummy text dummy text ?",
-      "image": "img/news-5.jpg",
+      "image": "img/news-5.webp",
       "alt": "Team working in a co-working space",
       "tag": {
         "label": "John smash",
@@ -152,7 +152,7 @@
       "id": "n8",
       "size": "side",
       "title": "Lorem Ipsum is simply dummy text dummy text ?",
-      "image": "img/news-6.jpg",
+      "image": "img/news-6.webp",
       "alt": "Rowing team seen from above",
       "tag": {
         "label": "John smash",
@@ -171,7 +171,7 @@
       "id": "n9",
       "size": "side",
       "title": "Lorem Ipsum is simply dummy text dummy text ?",
-      "image": "img/news-7.jpg",
+      "image": "img/news-7.webp",
       "alt": "Rowing boat on dark water",
       "tag": {
         "label": "John smash",

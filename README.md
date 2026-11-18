@@ -25,9 +25,14 @@ A multi-page, responsive website for a fictional game development studio. I buil
 
 - Pixel-checked against the mockup at a 1440px viewport
 - Interactive SVG world map: 18 office pins, popups with address / phone / directions, a route arc to HQ, city chips, keyboard and touch support
-- Calm, gaming-style motion: blocks fade in once as they enter the screen, small hover feedback, one slow float on the 3D controller. Only `opacity` and `transform` are animated, with a single `IntersectionObserver` and no scroll listeners. Everything is disabled for `prefers-reduced-motion`
+- Dark and light themes: switch in the header, choice is remembered, no flash on load (dark is the default)
+- "Oops" dialog with an animated controller for links that do not lead anywhere yet, and a matching 404 page
+- Game stickers (coin, trophy, gem, controller…) in the side margins. `js/stickers.js` measures the free space next to the content and hides a sticker when there is no room, so they never cover text. Edit the `LAYOUT` list at the top of the file to add or move them
+- Calm, gaming-style motion: blocks fade in once as they enter the screen, headlines assemble from letters once (they never come apart), small hover feedback, one slow float on the 3D controller. Only `opacity` and `transform` are animated, with a single `IntersectionObserver` and no scroll listeners. Everything is disabled for `prefers-reduced-motion`
 - Node.js + Express backend: contact form and newsletter are stored on the server, news search runs through the API, offices and stats are served as JSON
 - Works without the backend too: on static hosting (GitHub Pages) the forms switch to an honest demo mode and search runs in the browser
+- Fast: images are WebP, fonts load without blocking, below-the-fold images are lazy, responses are gzip-compressed. Lighthouse (local): Performance 99, SEO 100, Best practices 100, page weight about 375 KB
+- SEO: canonical and Open Graph tags, share preview image, `sitemap.xml`, `robots.txt`
 - Responsive layout with breakpoints at 1024 / 768 / 480px and a burger menu
 - Image showcase that changes slides every 5 seconds with a fade (pauses in a hidden tab)
 
@@ -67,8 +72,9 @@ Messages and subscribers are saved to `storage/*.jsonl` (ignored by git).
 ```
 .
 ├── index.html, about.html, contact.html, news.html
-├── css/        main.css, effects.css + one stylesheet per inner page
-├── js/         api.js, main.js, effects.js + page scripts
+├── 404.html, sitemap.xml, robots.txt
+├── css/        main.css, effects.css, theme.css (light theme), oops.css, stickers.css + one stylesheet per inner page
+├── js/         api.js, main.js, effects.js, theme.js, oops.js, stickers.js + page scripts
 ├── data/       news.json, offices.json
 ├── server/     app.js, index.js, config.js, routes/, services/, middleware/
 ├── scripts/    build.mjs (generates repeated HTML from data/)
@@ -97,6 +103,7 @@ GitHub Pages hosts the static front end only (Settings → Pages → `main` / ro
 
 ## Notes
 
+- The canonical URLs, `sitemap.xml` and share image use `https://user1234-code-maker.github.io/game-studio-site/`; change them if the site moves.
 - Several images are placeholders and will be replaced with final artwork.
 - Office locations, addresses and phone numbers on the map are fictional.
 - The world map is generated from [Natural Earth](https://www.naturalearthdata.com/) data (public domain) via the `world-atlas` package.

@@ -1,4 +1,5 @@
 import express from "express";
+import compression from "compression";
 import path from "node:path";
 import api from "./routes/api.js";
 import { errorHandler, notFound } from "./middleware/errorHandler.js";
@@ -19,6 +20,7 @@ export function createApp() {
     next();
   });
 
+  app.use(compression());
   app.use("/api", express.json({ limit: "10kb" }), api, notFound);
 
   // Static front end: whitelisted files and folders only.
@@ -34,7 +36,8 @@ export function createApp() {
     ),
   );
 
-  app.use((_req, res) => res.status(404).type("text").send("Page not found"));
+  // Unknown address: the same friendly page GitHub Pages shows.
+  app.use((_req, res) => res.status(404).sendFile(path.join(config.rootDir, "404.html")));
   app.use(errorHandler);
   return app;
 }

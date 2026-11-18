@@ -89,6 +89,9 @@ test("subscribe: new, duplicate and invalid", async () => {
 
 test("unknown API route is JSON 404, bad JSON is 400", async () => {
   assert.equal((await fetch(base + "/api/nothing")).status, 404);
+  const missing = await fetch(base + "/no-such-page");
+  assert.equal(missing.status, 404);
+  assert.match(await missing.text(), /Level not found/);
   const bad = await fetch(base + "/api/contact", {
     method: "POST",
     headers: { "Content-Type": "application/json" },

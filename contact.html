@@ -9,11 +9,37 @@
     />
     <title>Contact us | Game Website</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="canonical" href="https://user1234-code-maker.github.io/game-studio-site/contact.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Game Studio" />
+    <meta property="og:title" content="Contact us | Game Website" />
+    <meta property="og:description" content="Contact our game development studio: find us on the map, call us or send a message." />
+    <meta property="og:url" content="https://user1234-code-maker.github.io/game-studio-site/contact.html" />
+    <meta property="og:image" content="https://user1234-code-maker.github.io/game-studio-site/img/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="theme-color" content="#0b0601" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    />
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/contact.css" />
     <link rel="stylesheet" href="css/effects.css" />
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/oops.css" />
+    <link rel="stylesheet" href="css/stickers.css" />
     <script>document.documentElement.classList.add("js");</script>
+    <script>
+      try {
+        document.documentElement.dataset.theme = localStorage.getItem("theme") === "light" ? "light" : "dark";
+      } catch (e) {
+        document.documentElement.dataset.theme = "dark";
+      }
+    </script>
   </head>
 
   <body>
@@ -52,7 +78,7 @@
           <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
           <span class="contact-hero__dot" aria-hidden="true"></span>
           <div class="map" id="officeMap" style="--ratio: 1012 / 448" data-hq="london">
-            <img class="map__land" src="img/world-map.svg" alt="" width="1012" height="448" />
+            <img loading="lazy" decoding="async" class="map__land" src="img/world-map.svg" alt="" width="1012" height="448" />
             <svg class="map__arcs" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path class="map__arc" d="" /></svg>
             <!-- build:pins -->
             <div class="pin pin--lg" style="--x: 18.33%; --y: 30.75%; --i: 0" data-id="sf">
@@ -358,7 +384,7 @@
     </div>
 
     <section class="say-hello">
-      <img class="say-hello__curves" src="img/contact-curves.svg" alt="" aria-hidden="true" />
+      <img loading="lazy" decoding="async" class="say-hello__curves" src="img/contact-curves.svg" alt="" aria-hidden="true" />
       <div class="say-hello__inner">
         <h2>Say hello</h2>
         <p class="say-hello__lead">Lorem Ipsum is simply dummy text of the printing .</p>
@@ -498,6 +524,9 @@
     <script src="js/api.js"></script>
     <script src="js/main.js"></script>
     <script src="js/effects.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/oops.js"></script>
+    <script src="js/stickers.js"></script>
     <script src="js/contact.js"></script>
   </body>
 </html>

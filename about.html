@@ -9,11 +9,38 @@
     />
     <title>About us | Game Website</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="canonical" href="https://user1234-code-maker.github.io/game-studio-site/about.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Game Studio" />
+    <meta property="og:title" content="About us | Game Website" />
+    <meta property="og:description" content="About our game development studio: who we are, why clients work with us and meet the team." />
+    <meta property="og:url" content="https://user1234-code-maker.github.io/game-studio-site/about.html" />
+    <meta property="og:image" content="https://user1234-code-maker.github.io/game-studio-site/img/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="theme-color" content="#0b0601" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+    />
+    <link rel="preload" as="image" href="img/hero-neon.webp" fetchpriority="high" />
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/about.css" />
     <link rel="stylesheet" href="css/effects.css" />
+    <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="css/oops.css" />
+    <link rel="stylesheet" href="css/stickers.css" />
     <script>document.documentElement.classList.add("js");</script>
+    <script>
+      try {
+        document.documentElement.dataset.theme = localStorage.getItem("theme") === "light" ? "light" : "dark";
+      } catch (e) {
+        document.documentElement.dataset.theme = "dark";
+      }
+    </script>
   </head>
 
   <body>
@@ -63,14 +90,14 @@
 
           <div class="slider" data-slider aria-roledescription="carousel" aria-label="Studio showcase">
             <div class="slider__slides">
-              <img
+              <img fetchpriority="high" width="1600" height="900"
                 class="slider__slide is-active"
-                src="img/hero-neon.jpg"
+                src="img/hero-neon.webp"
                 alt="Character standing in a neon-lit city street"
               />
-              <img
+              <img loading="lazy" decoding="async" width="1600" height="900"
                 class="slider__slide"
-                src="img/slide-2.jpg"
+                src="img/slide-2.webp"
                 alt="Neon city skyline at dusk"
               />
             </div>
@@ -114,9 +141,9 @@
 
     <section class="story">
       <div class="story__inner">
-        <img
+        <img loading="lazy" decoding="async" width="1100" height="688"
           class="story__img"
-          src="img/kda.jpg"
+          src="img/kda.webp"
           alt="Stylised character in neon light"
         />
         <div class="story__text">
@@ -138,22 +165,22 @@
         <h2>Our Team</h2>
         <div class="team__cards">
             <article class="team-card">
-              <img src="img/team-1.svg" alt="" width="63" height="86" />
+              <img loading="lazy" decoding="async" src="img/team-1.svg" alt="" width="63" height="86" />
               <h3>John peter</h3>
               <p>COO</p>
             </article>
             <article class="team-card">
-              <img src="img/team-2.svg" alt="" width="63" height="86" />
+              <img loading="lazy" decoding="async" src="img/team-2.svg" alt="" width="63" height="86" />
               <h3>John peter</h3>
               <p>COO</p>
             </article>
             <article class="team-card">
-              <img src="img/team-3.svg" alt="" width="63" height="86" />
+              <img loading="lazy" decoding="async" src="img/team-3.svg" alt="" width="63" height="86" />
               <h3>John peter</h3>
               <p>COO</p>
             </article>
             <article class="team-card">
-              <img src="img/team-4.svg" alt="" width="63" height="86" />
+              <img loading="lazy" decoding="async" src="img/team-4.svg" alt="" width="63" height="86" />
               <h3>John peter</h3>
               <p>COO</p>
             </article>
@@ -263,6 +290,9 @@
     <script src="js/api.js"></script>
     <script src="js/main.js"></script>
     <script src="js/effects.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/oops.js"></script>
+    <script src="js/stickers.js"></script>
     <script src="js/about.js"></script>
   </body>
 </html>
