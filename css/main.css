@@ -37,6 +37,8 @@ img {
 
 header {
   padding: 50px 0;
+  position: relative;
+  z-index: 3;
 }
 
 header .logo,
@@ -61,6 +63,7 @@ header nav ul {
 
 header nav ul li {
   display: inline-block;
+  position: relative;
 }
 
 header nav ul li.active::after {
@@ -71,8 +74,9 @@ header nav ul li.active::after {
   background: #dc7000;
   border-radius: 10px;
   position: absolute;
-  top: 10px;
-  left: 15px;
+  left: 50%;
+  bottom: -12px;
+  transform: translateX(-50%);
 }
 
 header nav ul li a {
@@ -150,11 +154,16 @@ header nav ul li.btn a:hover,
   position: absolute;
   top: -150px;
   right: 0;
+  pointer-events: none;
 }
 
 /* Секция с играми */
 .trending {
   padding-top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .trending h3 {
@@ -173,6 +182,10 @@ header nav ul li.btn a:hover,
   transition: all 500ms ease;
 }
 
+.trending .see-all {
+  float: none;
+}
+
 .trending .see-all:hover,
 .projects .see-all:hover {
   transform: scale(1.1);
@@ -182,6 +195,7 @@ header nav ul li.btn a:hover,
   display: flex;
   justify-content: space-between;
   width: 100%;
+  flex-basis: 100%;
   padding: 50px 0;
 }
 
@@ -227,8 +241,7 @@ header nav ul li.btn a:hover,
 }
 
 .features {
-  background: url("/img/db4d123c4b390965f684f22d4bf13849\ 1.svg") no-repeat
-    center center fixed;
+  background: url("../img/features-bg.svg") no-repeat center center fixed;
   background-size: cover;
   padding: 80px 0;
 }
@@ -268,7 +281,7 @@ header nav ul li.btn a:hover,
 
 .projects h3 {
   font-size: 30px;
-  font-align: center;
+  text-align: center;
 }
 
 .projects p {
@@ -318,19 +331,51 @@ header nav ul li.btn a:hover,
   width: 500px;
 }
 
+.email-field {
+  position: relative;
+}
+
 .email .block input {
   background-color: #fff;
   outline: none;
   border: 0;
   border-radius: 5px;
-  width: 300px;
+  width: 420px;
+  max-width: 100%;
+  box-sizing: border-box;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
-  padding: 20px 30px;
+  font-size: 16px;
+  padding: 18px 148px 18px 24px;
   position: relative;
-  left: 110px;
   z-index: 1;
-  padding-right: 120px;
+}
+
+.email .block .email-field button {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  transform: translateY(-50%);
+}
+
+.email .block .form-message {
+  width: auto;
+  margin-top: 12px;
+  font-size: 14px;
+  line-height: 1.4;
+  text-align: right;
+}
+
+.email .block .form-message:empty {
+  display: none;
+}
+
+.email .block .form-message.error {
+  color: #ff8a80;
+}
+
+.email .block .form-message.success {
+  color: #b6f5c8;
 }
 
 .email .block input::placeholder {
@@ -374,20 +419,44 @@ footer .block ul li {
 }
 
 footer hr {
-  margin: 30px 0 20px;
+  margin: 30px 0;
   border: 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  height: 1px;
+  background: rgba(255, 255, 255, 0.4);
 }
 
 footer .container > p {
   opacity: 0.7;
 }
 
-footer hr {
-  margin: 30px 0;
-  border: 0;
-  height: 0.6px;
-  background: rgba(255, 255, 255, 0.4);
+.social {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.social a {
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  transition: all 500ms ease;
+}
+
+.social a:hover {
+  background: #dc7000;
+  border-color: #dc7000;
+}
+
+.social svg {
+  width: 16px;
+  height: 16px;
+  display: block;
 }
 
 footer > p {
