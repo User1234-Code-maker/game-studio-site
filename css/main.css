@@ -221,6 +221,7 @@ header nav ul li.btn a:hover,
   width: 100%;
   aspect-ratio: 250 / 277;
   object-fit: cover;
+  border-radius: 24px;
   display: block;
 }
 
@@ -268,6 +269,7 @@ header nav ul li.btn a:hover,
 
 .banner img {
   width: 100%;
+  border-radius: 5px;
   margin-bottom: 30px;
 }
 
@@ -925,5 +927,31 @@ footer .copyright {
 
   .email {
     padding-bottom: 60px;
+  }
+}
+
+/* Anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+#projects {
+  scroll-margin-top: 20px;
+}
+
+/* Small phones: keep the subscribe field usable */
+@media (max-width: 480px) {
+  .email .block {
+    padding: 28px 18px;
+  }
+
+  .email .block input {
+    padding: 0 112px 0 14px;
+    font-size: 13px;
+  }
+
+  .email .block .email-field button {
+    padding: 0 14px;
+    font-size: 13px;
   }
 }

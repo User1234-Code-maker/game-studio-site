@@ -2,25 +2,32 @@ const slider = document.querySelector("[data-slider]");
 
 if (slider) {
   const slides = Array.from(slider.querySelectorAll(".slider__slide"));
-  const counter = slider.querySelector("[data-current]");
-  const total = slider.querySelector("[data-total]");
+  const INTERVAL = 5000;
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   let index = 0;
-
-  if (total) total.textContent = String(slides.length);
+  let timer = null;
 
   function show(next) {
     index = (next + slides.length) % slides.length;
-    slides.forEach((slide, i) => {
-      slide.classList.toggle("is-active", i === index);
-    });
-    if (counter) counter.textContent = String(index + 1);
+    slides.forEach((slide, i) => slide.classList.toggle("is-active", i === index));
   }
 
-  slider.querySelector("[data-prev]").addEventListener("click", () => show(index - 1));
-  slider.querySelector("[data-next]").addEventListener("click", () => show(index + 1));
+  function start() {
+    if (reduceMotion || slides.length < 2) return;
+    stop();
+    timer = setInterval(() => show(index + 1), INTERVAL);
+  }
 
-  slider.addEventListener("keydown", (event) => {
-    if (event.key === "ArrowLeft") show(index - 1);
-    if (event.key === "ArrowRight") show(index + 1);
+  function stop() {
+    clearInterval(timer);
+    timer = null;
+  }
+
+  // Pause while the tab is hidden so slides do not pile up in the background.
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) stop();
+    else start();
   });
+
+  start();
 }

@@ -3,8 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Game Website</title>
+    <meta
+      name="description"
+      content="Game development studio: trending games, services and recent projects."
+    />
+    <title>Home | Game Website</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <meta name="theme-color" content="#0b0601" />
     <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/effects.css" />
+    <script>document.documentElement.classList.add("js");</script>
   </head>
 
   <body>
@@ -25,7 +33,7 @@
           <ul>
             <li class="active"><a href="index.html">Home</a></li>
             <li><a href="about.html">About us</a></li>
-            <li><a href="#">Portfolio</a></li>
+            <li><a href="index.html#projects">Portfolio</a></li>
             <li><a href="news.html">News</a></li>
             <li class="btn"><a href="contact.html">Contact us</a></li>
           </ul>
@@ -52,7 +60,7 @@
 
           <div class="games">
             <div class="block">
-              <img src="img/game-1.png" alt="Trending game 1" />
+              <img src="img/game-1.jpg" alt="Trending game 1" />
               <span><img src="img/icon-fire.svg" alt="" /> 40 Followers</span>
             </div>
 
@@ -62,7 +70,7 @@
             </div>
 
             <div class="block">
-              <img src="img/game-3.svg" alt="Trending game 3" />
+              <img src="img/game-3.jpg" alt="Trending game 3" />
               <span><img src="img/icon-fire.svg" alt="" /> 40 Followers</span>
             </div>
 
@@ -87,7 +95,7 @@
             industry. Lorem Ipsum has been the industry's standard dummy text
             ever since the 1500s,
           </p>
-          <img src="img/banner.svg" alt="Character running through a neon city" />
+          <img src="img/banner.jpg" alt="Character running through a neon city" />
         </section>
 
         <section class="features">
@@ -142,7 +150,7 @@
         </section>
 
         <div class="wrapper">
-          <section class="container projects">
+          <section class="container projects" id="projects">
             <h3>Our Recent Projects</h3>
             <p>
               Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -263,5 +271,6 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script src="js/effects.js"></script>
   </body>
 </html>
