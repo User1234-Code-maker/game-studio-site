@@ -19,6 +19,7 @@ A multi-page, responsive website for a fictional game development studio. I buil
 </p>
 <p>
   <img src="screenshots/news.jpg" width="49%" alt="News page" />
+  <img src="screenshots/home-light.jpg" width="49%" alt="Home page, light theme" />
 </p>
 
 ## Features
@@ -65,7 +66,7 @@ data/*.json  ──►  scripts/build.mjs ──►  news.html, contact.html   (
 | POST | `/api/contact` | Save a message (`firstName`, `lastName`, `email`, `message`) |
 | POST | `/api/subscribe` | Subscribe an email |
 
-Messages and subscribers are saved to `storage/*.jsonl` (ignored by git).
+Messages and subscribers are saved to `storage/*.jsonl` (ignored by git). Each file stops accepting new records at 5 MB (the API answers 503), so a spam bot cannot fill the disk.
 
 ## Project structure
 
@@ -105,5 +106,8 @@ GitHub Pages hosts the static front end only (Settings → Pages → `main` / ro
 
 - The canonical URLs, `sitemap.xml` and share image use `https://user1234-code-maker.github.io/game-studio-site/`; change them if the site moves.
 - Several images are placeholders and will be replaced with final artwork.
+- Behind a reverse proxy (Render, Railway, Fly.io) set `TRUST_PROXY=1`; locally keep the default `0`, otherwise visitors could fake their IP and dodge the rate limit.
+- Contact messages and subscribers are capped at 5 MB per file in `storage/`; for a real site move them to a database (see `server/services/store.js`).
+- A Content-Security-Policy header is sent (`server/security.js`). Inline scripts are allowed only if they match the hashes of the ones in our own HTML files, so after editing an inline `<script>` just restart the server.
 - Office locations, addresses and phone numbers on the map are fictional.
 - The world map is generated from [Natural Earth](https://www.naturalearthdata.com/) data (public domain) via the `world-atlas` package.

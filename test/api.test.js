@@ -109,3 +109,35 @@ test("static pages are served, private files are not", async () => {
     assert.equal((await fetch(base + hidden)).status, 404, hidden);
   }
 });
+
+test("rate limit cannot be dodged with a fake X-Forwarded-For header", async () => {
+  // A tiny app that uses the real limiter and the same proxy setting as the site.
+  const { default: express } = await import("express");
+  const { rateLimit } = await import("../server/middleware/rateLimit.js");
+  const { config } = await import("../server/config.js");
+
+  const small = express();
+  small.set("trust proxy", config.trustProxy);
+  small.post("/", rateLimit({ limit: 2 }), (_req, res) => res.json({ ok: true }));
+  const srv = small.listen(0);
+  await new Promise((resolve) => srv.once("listening", resolve));
+
+  const codes = [];
+  for (let i = 0; i < 4; i++) {
+    const res = await fetch(`http://127.0.0.1:${srv.address().port}/`, {
+      method: "POST",
+      headers: { "X-Forwarded-For": `9.9.9.${i}` },
+    });
+    codes.push(res.status);
+  }
+  srv.close();
+  assert.deepEqual(codes, [200, 200, 429, 429]);
+});
+
+test("security headers include a CSP that allows our own inline scripts only", async () => {
+  const res = await fetch(base + "/");
+  const csp = res.headers.get("content-security-policy");
+  assert.match(csp, /default-src 'self'/);
+  assert.match(csp, /script-src 'self' 'sha256-/);
+  assert.doesNotMatch(csp, /script-src[^;]*unsafe-inline/);
+});

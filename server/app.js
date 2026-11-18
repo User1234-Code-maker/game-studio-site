@@ -4,15 +4,18 @@ import path from "node:path";
 import api from "./routes/api.js";
 import { errorHandler, notFound } from "./middleware/errorHandler.js";
 import { config } from "./config.js";
+import { contentSecurityPolicy } from "./security.js";
 
 // createApp() builds the app without listening, so tests can call it directly.
 export function createApp() {
   const app = express();
   app.disable("x-powered-by");
-  app.set("trust proxy", 1);
+  app.set("trust proxy", config.trustProxy);
 
+  const csp = contentSecurityPolicy();
   app.use((_req, res, next) => {
     res.set({
+      "Content-Security-Policy": csp,
       "X-Content-Type-Options": "nosniff",
       "X-Frame-Options": "DENY",
       "Referrer-Policy": "strict-origin-when-cross-origin",
@@ -27,7 +30,7 @@ export function createApp() {
   config.publicDirs.forEach((dir) =>
     app.use(
       `/${dir}`,
-      express.static(path.join(config.rootDir, dir), { maxAge: dir === "data" ? 0 : "7d", etag: true }),
+      express.static(path.join(config.rootDir, dir), { maxAge: { data: 0, css: "1h", js: "1h" }[dir] ?? "7d", etag: true }),
     ),
   );
   config.publicFiles.forEach((name) =>

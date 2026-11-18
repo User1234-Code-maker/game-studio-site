@@ -1,7 +1,12 @@
-import { appendFile, mkdir, readFile } from "node:fs/promises";
+import { appendFile, mkdir, readFile, stat } from "node:fs/promises";
 import path from "node:path";
 import { randomUUID } from "node:crypto";
 import { config } from "../config.js";
+import { HttpError } from "../middleware/errorHandler.js";
+
+// Safety net: a collection stops accepting new records at this size, so a spam
+// bot cannot fill the disk. Move to a database before this matters.
+const MAX_BYTES = 5 * 1024 * 1024;
 
 // Append-only JSON Lines storage: one record per line, safe for concurrent
 // appends and trivial to inspect. The module has a tiny interface
@@ -13,8 +18,12 @@ async function file(name) {
 }
 
 export async function append(collection, record) {
+  const target = await file(collection);
+  const size = await stat(target).then((info) => info.size, () => 0);
+  if (size > MAX_BYTES) throw new HttpError(503, "We cannot accept new messages right now. Please email us instead.");
+
   const entry = { id: randomUUID(), createdAt: new Date().toISOString(), ...record };
-  await appendFile(await file(collection), JSON.stringify(entry) + "\n");
+  await appendFile(target, JSON.stringify(entry) + "\n");
   return entry;
 }
 

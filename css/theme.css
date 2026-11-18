@@ -58,6 +58,22 @@ html[data-theme="light"] .theme-toggle .icon-moon {
   }
 }
 
+/* ---------- Readable text on orange and coloured chips (WCAG AA) ----------
+   White on the bright orange fails the contrast check, so these use the
+   dark brown instead. The "See all" buttons are dark, so they stay white. */
+:root header nav ul li.btn a,
+:root .hero--info .btn,
+:root .btn-pill,
+:root .btn-submit,
+:root .email .block .email-field button,
+:root .oops__ok,
+:root .notfound__actions a:first-child,
+:root .tag--pink,
+:root .tag--orange,
+:root .tag--green {
+  color: #1b130d;
+}
+
 /* ---------- Light palette ---------- */
 html[data-theme="light"] {
   color-scheme: light;
@@ -108,10 +124,6 @@ html[data-theme="light"] .contact-bottom {
 html[data-theme="light"] header nav ul li a,
 html[data-theme="light"] .breadcrumb a {
   color: var(--t-text);
-}
-
-html[data-theme="light"] header nav ul li.btn a {
-  color: #fff;
 }
 
 html[data-theme="light"] .menu-toggle span {
