@@ -1,0 +1,406 @@
+/* About page */
+
+.about-top {
+  position: relative;
+  background: linear-gradient(180deg, #050301 0%, #0d0801 100%);
+}
+
+/* Hero */
+.about-hero {
+  position: relative;
+  min-height: 656px;
+  margin-top: -22px;
+}
+
+.about-hero__info {
+  width: 460px;
+  margin-left: max(20px, calc(50% - 610px));
+  padding-top: 97px;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.breadcrumb a {
+  color: #fff;
+}
+
+.breadcrumb__current {
+  color: #e47500;
+}
+
+.about-hero h1 {
+  margin-top: 41px;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 54.5px;
+}
+
+.about-hero__info p {
+  margin-top: 23px;
+  font-size: 15px;
+  line-height: 31px;
+}
+
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 24px;
+  height: 48px;
+  margin-top: 59px;
+  padding: 0 28px 0 20px;
+  border-radius: 24px;
+  background: linear-gradient(90deg, #f98305, #fa9831);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  transition: transform 300ms ease;
+}
+
+.btn-pill svg {
+  width: 12px;
+  height: 11px;
+}
+
+.btn-pill:hover {
+  transform: scale(1.05);
+}
+
+/* Slider */
+.slider {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: calc(50% - 19px);
+  height: 656px;
+  overflow: hidden;
+}
+
+.slider__slides {
+  position: absolute;
+  inset: 0;
+}
+
+.slider__slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 400ms ease;
+}
+
+.slider__slide.is-active {
+  opacity: 1;
+}
+
+.slider__controls {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 179px;
+  height: 67px;
+  padding: 0 30px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #333;
+  font-size: 16px;
+}
+
+.slider__btn {
+  display: flex;
+  padding: 4px;
+  margin: -4px;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+}
+
+.slider__btn svg {
+  width: 12px;
+  height: 11px;
+}
+
+/* Why work with us */
+.why {
+  width: min(1219px, calc(100% - 40px));
+  padding: 148px 0 0;
+}
+
+.why h2,
+.team h2 {
+  font-size: 24.5px;
+  font-weight: 700;
+}
+
+.why__cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 44px;
+  margin-top: 67px;
+  padding-bottom: 147px;
+}
+
+.why-card {
+  height: 348px;
+  box-sizing: border-box;
+  padding: 65px 37px 0;
+  border-radius: 24px;
+  background: #1c140f;
+}
+
+.pill {
+  display: inline-block;
+  padding: 0 15px;
+  border-radius: 6px;
+  font-size: 14px;
+  line-height: 39px;
+}
+
+.pill--violet {
+  background: #2c1226;
+}
+
+.pill--brown {
+  background: #31190d;
+}
+
+.pill--green {
+  background: #192a1d;
+}
+
+.why-card h3 {
+  margin-top: 22px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.why-card p {
+  margin-top: 20px;
+  max-width: 304px;
+  font-size: 14px;
+  line-height: 26px;
+}
+
+/* Story */
+.story {
+  background: #1c140f;
+}
+
+.story__inner {
+  position: relative;
+  width: min(1219px, calc(100% - 40px));
+  min-height: 603px;
+  margin: 0 auto;
+}
+
+.story__img {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 496px;
+  height: 490px;
+  max-width: none;
+  object-fit: cover;
+}
+
+.story__text {
+  margin-left: 591px;
+  max-width: 540px;
+  padding-top: 136px;
+}
+
+.story__label {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.story h2 {
+  max-width: 470px;
+  margin-top: 20px;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 44px;
+}
+
+.story__text p {
+  margin-top: 31px;
+  font-size: 16px;
+  line-height: 32.25px;
+}
+
+/* Team */
+.about-bottom {
+  background: linear-gradient(180deg, #110901 0%, #190d02 100%);
+}
+
+.team {
+  width: min(1266px, calc(100% - 40px));
+  margin-left: max(20px, calc(50% - 610px));
+  padding-top: 152px;
+}
+
+.team__cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  margin-top: 58px;
+}
+
+.team-card {
+  box-sizing: border-box;
+  height: 253px;
+  padding-top: 52px;
+  border-radius: 20px;
+  background: #1c140f;
+  text-align: center;
+}
+
+.team-card img {
+  display: block;
+  width: 63px;
+  height: 86px;
+  margin: 0 auto;
+}
+
+.team-card h3 {
+  margin-top: 25px;
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 28px;
+}
+
+.team-card p {
+  margin-top: 3px;
+  font-size: 16px;
+  color: #e8e8e8;
+}
+
+.team {
+  padding-bottom: 150px;
+}
+
+.about-bottom .email {
+  padding-bottom: 155px;
+}
+
+.about-bottom .email .block {
+  margin-top: 70px;
+}
+
+/* Tablet and down */
+@media (max-width: 1024px) {
+  .about-hero {
+    min-height: 0;
+    margin-top: 0;
+  }
+
+  .about-hero__info {
+    width: auto;
+    margin: 0 20px;
+    padding-top: 24px;
+  }
+
+  .about-hero h1 {
+    margin-top: 24px;
+    font-size: 28px;
+    line-height: 40px;
+  }
+
+  .about-hero__info p {
+    margin-top: 20px;
+    line-height: 28px;
+  }
+
+  .btn-pill {
+    margin-top: 28px;
+  }
+
+  .slider {
+    position: relative;
+    left: auto;
+    height: 420px;
+    margin-top: 40px;
+  }
+
+  .why {
+    padding-top: 64px;
+  }
+
+  .why__cards {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-top: 32px;
+    padding-bottom: 64px;
+  }
+
+  .why-card {
+    height: auto;
+    padding-bottom: 40px;
+  }
+
+  .why-card p {
+    max-width: none;
+  }
+
+  .story__inner {
+    min-height: 0;
+    padding: 0 0 48px;
+  }
+
+  .story__img {
+    position: static;
+    width: 100%;
+    height: 320px;
+  }
+
+  .story__text {
+    margin-left: 0;
+    padding-top: 32px;
+    max-width: none;
+  }
+
+  .story h2 {
+    font-size: 24px;
+    line-height: 36px;
+  }
+
+  .team {
+    padding-top: 64px;
+  }
+
+  .team__cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  .about-bottom .email {
+    padding-bottom: 64px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-hero h1 {
+    font-size: 24px;
+    line-height: 34px;
+  }
+
+  .slider {
+    height: 280px;
+  }
+
+  .team__cards {
+    grid-template-columns: 1fr;
+  }
+}
