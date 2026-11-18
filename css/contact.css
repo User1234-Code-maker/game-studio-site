@@ -99,14 +99,7 @@
 }
 
 .map__arc.is-on {
-  opacity: 0.95;
-  animation: arc-flow 900ms linear infinite;
-}
-
-@keyframes arc-flow {
-  to {
-    stroke-dashoffset: -18;
-  }
+  opacity: 0.8;
 }
 
 .pin {
@@ -155,8 +148,8 @@
 }
 
 .map.is-visible .pin__btn {
-  animation: pin-pop 500ms cubic-bezier(0.3, 1.6, 0.5, 1) forwards;
-  animation-delay: calc(500ms + var(--i) * 70ms);
+  animation: pin-pop 400ms ease-out forwards;
+  animation-delay: calc(300ms + var(--i) * 40ms);
 }
 
 @keyframes pin-pop {
@@ -181,8 +174,13 @@
   inset: 0;
   border-radius: 50%;
   background: rgba(240, 56, 44, 0.55);
-  animation: pin-pulse 2.6s ease-out infinite;
-  animation-delay: calc(var(--i) * 230ms);
+  opacity: 0;
+}
+
+/* Only the HQ and the open pin pulse: 18 looping animations would be noisy and heavy. */
+.pin--hq .pin__pulse,
+.pin.is-open .pin__pulse {
+  animation: pin-pulse 3.2s ease-out infinite;
 }
 
 @keyframes pin-pulse {
@@ -385,8 +383,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .pin__pulse,
-  .map__arc.is-on {
+  .pin__pulse {
     animation: none;
   }
 

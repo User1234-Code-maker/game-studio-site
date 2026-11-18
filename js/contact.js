@@ -29,18 +29,49 @@ if (form) {
     });
   });
 
-  form.addEventListener("submit", (event) => {
+  const fieldIds = { firstName: "firstName", lastName: "lastName", email: "contactEmail", message: "contactMessage" };
+  const submitButton = form.querySelector('[type="submit"]');
+
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
     const results = inputs.map(validate);
     status.classList.remove("success");
 
-    if (results.every(Boolean)) {
-      status.textContent = "Thanks! We will get back to you soon.";
-      status.classList.add("success");
-      form.reset();
-    } else {
+    if (!results.every(Boolean)) {
       status.textContent = "";
       inputs.find((input) => input.classList.contains("is-invalid")).focus();
+      return;
+    }
+
+    submitButton.disabled = true;
+    const value = (id) => document.getElementById(id).value.trim();
+    const reply = await window.siteApi.post("/contact", {
+      firstName: value("firstName"),
+      lastName: value("lastName"),
+      email: value("contactEmail"),
+      message: value("contactMessage"),
+    });
+    submitButton.disabled = false;
+
+    if (reply.offline) {
+      // Static hosting: nothing can store the message, so say so honestly.
+      status.textContent = "Thanks! This is a demo site, so the message was not sent.";
+      status.classList.add("success");
+      form.reset();
+    } else if (reply.ok) {
+      status.textContent = reply.data.message;
+      status.classList.add("success");
+      form.reset();
+    } else if (reply.status === 422) {
+      Object.entries(reply.data.details || {}).forEach(([key, message]) => {
+        const input = document.getElementById(fieldIds[key]);
+        if (!input) return;
+        input.parentElement.querySelector(".field__error").textContent = message;
+        input.classList.add("is-invalid");
+      });
+      status.textContent = "";
+    } else {
+      status.textContent = reply.data?.error || "Could not send the message. Please try again.";
     }
   });
 }

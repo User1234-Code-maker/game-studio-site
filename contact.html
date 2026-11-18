@@ -54,6 +54,7 @@
           <div class="map" id="officeMap" style="--ratio: 1012 / 448" data-hq="london">
             <img class="map__land" src="img/world-map.svg" alt="" width="1012" height="448" />
             <svg class="map__arcs" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path class="map__arc" d="" /></svg>
+            <!-- build:pins -->
             <div class="pin pin--lg" style="--x: 18.33%; --y: 30.75%; --i: 0" data-id="sf">
               <button type="button" class="pin__btn" aria-expanded="false" aria-controls="card-sf" aria-label="San Francisco, USA: Studio &amp; publishing">
                 <span class="pin__pulse"></span><span class="pin__dot"></span>
@@ -116,7 +117,7 @@
                 <p class="pin__address">Av. Paulista 1000, Conj. 52</p>
                 <a class="pin__phone" href="tel:+551155500190">+55 11 5550 0190</a>
                 <p class="pin__team"><strong>24</strong> people on site</p>
-                <a class="pin__route" href="https://www.google.com/maps/search/?api=1&amp;query=Av.+Paulista+1000,+Conj.+52+São+Paulo" target="_blank" rel="noopener">Get directions →</a>
+                <a class="pin__route" href="https://www.google.com/maps/search/?api=1&amp;query=Av.+Paulista+1000,+Conj.+52+S%C3%A3o+Paulo" target="_blank" rel="noopener">Get directions →</a>
               </div>
             </div>
             <div class="pin pin--sm" style="--x: 45.18%; --y: 12.43%; --i: 5" data-id="reykjavik">
@@ -155,7 +156,7 @@
                 <p class="pin__address">Torstraße 112, 10119</p>
                 <a class="pin__phone" href="tel:+493055500134">+49 30 5550 0134</a>
                 <p class="pin__team"><strong>31</strong> people on site</p>
-                <a class="pin__route" href="https://www.google.com/maps/search/?api=1&amp;query=Torstraße+112,+10119+Berlin" target="_blank" rel="noopener">Get directions →</a>
+                <a class="pin__route" href="https://www.google.com/maps/search/?api=1&amp;query=Torstra%C3%9Fe+112,+10119+Berlin" target="_blank" rel="noopener">Get directions →</a>
               </div>
             </div>
             <div class="pin pin--sm" style="--x: 57.39%; --y: 28.41%; --i: 8" data-id="istanbul">
@@ -168,7 +169,7 @@
                 <p class="pin__address">İstiklal Caddesi 140</p>
                 <a class="pin__phone" href="tel:+902125550158">+90 212 555 0158</a>
                 <p class="pin__team"><strong>12</strong> people on site</p>
-                <a class="pin__route" href="https://www.google.com/maps/search/?api=1&amp;query=İstiklal+Caddesi+140+Istanbul" target="_blank" rel="noopener">Get directions →</a>
+                <a class="pin__route" href="https://www.google.com/maps/search/?api=1&amp;query=%C4%B0stiklal+Caddesi+140+Istanbul" target="_blank" rel="noopener">Get directions →</a>
               </div>
             </div>
             <div class="pin pin--sm" style="--x: 58.31%; --y: 36.4%; --i: 9" data-id="cairo">
@@ -246,7 +247,7 @@
                 <p class="pin__address">1 Raffles Place, #28-01</p>
                 <a class="pin__phone" href="tel:+6565550138">+65 6555 0138</a>
                 <p class="pin__team"><strong>38</strong> people on site</p>
-                <a class="pin__route" href="https://www.google.com/maps/search/?api=1&amp;query=1+Raffles+Place,+#28-01+Singapore" target="_blank" rel="noopener">Get directions →</a>
+                <a class="pin__route" href="https://www.google.com/maps/search/?api=1&amp;query=1+Raffles+Place,+%2328-01+Singapore" target="_blank" rel="noopener">Get directions →</a>
               </div>
             </div>
             <div class="pin pin--sm" style="--x: 82.88%; --y: 30.9%; --i: 15" data-id="seoul">
@@ -288,31 +289,36 @@
                 <a class="pin__route" href="https://www.google.com/maps/search/?api=1&amp;query=200+George+Street,+Level+8+Sydney" target="_blank" rel="noopener">Get directions →</a>
               </div>
             </div>
+            <!-- /build:pins -->
           </div>
           <div class="map-stats">
+            <!-- build:stats -->
             <div><strong data-count="18">0</strong><span>offices</span></div>
             <div><strong data-count="17">0</strong><span>countries</span></div>
             <div><strong data-count="439" data-suffix="+">0</strong><span>people</span></div>
+            <!-- /build:stats -->
           </div>
           <div class="chips" role="group" aria-label="Choose an office">
-              <button type="button" class="chip" data-target="london">London</button>
+              <!-- build:chips -->
               <button type="button" class="chip" data-target="berlin">Berlin</button>
               <button type="button" class="chip" data-target="cairo">Cairo</button>
               <button type="button" class="chip" data-target="capetown">Cape Town</button>
               <button type="button" class="chip" data-target="dubai">Dubai</button>
               <button type="button" class="chip" data-target="istanbul">Istanbul</button>
               <button type="button" class="chip" data-target="lagos">Lagos</button>
+              <button type="button" class="chip" data-target="london">London</button>
               <button type="button" class="chip" data-target="mexico">Mexico City</button>
               <button type="button" class="chip" data-target="mumbai">Mumbai</button>
               <button type="button" class="chip" data-target="ny">New York</button>
               <button type="button" class="chip" data-target="reykjavik">Reykjavik</button>
               <button type="button" class="chip" data-target="sf">San Francisco</button>
+              <button type="button" class="chip" data-target="saopaulo">São Paulo</button>
               <button type="button" class="chip" data-target="seoul">Seoul</button>
               <button type="button" class="chip" data-target="singapore">Singapore</button>
               <button type="button" class="chip" data-target="sydney">Sydney</button>
-              <button type="button" class="chip" data-target="saopaulo">São Paulo</button>
               <button type="button" class="chip" data-target="tokyo">Tokyo</button>
               <button type="button" class="chip" data-target="toronto">Toronto</button>
+              <!-- /build:chips -->
           </div>
         </section>
 
@@ -489,6 +495,7 @@
       <p class="copyright">Copyright © 2026 Lorem. All rights reserved.</p>
     </footer>
 
+    <script src="js/api.js"></script>
     <script src="js/main.js"></script>
     <script src="js/effects.js"></script>
     <script src="js/contact.js"></script>

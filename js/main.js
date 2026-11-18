@@ -24,7 +24,7 @@ const emailMessage = document.querySelector("#emailMessage");
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 if (emailForm && emailField && emailMessage) {
-  emailForm.addEventListener("submit", (event) => {
+  emailForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     const value = emailField.value.trim();
@@ -36,8 +36,15 @@ if (emailForm && emailField && emailMessage) {
       return;
     }
 
-    emailMessage.textContent = "Thanks! You are subscribed.";
-    emailMessage.classList.add("success");
-    emailField.value = "";
+    const reply = window.siteApi ? await window.siteApi.post("/subscribe", { email: value }) : { offline: true };
+    const failed = !reply.offline && !reply.ok;
+
+    emailMessage.textContent = failed
+      ? reply.data?.error || "Could not subscribe. Please try again."
+      : reply.offline
+        ? "Thanks! This is a demo site, so nothing was saved."
+        : reply.data.message;
+    emailMessage.classList.add(failed ? "error" : "success");
+    if (!failed) emailField.value = "";
   });
 }

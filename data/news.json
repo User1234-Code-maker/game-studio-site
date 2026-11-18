@@ -1,0 +1,191 @@
+{
+  "articles": [
+    {
+      "id": "n1",
+      "size": "big",
+      "title": "Lorem Ipsum is simply dummy text dummy text",
+      "image": "img/kda.jpg",
+      "alt": "Stylised character in neon light",
+      "tag": {
+        "label": "John smash",
+        "color": "blue"
+      },
+      "times": [
+        ".5min"
+      ],
+      "keywords": [
+        "game",
+        "neon",
+        "character",
+        "art",
+        "design"
+      ],
+      "paragraphs": [
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,",
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+      ]
+    },
+    {
+      "id": "n2",
+      "size": "big",
+      "title": "Lorem Ipsum is simply dummy text dummy text",
+      "image": "img/hero-neon.jpg",
+      "alt": "Character standing in a neon-lit city street",
+      "tag": {
+        "label": "John smash",
+        "color": "blue"
+      },
+      "times": [
+        ".5min"
+      ],
+      "keywords": [
+        "city",
+        "street",
+        "neon",
+        "night",
+        "game"
+      ],
+      "paragraphs": [
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,"
+      ]
+    },
+    {
+      "id": "n3",
+      "size": "side",
+      "title": "Lorem Ipsum is simply dummy text dummy text ?",
+      "image": "img/news-1.jpg",
+      "alt": "Team discussing sticky notes in a meeting room",
+      "tag": {
+        "label": "John smash",
+        "color": "pink"
+      },
+      "times": [
+        ".5min"
+      ],
+      "keywords": [
+        "office",
+        "meeting",
+        "workshop",
+        "team",
+        "planning"
+      ]
+    },
+    {
+      "id": "n4",
+      "size": "side",
+      "title": "Lorem Ipsum is simply dummy text dummy text ?",
+      "image": "img/news-2.jpg",
+      "alt": "Colleagues working together at laptops",
+      "tag": {
+        "label": "John smash",
+        "color": "blue"
+      },
+      "times": [
+        ".5min"
+      ],
+      "keywords": [
+        "laptop",
+        "coding",
+        "students",
+        "class"
+      ]
+    },
+    {
+      "id": "n5",
+      "size": "side",
+      "title": "Lorem Ipsum is simply dummy text dummy text ?",
+      "image": "img/news-3.jpg",
+      "alt": "Child playing in a bright room",
+      "tag": {
+        "label": "John smash",
+        "color": "orange"
+      },
+      "times": [
+        ".5min"
+      ],
+      "keywords": [
+        "kids",
+        "playroom",
+        "family",
+        "fun"
+      ]
+    },
+    {
+      "id": "n6",
+      "size": "side",
+      "title": "Lorem Ipsum is simply dummy text dummy text ?",
+      "image": "img/news-4.jpg",
+      "alt": "Colourful jigsaw puzzle pieces",
+      "tag": {
+        "label": "John smash",
+        "color": "blue"
+      },
+      "times": [
+        ".5min"
+      ],
+      "keywords": [
+        "puzzle",
+        "game",
+        "design"
+      ]
+    },
+    {
+      "id": "n7",
+      "size": "side",
+      "title": "Lorem Ipsum is simply dummy text dummy text ?",
+      "image": "img/news-5.jpg",
+      "alt": "Team working in a co-working space",
+      "tag": {
+        "label": "John smash",
+        "color": "green"
+      },
+      "times": [
+        ".5min"
+      ],
+      "keywords": [
+        "coworking",
+        "office",
+        "team"
+      ]
+    },
+    {
+      "id": "n8",
+      "size": "side",
+      "title": "Lorem Ipsum is simply dummy text dummy text ?",
+      "image": "img/news-6.jpg",
+      "alt": "Rowing team seen from above",
+      "tag": {
+        "label": "John smash",
+        "color": "blue"
+      },
+      "times": [
+        ".5min"
+      ],
+      "keywords": [
+        "rowing",
+        "sport",
+        "teamwork"
+      ]
+    },
+    {
+      "id": "n9",
+      "size": "side",
+      "title": "Lorem Ipsum is simply dummy text dummy text ?",
+      "image": "img/news-7.jpg",
+      "alt": "Rowing boat on dark water",
+      "tag": {
+        "label": "John smash",
+        "color": "purple"
+      },
+      "times": [
+        ".5min"
+      ],
+      "keywords": [
+        "rowing",
+        "boat",
+        "water",
+        "sport"
+      ]
+    }
+  ]
+}

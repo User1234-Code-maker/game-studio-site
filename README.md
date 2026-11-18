@@ -24,44 +24,79 @@ A multi-page, responsive website for a fictional game development studio. I buil
 ## Features
 
 - Pixel-checked against the mockup at a 1440px viewport
-- Interactive SVG world map: 18 office pins with pulse animation, popups with address / phone / directions, animated route arcs to HQ, city chips, keyboard and touch support
-- Motion layer: scroll reveals with stagger, 3D card tilt, hover effects, count-up numbers, Ken Burns slider, scroll progress bar, back-to-top button, soft pointer spotlight, smooth page transitions (all disabled for `prefers-reduced-motion`)
+- Interactive SVG world map: 18 office pins, popups with address / phone / directions, a route arc to HQ, city chips, keyboard and touch support
+- Calm, gaming-style motion: blocks fade in once as they enter the screen, small hover feedback, one slow float on the 3D controller. Only `opacity` and `transform` are animated, with a single `IntersectionObserver` and no scroll listeners. Everything is disabled for `prefers-reduced-motion`
+- Node.js + Express backend: contact form and newsletter are stored on the server, news search runs through the API, offices and stats are served as JSON
+- Works without the backend too: on static hosting (GitHub Pages) the forms switch to an honest demo mode and search runs in the browser
 - Responsive layout with breakpoints at 1024 / 768 / 480px and a burger menu
-- Image showcase that changes slides every 5 seconds with a fade (pauses in a hidden tab, respects reduced-motion)
-- Newsletter and contact forms with client-side validation and inline messages
-- News search that filters articles as you type
-- No frameworks, no build step
+- Image showcase that changes slides every 5 seconds with a fade (pauses in a hidden tab)
 
 ## Tech stack
 
-HTML5, CSS3 (custom layout with Flexbox and Grid, no libraries), vanilla JavaScript, [Poppins](https://fonts.google.com/specimen/Poppins) font.
+HTML5, CSS3 (Flexbox and Grid, no libraries), vanilla JavaScript, Node.js 20+ with Express, [Poppins](https://fonts.google.com/specimen/Poppins) font.
+
+## Architecture
+
+```
+data/*.json  ──►  scripts/build.mjs ──►  news.html, contact.html   (static markup, works anywhere)
+     │
+     └─────────►  server/ (Express API)  ◄──  js/api.js  ◄──  forms and search in the browser
+```
+
+- **One source of truth.** News and offices live in `data/news.json` and `data/offices.json`. To add an article or an office, edit the JSON and run `npm run build`; the pages and the API both pick it up.
+- **Thin routes, logic in services.** `server/routes/api.js` only handles HTTP. Search and pagination are in `services/newsService.js`, storage is behind `services/store.js` (JSON Lines files today; swap that one file for a database later).
+- **The server never trusts the browser.** Validation is repeated in `server/validation.js`, request bodies are limited to 10 kB, write endpoints are rate limited, only whitelisted files are served.
+- **Progressive enhancement.** The pages are plain HTML. `js/api.js` talks to `/api`; if there is no backend it reports `offline` and each feature falls back.
+
+### API
+
+| Method | Route | Purpose |
+| --- | --- | --- |
+| GET | `/api/health` | Health check |
+| GET | `/api/news?q=&page=&limit=` | Search and paginate articles |
+| GET | `/api/news/:id` | One article |
+| GET | `/api/offices` | Office list for the map |
+| GET | `/api/stats` | Offices, countries, people |
+| POST | `/api/contact` | Save a message (`firstName`, `lastName`, `email`, `message`) |
+| POST | `/api/subscribe` | Subscribe an email |
+
+Messages and subscribers are saved to `storage/*.jsonl` (ignored by git).
 
 ## Project structure
 
 ```
 .
-├── index.html
-├── about.html
-├── contact.html
-├── news.html
-├── css/        main.css, effects.css (animations) + one stylesheet per inner page
-├── js/         main.js (menu, newsletter), effects.js (animations) + page scripts
+├── index.html, about.html, contact.html, news.html
+├── css/        main.css, effects.css + one stylesheet per inner page
+├── js/         api.js, main.js, effects.js + page scripts
+├── data/       news.json, offices.json
+├── server/     app.js, index.js, config.js, routes/, services/, middleware/
+├── scripts/    build.mjs (generates repeated HTML from data/)
+├── test/       API tests (node:test)
 ├── img/        images and icons
 └── screenshots/
 ```
 
 ## Run locally
 
-No installation needed. Open `index.html` in a browser, or serve the folder:
+With the backend (recommended):
 
 ```bash
-python3 -m http.server 8000
-# then open http://localhost:8000
+npm install
+npm start          # http://localhost:3000
+npm run dev        # restarts on file changes
+npm test           # API tests
+npm run build      # regenerate news and map markup from data/*.json
 ```
+
+Front end only: open `index.html` or run `python3 -m http.server 8000`. The forms then run in demo mode.
+
+## Deploy
+
+GitHub Pages hosts the static front end only (Settings → Pages → `main` / root). For the full version with the API, deploy the repo to any Node host (Render, Railway, Fly.io): the start command is `npm start` and the port comes from `PORT`.
 
 ## Notes
 
 - Several images are placeholders and will be replaced with final artwork.
 - Office locations, addresses and phone numbers on the map are fictional.
 - The world map is generated from [Natural Earth](https://www.naturalearthdata.com/) data (public domain) via the `world-atlas` package.
-- The forms do not send data anywhere; they only demonstrate validation.

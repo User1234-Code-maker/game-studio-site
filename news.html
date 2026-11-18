@@ -64,45 +64,33 @@
 
         <section class="news-list">
           <div class="news-main">
-          <article class="news-big" data-search="game neon character art design">
+          <!-- build:news-main -->
+          <article class="news-big" data-id="n1" data-search="game neon character art design">
             <img src="img/kda.jpg" alt="Stylised character in neon light" width="588" height="295" />
             <div class="news-meta">
               <span class="tag tag--blue tag--big">John smash</span>
               <span class="news-meta__time">.5min</span>
             </div>
             <h2>Lorem Ipsum is simply dummy text dummy text</h2>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of type
-              and scrambled it to make a type specimen book. It has survived not
-              only five centuries,
-            </p>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry.
-            </p>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</p>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
           </article>
-            <hr />
-          <article class="news-big" data-search="city street neon night game">
+          <hr />
+          <article class="news-big" data-id="n2" data-search="city street neon night game">
             <img src="img/hero-neon.jpg" alt="Character standing in a neon-lit city street" width="588" height="295" />
             <div class="news-meta">
               <span class="tag tag--blue tag--big">John smash</span>
               <span class="news-meta__time">.5min</span>
             </div>
             <h2>Lorem Ipsum is simply dummy text dummy text</h2>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of type
-              and scrambled it to make a type specimen book. It has survived not
-              only five centuries,
-            </p>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</p>
           </article>
+          <!-- /build:news-main -->
           </div>
 
           <div class="news-side-list">
-            <article class="news-side" data-search="office meeting workshop team planning">
+            <!-- build:news-side -->
+            <article class="news-side" data-id="n3" data-search="office meeting workshop team planning">
               <img src="img/news-1.jpg" alt="Team discussing sticky notes in a meeting room" width="195" height="183" loading="lazy" />
               <div class="news-side__body">
                 <div class="news-meta">
@@ -112,7 +100,7 @@
                 <h3>Lorem Ipsum is simply dummy text dummy text ?</h3>
               </div>
             </article>
-            <article class="news-side" data-search="laptop coding students class">
+            <article class="news-side" data-id="n4" data-search="laptop coding students class">
               <img src="img/news-2.jpg" alt="Colleagues working together at laptops" width="195" height="183" loading="lazy" />
               <div class="news-side__body">
                 <div class="news-meta">
@@ -122,7 +110,7 @@
                 <h3>Lorem Ipsum is simply dummy text dummy text ?</h3>
               </div>
             </article>
-            <article class="news-side" data-search="kids playroom family fun">
+            <article class="news-side" data-id="n5" data-search="kids playroom family fun">
               <img src="img/news-3.jpg" alt="Child playing in a bright room" width="195" height="183" loading="lazy" />
               <div class="news-side__body">
                 <div class="news-meta">
@@ -132,7 +120,7 @@
                 <h3>Lorem Ipsum is simply dummy text dummy text ?</h3>
               </div>
             </article>
-            <article class="news-side" data-search="puzzle game design">
+            <article class="news-side" data-id="n6" data-search="puzzle game design">
               <img src="img/news-4.jpg" alt="Colourful jigsaw puzzle pieces" width="195" height="183" loading="lazy" />
               <div class="news-side__body">
                 <div class="news-meta">
@@ -142,7 +130,7 @@
                 <h3>Lorem Ipsum is simply dummy text dummy text ?</h3>
               </div>
             </article>
-            <article class="news-side" data-search="coworking office team">
+            <article class="news-side" data-id="n7" data-search="coworking office team">
               <img src="img/news-5.jpg" alt="Team working in a co-working space" width="195" height="183" loading="lazy" />
               <div class="news-side__body">
                 <div class="news-meta">
@@ -152,7 +140,7 @@
                 <h3>Lorem Ipsum is simply dummy text dummy text ?</h3>
               </div>
             </article>
-            <article class="news-side" data-search="rowing sport teamwork">
+            <article class="news-side" data-id="n8" data-search="rowing sport teamwork">
               <img src="img/news-6.jpg" alt="Rowing team seen from above" width="195" height="183" loading="lazy" />
               <div class="news-side__body">
                 <div class="news-meta">
@@ -162,7 +150,7 @@
                 <h3>Lorem Ipsum is simply dummy text dummy text ?</h3>
               </div>
             </article>
-            <article class="news-side" data-search="rowing boat water sport">
+            <article class="news-side" data-id="n9" data-search="rowing boat water sport">
               <img src="img/news-7.jpg" alt="Rowing boat on dark water" width="195" height="183" loading="lazy" />
               <div class="news-side__body">
                 <div class="news-meta">
@@ -172,6 +160,7 @@
                 <h3>Lorem Ipsum is simply dummy text dummy text ?</h3>
               </div>
             </article>
+            <!-- /build:news-side -->
           </div>
           <p class="news-empty" id="newsEmpty" hidden>No articles found. Try another keyword.</p>
         </section>
@@ -277,6 +266,7 @@
       <p class="copyright">Copyright © 2026 Lorem. All rights reserved.</p>
     </footer>
 
+    <script src="js/api.js"></script>
     <script src="js/main.js"></script>
     <script src="js/effects.js"></script>
     <script src="js/news.js"></script>
