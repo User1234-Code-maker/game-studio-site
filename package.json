@@ -1,20 +1,36 @@
 {
   "name": "game-studio-site",
   "version": "1.0.0",
-  "description": "Game studio portfolio site: static front end plus a small Node.js API",
+  "description": "Game studio portfolio: React + TypeScript front end, Node.js (Express) API, Stripe test payments",
   "type": "module",
   "private": true,
   "engines": {
-    "node": ">=20"
+    "node": ">=22"
   },
   "scripts": {
+    "setup": "npm install && npm install --prefix client",
     "start": "node server/index.js",
     "dev": "node --watch server/index.js",
-    "build": "node scripts/build.mjs",
-    "test": "node --test"
+    "dev:client": "npm run dev --prefix client",
+    "build": "npm run build --prefix client",
+    "test": "node --test \"test/**/*.test.js\"",
+    "test:client": "npm test --prefix client",
+    "lint": "npm run lint --prefix client",
+    "check": "npm test && npm run test:client && npm run lint && npm run e2e",
+    "start:env": "node --env-file=.env server/index.js",
+    "dev:env": "node --watch --env-file=.env server/index.js",
+    "test:e2e": "playwright test",
+    "e2e": "npm run build && playwright test",
+    "audit": "npm audit --omit=dev && npm audit --prefix client"
   },
   "dependencies": {
     "compression": "^1.8.2",
-    "express": "^4.21.2"
+    "express": "^5.3.0",
+    "helmet": "^8.3.0",
+    "stripe": "^23.2.0"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "@playwright/test": "^1.63.0"
   }
 }
