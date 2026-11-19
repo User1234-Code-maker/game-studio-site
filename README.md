@@ -1,10 +1,49 @@
-# Game Studio Website
+<div align="center">
 
-A multi-page, responsive website for a fictional game development studio ("Logo"). It started as a hand-coded HTML/CSS/JS learning project built from a Figma mockup and now runs on **React + TypeScript** with a **Node.js (Express) API** and **Stripe test payments**.
+# 🎮 Game Studio Website
 
-![Home page](screenshots/home.jpg)
+**A multi-page, responsive website for a fictional game studio, with a real Node.js API, PostgreSQL and Stripe test payments.**
 
-## Pages
+[![CI](https://github.com/User1234-Code-maker/game-studio-site/actions/workflows/ci.yml/badge.svg)](https://github.com/User1234-Code-maker/game-studio-site/actions/workflows/ci.yml)
+![React](https://img.shields.io/badge/React-19-20232a?logo=react&logoColor=61dafb)
+![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178c6?logo=typescript&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-22-5fa04e?logo=nodedotjs&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-17-336791?logo=postgresql&logoColor=white)
+![Stripe](https://img.shields.io/badge/Stripe-test%20mode-635bff?logo=stripe&logoColor=white)
+![a11y](https://img.shields.io/badge/axe--core-0%20violations-2ea44f)
+
+[**Live demo (front end)**](https://user1234-code-maker.github.io/game-studio-site/) · [Security review](docs/security-review.md) · [Backend audit](docs/backend-audit.md)
+
+<img src="screenshots/home.jpg" alt="Home page of the Logo game studio website" width="880">
+
+</div>
+
+It started as a hand-coded HTML/CSS/JS learning project built from a Figma mockup and grew into a full stack app: **React + TypeScript** on the front, **Express + PostgreSQL** on the back, and **Stripe Checkout** for ordering services.
+
+## 📚 Contents
+
+[Screenshots](#-screenshots) · [Pages](#-pages) · [Features](#-features) · [Tech stack](#-tech-stack) · [Run locally](#-run-locally) · [Tests](#-tests) · [Database](#-database-postgresql) · [Stripe](#-stripe-test-payments) · [API](#-api) · [Structure](#-project-structure) · [Deploy](#-deploy) · [Notes](#-notes)
+
+## 🖼 Screenshots
+
+<table>
+  <tr>
+    <td width="50%"><img src="screenshots/services.jpg" alt="Services page with six cards"><br><sub><b>Services</b>: what is included, deposit, order button</sub></td>
+    <td width="50%"><img src="screenshots/order.jpg" alt="Order dialog"><br><sub><b>Order dialog</b>: deposit from the server, Stripe Checkout</sub></td>
+  </tr>
+  <tr>
+    <td width="50%"><img src="screenshots/home-light.jpg" alt="Home page in the light theme"><br><sub><b>Light theme</b>: the switch is the letter "O" of the logo</sub></td>
+    <td width="50%"><img src="screenshots/contact.jpg" alt="Interactive world map of offices"><br><sub><b>Contact</b>: interactive map with 18 offices</sub></td>
+  </tr>
+  <tr>
+    <td width="50%"><img src="screenshots/about.jpg" alt="About page"><br><sub><b>About us</b>: image showcase, story, team</sub></td>
+    <td width="50%"><img src="screenshots/news.jpg" alt="News page with search"><br><sub><b>News</b>: featured articles and live search</sub></td>
+  </tr>
+</table>
+
+<p align="center"><img src="screenshots/mobile.jpg" alt="Services page on a phone" width="260"><br><sub>Mobile layout (390 px)</sub></p>
+
+## 📄 Pages
 
 | Page | What is on it |
 | --- | --- |
@@ -15,7 +54,7 @@ A multi-page, responsive website for a fictional game development studio ("Logo"
 | **News** (`/news`) | Featured articles, article list, live search |
 | `/order/success`, `/order/cancel` | Where Stripe sends the customer back |
 
-## Features
+## ✨ Features
 
 - React 19 + TypeScript (strict), Vite, React Router. Pixel-compared with the original static pages at 1440 / 820 / 390 px
 - Three languages (English, Russian, Spanish) with `react-i18next` and JSON dictionaries (`client/src/i18n/locales/`). A test checks that all languages have the same keys and placeholders
@@ -28,11 +67,11 @@ A multi-page, responsive website for a fictional game development studio ("Logo"
 - Security: strict CSP (no inline scripts), helmet, rate limiting, server-side validation and prices, signed Stripe webhooks that are checked against our own price list, owner-only data files. See [`docs/backend-audit.md`](docs/backend-audit.md) and [`docs/security-review.md`](docs/security-review.md) (findings, accepted risks, production checklist)
 - Tested end to end: unit tests, security tests over real HTTP, and Playwright browser tests (smoke, user flows, the full payment cycle, XSS/CSP attacks, accessibility)
 
-## Tech stack
+## 🧱 Tech stack
 
 React 19, TypeScript, Vite, React Router, i18next, Vitest + Testing Library, ESLint, Prettier. Node.js 22, Express 5, PostgreSQL (`pg`), Stripe, helmet, `node:test`. Playwright + axe-core for browser tests.
 
-## Run locally
+## 🚀 Run locally
 
 ```bash
 npm run setup        # installs the server and the client
@@ -47,7 +86,7 @@ npm run build        # builds client/dist
 npm start            # http://localhost:3000 serves the app and the API
 ```
 
-## Tests
+## 🧪 Tests
 
 ```bash
 npm test             # server tests (82; 95 with a real PostgreSQL, see below): API, payments, security, storage
@@ -79,9 +118,11 @@ To also run the storage tests against a real PostgreSQL server, give the tests a
 
 ```bash
 TEST_DATABASE_URL=postgres://postgres@localhost:5432/postgres npm test
-``` CI (`.github/workflows/ci.yml`) runs all of it, plus `npm audit`, on every push and pull request; Dependabot opens weekly update PRs.
+```
 
-## Database (PostgreSQL)
+CI (`.github/workflows/ci.yml`) runs all of it, plus `npm audit`, on every push and pull request; Dependabot opens weekly update PRs.
+
+## 🐘 Database (PostgreSQL)
 
 Messages, newsletter subscribers and Stripe order events live in three tables (`messages`, `subscribers`, `order_events`). The schema is in `server/db/migrations/*.sql`; the server applies new migrations on start (several instances starting together are safe), or run `npm run db:migrate`. Every query uses parameters, and the tables repeat the API's length and format rules as `CHECK` constraints, so bad data cannot get in even if the API is bypassed.
 
@@ -94,7 +135,7 @@ Without `DATABASE_URL` the server uses JSON files in `storage/` (handy for a qui
 
 Then `npm run start:env`. To move data saved earlier in `storage/*.jsonl`: `npm run db:import` (safe to repeat, existing rows are skipped).
 
-## Stripe test payments
+## 💳 Stripe test payments
 
 1. Create a free Stripe account and stay in **Test mode** (switch in the dashboard).
 2. Dashboard → Developers → API keys → copy the **Secret key** (`sk_test_...`).
@@ -112,7 +153,7 @@ Copy the printed `whsec_...` into `STRIPE_WEBHOOK_SECRET` and restart. Orders ar
 
 Live keys (`sk_live_...`) are refused unless `STRIPE_ALLOW_LIVE=true`.
 
-## API
+## 🔌 API
 
 | Method | Route | Purpose |
 | --- | --- | --- |
@@ -130,7 +171,7 @@ Live keys (`sk_live_...`) are refused unless `STRIPE_ALLOW_LIVE=true`.
 
 Errors are JSON `{ "error", "code", "details?" }` with stable codes; the front end translates them. API answers are sent with `Cache-Control: no-store`. A payment provider outage is reported as `502 payment_provider_error`.
 
-## Project structure
+## 🗂 Project structure
 
 ```
 .
@@ -153,12 +194,17 @@ Errors are JSON `{ "error", "code", "details?" }` with stable codes; the front e
 └── .github/             CI + GitHub Pages deploy, Dependabot
 ```
 
-## Deploy
+## 🚢 Deploy
 
 - **GitHub Pages** (front end only, forms in demo mode, payments off): Settings → Pages → Source: **GitHub Actions**. The workflow in `.github/workflows/ci.yml` runs the tests and publishes `client/dist` with `VITE_BASE=/game-studio-site/` on every push to `main`. Unknown addresses are served by `404.html`, a copy of the app shell, so `/about` works on reload.
-- **Full version with API and payments** (Render, Railway, Fly.io): build command `npm run setup && npm run build`, start command `npm start`. Set `NODE_ENV=production`, `PUBLIC_URL` (must be `https://` when Stripe is on), `TRUST_PROXY=1`, `DATABASE_URL` (+ `DATABASE_SSL`), `STRIPE_SECRET_KEY` and `STRIPE_WEBHOOK_SECRET` (create the webhook endpoint `https://your-site/api/stripe/webhook` in the Stripe dashboard for `checkout.session.completed`, `checkout.session.async_payment_succeeded` and `checkout.session.expired`). Go through the checklist in [`docs/security-review.md`](docs/security-review.md) before the first public deploy.
+- **Full version with API and payments, free on Render.** `render.yaml` in the repository root describes the web service (build: `npm ci --omit=dev && npm ci --prefix client --include=dev && npm run build`, start: `npm start`, health check `/api/health`).
+  1. Create a free database at [Neon](https://neon.tech) and copy its connection string (`postgresql://...`). Render's own free Postgres is deleted after 30 days, Neon's is not.
+  2. On [Render](https://render.com): **New → Blueprint**, connect the GitHub repository. Render reads `render.yaml` and asks for four values: `DATABASE_URL` (the Neon string), `PUBLIC_URL` (`https://game-studio-site.onrender.com`, or whatever address Render shows), `STRIPE_SECRET_KEY` and `STRIPE_WEBHOOK_SECRET` (can be left empty first).
+  3. In the Stripe dashboard create a webhook endpoint `https://<your-address>/api/stripe/webhook` for `checkout.session.completed`, `checkout.session.async_payment_succeeded` and `checkout.session.expired`, copy its signing secret (`whsec_...`) into `STRIPE_WEBHOOK_SECRET` on Render and redeploy.
+  4. The free web service sleeps after 15 minutes without visitors and needs about a minute to wake up. Tables are created automatically on the first start.
+- **Any other host** (Railway, Fly.io, a VPS): build command `npm run setup && npm run build`, start command `npm start`, same environment variables as in `render.yaml` (`NODE_ENV=production`, `PUBLIC_URL` with `https://` when Stripe is on, `TRUST_PROXY=1`, `DATABASE_URL`, `DATABASE_SSL`, Stripe keys). Go through the checklist in [`docs/security-review.md`](docs/security-review.md) before the first public deploy.
 
-## Notes
+## 📝 Notes
 
 - The canonical URL, `sitemap.xml` and share image use `https://user1234-code-maker.github.io/game-studio-site/`; change them if the site moves.
 - Behind a reverse proxy set `TRUST_PROXY=1`; locally keep `0`, otherwise visitors could fake their IP and dodge the rate limit.

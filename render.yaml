@@ -1,0 +1,32 @@
+# Render Blueprint: describes the web service so it can be created in one click.
+# The database is not created here: Render's free Postgres is deleted after 30 days,
+# so we use a free Neon database instead (see README, "Deploy to Render").
+services:
+  - type: web
+    name: game-studio-site
+    runtime: node
+    plan: free
+    region: frankfurt
+    buildCommand: npm ci --omit=dev && npm ci --prefix client --include=dev && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: NODE_ENV
+        value: production
+      - key: TRUST_PROXY
+        value: "1"
+      - key: DATABASE_SSL
+        value: "true"
+      - key: DATABASE_POOL_MAX
+        value: "5"
+      # Secrets and per-account values: Render asks for them when the Blueprint is created.
+      - key: DATABASE_URL
+        sync: false
+      - key: PUBLIC_URL
+        sync: false
+      - key: STRIPE_SECRET_KEY
+        sync: false
+      - key: STRIPE_WEBHOOK_SECRET
+        sync: false
