@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { HeroArt } from "@/components/HeroArt";
 import { NewsletterSection } from "@/components/NewsletterForm";
 import { OopsLink } from "@/components/OopsLink";
 import { ServiceCards } from "@/components/ServiceCards";
@@ -57,13 +58,7 @@ export function HomePage() {
               </Link>
             </div>
             <div className="hero__art">
-              <img
-                fetchPriority="high"
-                width={740}
-                height={951}
-                src={img("joystick.webp")}
-                alt={t("home.heroAlt")}
-              />
+              <HeroArt />
               <span className="eng eng--unity" role="img" aria-label="Unity" />
               <span className="eng eng--cry" role="img" aria-label="CryEngine" />
               <span className="eng eng--unreal" role="img" aria-label="Unreal Engine" />

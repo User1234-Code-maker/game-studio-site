@@ -115,7 +115,7 @@
   min-height: 20px;
   margin-top: 8px;
   color: #ff8a8a;
-  font-size: 13px;
+  font-size: var(--fs-small);
   line-height: 20px;
 }
 
@@ -136,7 +136,7 @@
   padding-top: 16px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   color: #b5aca5;
-  font-size: 13px;
+  font-size: var(--fs-small);
   line-height: 20px;
 }
 

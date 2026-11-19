@@ -3,6 +3,7 @@ import { initReactI18next } from "react-i18next";
 import en from "./locales/en.json";
 import ru from "./locales/ru.json";
 import es from "./locales/es.json";
+import { bindShortWords } from "@/lib/typography";
 
 export const LANGUAGES = ["en", "ru", "es"] as const;
 export type Language = (typeof LANGUAGES)[number];
@@ -36,7 +37,16 @@ export function setLanguage(next: Language): void {
   }
 }
 
-void i18n.use(initReactI18next).init({
+// Every translated string passes through here, so no short word is left at the end of a line.
+const typography = {
+  type: "postProcessor" as const,
+  name: "typography",
+  process: (value: string, _key: string | string[], _options: unknown, translator: { language?: string }) =>
+    typeof value === "string" ? bindShortWords(value, translator.language ?? "en") : value,
+};
+
+void i18n.use(typography).use(initReactI18next).init({
+  postProcess: ["typography"],
   resources: { en: { translation: en }, ru: { translation: ru }, es: { translation: es } },
   lng: detectLanguage(),
   fallbackLng: "en",

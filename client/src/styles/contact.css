@@ -483,7 +483,7 @@
 .contact-info__phone a {
   color: inherit;
   font-size: 20px;
-  font-weight: 300;
+  font-weight: 400;
   white-space: nowrap;
 }
 
@@ -491,7 +491,7 @@
   max-width: 312px;
   font-size: 19.5px;
   font-style: normal;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 31px;
 }
 
@@ -530,7 +530,7 @@
 .say-hello__lead {
   margin-top: 9px;
   text-align: center;
-  font-size: 13px;
+  font-size: var(--fs-small);
   font-weight: 500;
   line-height: 20px;
 }

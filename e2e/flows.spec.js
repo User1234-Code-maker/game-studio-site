@@ -20,6 +20,7 @@ test.describe("language and theme", () => {
   });
 
   test("no translation key leaks onto any page in any language", async ({ page }) => {
+    test.setTimeout(90_000); // 21 page loads, the first of each language also starts the 3D scene
     const KEY = /\b(?:nav|header|home|about|news|contact|order|orderResult|errors|common|services|servicesPage|newsletter|footer|data)\.[A-Za-z0-9_.-]{2,}\b/;
     for (const lang of ["en", "ru", "es"]) {
       await page.addInitScript((l) => localStorage.setItem("lang", l), lang);

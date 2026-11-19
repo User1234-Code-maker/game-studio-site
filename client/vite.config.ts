@@ -19,7 +19,7 @@ export default defineConfig({
     proxy: { "/api": "http://localhost:3000" },
     fs: { allow: [".."] },
   },
-  build: { sourcemap: false, chunkSizeWarningLimit: 600 },
+  build: { sourcemap: false, chunkSizeWarningLimit: 700 },
   test: {
     environment: "jsdom",
     globals: true,

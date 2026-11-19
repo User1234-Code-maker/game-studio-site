@@ -162,7 +162,7 @@
 
 .service-card__price span {
   color: #b5aca5;
-  font-size: 13px;
+  font-size: var(--fs-small);
   line-height: 18px;
 }
 

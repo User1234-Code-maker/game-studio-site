@@ -1,3 +1,17 @@
+:root {
+  --font: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  /* Fluid type scale: one step per role, no per-breakpoint font sizes. */
+  --fs-display: clamp(2rem, 1.25rem + 3.2vw, 3.5rem);
+  --fs-h2: clamp(1.5rem, 1.2rem + 1.1vw, 2rem);
+  --fs-big: clamp(1.375rem, 1rem + 1.7vw, 2.25rem);
+  --fs-lead: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  --fs-body: 1rem;
+  --fs-small: 0.875rem;
+  --lh-tight: 1.15;
+  --lh-snug: 1.3;
+  --lh-body: 1.65;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -9,10 +23,26 @@ img {
 }
 
 body {
-  font-family: "Poppins", "Montserrat", sans-serif;
+  font-family: var(--font);
   font-weight: 400;
   color: #fff;
-  font-size: 16px;
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+  overflow-wrap: break-word;
+}
+
+p,
+li {
+  text-wrap: pretty;
 }
 
 a {
@@ -126,26 +156,31 @@ header nav ul li.btn a:hover,
 
 .hero--info .hero--kicker {
   color: #dc7000;
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 600;
+  line-height: var(--lh-snug);
 }
 
 .hero--info h1 {
-  font-size: 50px;
+  font-size: var(--fs-display);
   font-weight: 700;
+  line-height: var(--lh-tight);
+  letter-spacing: -0.02em;
 }
 
 .hero--info p {
-  font-weight: 500;
-  line-height: 170%;
+  font-weight: 400;
+  line-height: var(--lh-body);
   margin: 30px 0;
+  font-size: var(--fs-lead);
+  max-width: 34em;
 }
 
 .hero--info .btn {
   display: inline-block;
   box-sizing: border-box; /* behave like the <button> this used to be */
   font-family: inherit;
-  line-height: 17px;
+  line-height: 1.2;
   background: #dc7000;
   color: #fff;
   border-radius: 50px;
@@ -205,7 +240,9 @@ header nav ul li.btn a:hover,
 
 .trending h3 {
   font-weight: 700;
-  font-size: 30px;
+  font-size: var(--fs-h2);
+  line-height: var(--lh-snug);
+  letter-spacing: -0.01em;
 }
 
 .trending .see-all,
@@ -273,12 +310,13 @@ header nav ul li.btn a:hover,
 
 .big-text {
   padding: 43px 20px 44px;
-  font-size: 35px;
+  font-size: var(--fs-big);
   font-weight: 600;
-  line-height: 66px;
+  line-height: 1.4;
   text-align: center;
   width: 100%;
   max-width: 840px;
+  letter-spacing: -0.01em;
 }
 
 .banner {
@@ -287,13 +325,15 @@ header nav ul li.btn a:hover,
 }
 
 .banner h3 {
-  font-size: 30px;
-  font-weight: 600;
+  font-size: var(--fs-h2);
+  font-weight: 700;
   margin-bottom: 21px;
+  line-height: var(--lh-snug);
+  letter-spacing: -0.01em;
 }
 
 .banner p {
-  line-height: 30px;
+  line-height: var(--lh-body);
   margin-bottom: 56px;
   width: 100%;
   max-width: 550px;
@@ -322,14 +362,16 @@ header nav ul li.btn a:hover,
 }
 
 .features h3 {
-  font-size: 30px;
-  line-height: 56px;
+  font-size: var(--fs-h2);
+  line-height: var(--lh-snug);
   margin-bottom: 25px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
 .features > .container > p {
   max-width: 830px;
-  line-height: 30px;
+  line-height: var(--lh-body);
   margin-bottom: 64px;
 }
 
@@ -370,16 +412,18 @@ header nav ul li.btn a:hover,
 }
 
 .projects h3 {
-  font-size: 30px;
+  font-size: var(--fs-h2);
   font-weight: 700;
   text-align: center;
+  line-height: var(--lh-snug);
+  letter-spacing: -0.01em;
 }
 
 .projects p {
   max-width: 480px;
   margin: 19px auto 0;
-  font-size: 14px;
-  line-height: 26px;
+  font-size: var(--fs-small);
+  line-height: var(--lh-body);
   text-align: center;
 }
 
@@ -410,14 +454,16 @@ header nav ul li.btn a:hover,
 
 .email h3 {
   margin-top: 11px;
-  font-size: 30px;
-  font-weight: 600;
+  font-size: var(--fs-h2);
+  font-weight: 700;
+  line-height: var(--lh-snug);
+  letter-spacing: -0.01em;
 }
 
 .email > p {
   max-width: 560px;
   margin-top: 22px;
-  line-height: 30px;
+  line-height: var(--lh-body);
 }
 
 .email .block {
@@ -433,16 +479,17 @@ header nav ul li.btn a:hover,
 }
 
 .email .block h4 {
-  font-size: 30px;
-  font-weight: 500;
+  font-size: var(--fs-h2);
+  font-weight: 600;
   margin-bottom: 11px;
+  line-height: var(--lh-snug);
 }
 
 .email .block p {
   width: 100%;
   max-width: 520px;
-  font-size: 17px;
-  line-height: 26px;
+  font-size: 1.0625rem;
+  line-height: var(--lh-body);
 }
 
 .email-field {
@@ -458,9 +505,9 @@ header nav ul li.btn a:hover,
   height: 48px;
   max-width: 100%;
   box-sizing: border-box;
-  font-family: "Poppins", "Montserrat", sans-serif;
+  font-family: var(--font);
   font-weight: 400;
-  font-size: 13px;
+  font-size: var(--fs-small);
   padding: 0 150px 0 35px;
   position: relative;
   z-index: 1;
@@ -558,7 +605,7 @@ footer .block ul {
 }
 
 footer .block ul li {
-  line-height: 30px;
+  line-height: 1.9;
 }
 
 footer .block > div:last-child ul {
@@ -686,8 +733,8 @@ footer .copyright {
   header nav ul li.btn a {
     display: inline-block;
     box-sizing: border-box;
-    font-size: 13px;
-    line-height: 13px;
+    font-size: 0.8125rem;
+    line-height: 1.2;
     padding: 14px 30px;
   }
 
@@ -725,11 +772,9 @@ footer .copyright {
 
   .hero--info h1 {
     margin-top: 19px;
-    line-height: 77.5px;
   }
 
   .hero--info p {
-    line-height: 32px;
     margin: 26px 0 54px;
   }
 
@@ -912,53 +957,23 @@ footer .copyright {
 }
 
 @media (max-width: 768px) {
-  .hero--info h1 {
-    font-size: 40px;
-  }
-
   .hero__art {
     width: min(380px, 100%);
   }
 
-  .big-text {
-    font-size: 28px;
-  }
-
-  .trending h3,
-  .banner h3,
-  .features h3,
-  .projects h3,
-  .email h3,
-  .email .block h4 {
-    font-size: 26px;
-  }
 }
 
 @media (max-width: 480px) {
-  .hero--info h1 {
-    font-size: 32px;
-  }
-
   .hero__art {
     width: min(340px, 100%);
   }
 
   .big-text {
-    font-size: 22px;
     padding: 32px 20px;
   }
 
   .trending {
     gap: 16px;
-  }
-
-  .trending h3,
-  .banner h3,
-  .features h3,
-  .projects h3,
-  .email h3,
-  .email .block h4 {
-    font-size: 24px;
   }
 
   .trending .games .block {
@@ -1009,4 +1024,39 @@ html {
     padding: 0 14px;
     font-size: 13px;
   }
+}
+
+/* 3D gamepad: sits on top of the still picture, which stays as the fallback */
+.hero__art {
+  isolation: isolate;
+}
+
+.hero__3d-wrap {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 400ms ease;
+}
+
+.hero__3d-wrap.is-ready {
+  opacity: 1;
+}
+
+.hero__3d {
+  width: 100%;
+  height: 100%;
+}
+
+.hero__still.is-hidden {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__3d-wrap {
+    transition: none;
+  }
+}
+
+p {
+  hyphens: auto;
 }

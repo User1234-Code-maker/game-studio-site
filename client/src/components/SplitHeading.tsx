@@ -17,10 +17,10 @@ interface Letter {
 function split(text: string): Array<Letter[] | " "> {
   let count = 0;
   return text
-    .split(/(\s+)/)
+    .split(/([ \t\n]+)/)
     .filter(Boolean)
     .map((part) => {
-      if (/^\s+$/.test(part)) return " " as const;
+      if (/^[ \t\n]+$/.test(part)) return " " as const;
       return Array.from(part).map((char) => {
         const i = count++;
         return {

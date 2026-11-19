@@ -44,7 +44,7 @@
 .about-hero__info p {
   margin-top: 23px;
   font-size: 15px;
-  line-height: 31px;
+  line-height: var(--lh-body);
 }
 
 .btn-pill {
@@ -202,7 +202,7 @@
 .story__text p {
   margin-top: 31px;
   font-size: 16px;
-  line-height: 32.25px;
+  line-height: var(--lh-body);
 }
 
 /* Team */
@@ -285,7 +285,6 @@
 
   .about-hero__info p {
     margin-top: 20px;
-    line-height: 28px;
   }
 
   .btn-pill {

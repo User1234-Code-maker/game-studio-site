@@ -56,6 +56,7 @@ It started as a hand-coded HTML/CSS/JS learning project built from a Figma mocku
 
 ## ✨ Features
 
+- **3D hero**: the gamepad is a real 3D model (`client/public/models/gamepad.glb`) rendered with three.js. It follows the cursor, presses its buttons, pauses when off screen, and falls back to the still picture without WebGL, on Save-Data or while loading. Rebuild the model with `npm run model --prefix client`; a model made in Blender can replace the `.glb`.
 - React 19 + TypeScript (strict), Vite, React Router. Pixel-compared with the original static pages at 1440 / 820 / 390 px
 - Three languages (English, Russian, Spanish) with `react-i18next` and JSON dictionaries (`client/src/i18n/locales/`). A test checks that all languages have the same keys and placeholders
 - Dark and light themes. The theme switch is the letter "O" of the logo; the choice is remembered and applied before the first paint (no flash)
@@ -69,7 +70,7 @@ It started as a hand-coded HTML/CSS/JS learning project built from a Figma mocku
 
 ## 🧱 Tech stack
 
-React 19, TypeScript, Vite, React Router, i18next, Vitest + Testing Library, ESLint, Prettier. Node.js 22, Express 5, PostgreSQL (`pg`), Stripe, helmet, `node:test`. Playwright + axe-core for browser tests.
+React 19, TypeScript, Vite, React Router, three.js, i18next, Vitest + Testing Library, ESLint, Prettier. Node.js 22, Express 5, PostgreSQL (`pg`), Stripe, helmet, `node:test`. Playwright + axe-core for browser tests.
 
 ## 🚀 Run locally
 
