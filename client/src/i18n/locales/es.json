@@ -1,0 +1,409 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Nosotros",
+    "portfolio": "Portafolio",
+    "news": "Noticias",
+    "contact": "Contáctanos"
+  },
+  "header": {
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú",
+    "toLight": "Cambiar al tema claro",
+    "toDark": "Cambiar al tema oscuro",
+    "lightTitle": "Tema claro",
+    "darkTitle": "Tema oscuro",
+    "language": "Idioma"
+  },
+  "common": {
+    "breadcrumb": "Ruta de navegación",
+    "seeAll": "VER TODO",
+    "close": "Cerrar",
+    "getInTouch": "Ponte en contacto"
+  },
+  "meta": {
+    "brand": "Logo Games",
+    "home": "Estudio de desarrollo de juegos: juegos en tendencia, servicios y proyectos recientes.",
+    "about": "Sobre nuestro estudio de desarrollo de juegos: quiénes somos, por qué los clientes confían en nosotros y nuestro equipo.",
+    "contact": "Contacta con nuestro estudio: encuéntranos en el mapa, llámanos o envía un mensaje.",
+    "news": "Últimas noticias de nuestro estudio: artículos, historias y novedades.",
+    "notFoundTitle": "Página no encontrada"
+  },
+  "newsletter": {
+    "section": "Boletín",
+    "title": "Únete a la comunidad",
+    "lead": "Las invitaciones a playtests, las novedades de lanzamientos y las historias del estudio llegan primero a tu correo.",
+    "heading": "Mantente al día",
+    "text": "Suscríbete para recibir las últimas noticias y novedades de Logo. ¡Prometemos no enviarte spam!",
+    "placeholder": "Introduce tu correo",
+    "button": "Continuar",
+    "label": "Correo electrónico",
+    "invalid": "Introduce un correo electrónico válido.",
+    "demo": "¡Gracias! Es un sitio de demostración, así que no se ha guardado nada.",
+    "done": "¡Gracias! Ya estás suscrito.",
+    "failed": "No se pudo suscribir. Inténtalo de nuevo."
+  },
+  "footer": {
+    "tagline": "Diseñamos, desarrollamos y publicamos juegos 3D para PC, móviles, consolas y realidad virtual.",
+    "address": "21 Old Street, Shoreditch, Londres",
+    "about": "Nosotros",
+    "services": "Servicios",
+    "portfolio": "Portafolio",
+    "careers": "Empleo",
+    "contact": "Contáctanos",
+    "copyright": "© 2026 Logo. Todos los derechos reservados."
+  },
+  "home": {
+    "kicker": "Desarrollo de juegos 3D",
+    "title": "Creamos juegos de los que nadie quiere despegarse",
+    "lead": "Desde el primer prototipo hasta el día del lanzamiento, nuestro equipo diseña, desarrolla y publica juegos 3D para PC, móviles y consolas.",
+    "cta": "Ver más detalles",
+    "heroAlt": "Mando de juego blanco",
+    "trending": {
+      "title": "Juegos en tendencia",
+      "seeAll": "La lista completa de juegos",
+      "followers": "{{count}} seguidores",
+      "game": "Juego en tendencia {{n}}"
+    },
+    "bigText": "Artistas, ingenieros y diseñadores de 18 oficinas, creando juegos juntos.",
+    "banner": {
+      "title": "Hecho para los jugadores, pulido jugando",
+      "text": "Cada proyecto empieza con un prototipo jugable. Lo probamos pronto con jugadores reales, nos quedamos con lo divertido y descartamos el resto, para que el juego final se sienta bien desde el primer minuto.",
+      "alt": "Primer plano de un personaje de anime con nieve en el pelo"
+    },
+    "services": {
+      "title": "Todo lo que un juego necesita, bajo un mismo techo",
+      "text": "Arte, código, sonido y operación en vivo están en manos de un solo equipo, así que nada se pierde entre traspasos. Elige un solo servicio o deja que llevemos el proyecto del concepto al lanzamiento."
+    },
+    "projects": {
+      "title": "Nuestros proyectos recientes",
+      "text": "Una selección de juegos y experiencias interactivas que hemos publicado con nuestros socios en los últimos años.",
+      "seeAll": "La lista completa de proyectos",
+      "alt": "Proyecto reciente {{n}}"
+    }
+  },
+  "services": {
+    "mobile": "Desarrollo de juegos móviles",
+    "pc": "Desarrollo de juegos para PC",
+    "ps4": "Desarrollo de juegos para PS4",
+    "ar-vr": "Soluciones AR/VR",
+    "ar-vr-design": "Diseño AR/VR",
+    "3d": "Modelado 3D",
+    "order": "Encargar: {{service}}"
+  },
+  "about": {
+    "title": "Un estudio creado por jugadores, para jugadores",
+    "lead": "Logo nació en 2012 como cinco amigos haciendo juegos móviles después del trabajo. Hoy somos un estudio global que publica juegos 3D en todas las plataformas principales.",
+    "sliderLabel": "Escaparate del estudio",
+    "slide1Alt": "Personaje en una calle iluminada con neón",
+    "slide2Alt": "Guerrera con una espada luminosa en una sala turquesa",
+    "why": {
+      "title": "Por qué trabajar con nosotros",
+      "craft": {
+        "pill": "Oficio",
+        "title": "Calidad que se nota",
+        "text": "Cada versión pasa revisiones de arte, jugabilidad y rendimiento, así que el pulido es parte del proceso y nunca una carrera de última hora."
+      },
+      "people": {
+        "pill": "Personas",
+        "title": "Equipos que se quedan",
+        "text": "La mayoría de nuestros desarrolladores lleva años con nosotros. Un equipo estable conoce el código, el flujo de trabajo y a sus compañeros, y eso se nota en el resultado."
+      },
+      "reach": {
+        "pill": "Alcance",
+        "title": "Global, pero cercano",
+        "text": "Con 18 oficinas trabajamos en tu zona horaria y hablamos tu idioma, compartiendo herramientas y estándares en todos los estudios."
+      }
+    },
+    "story": {
+      "label": "Nuestra historia",
+      "title": "De un piso compartido a un estudio global",
+      "text": "Logo empezó en 2012 con cinco amigos y un piso compartido muy ruidoso. Nuestro primer juego móvil encontró un público fiel y el estudio creció proyecto a proyecto: PC, consolas y después AR y VR. Hoy seguimos empezando cada proyecto igual, con una idea jugable y la opinión sincera de los jugadores.",
+      "alt": "Personaje estilizado con luz de neón"
+    },
+    "team": {
+      "title": "Nuestro equipo",
+      "label": "Nuestro equipo",
+      "anna": {
+        "name": "Anna Petrova",
+        "role": "Directora general"
+      },
+      "daniel": {
+        "name": "Daniel Moreno",
+        "role": "Director creativo"
+      },
+      "mei": {
+        "name": "Mei Tanaka",
+        "role": "Jefa de ingeniería"
+      },
+      "oliver": {
+        "name": "Oliver Smith",
+        "role": "Director de arte"
+      }
+    }
+  },
+  "contact": {
+    "title": "Hablemos de tu juego",
+    "lead": "Cuéntanos tu idea o encuentra la oficina más cercana.",
+    "follow": "Síguenos",
+    "chooseOffice": "Elige una oficina",
+    "stats": {
+      "offices": "oficinas",
+      "countries": "países",
+      "people": "personas"
+    },
+    "directions": "Cómo llegar →",
+    "onSite": "personas en la oficina",
+    "form": {
+      "title": "Escríbenos",
+      "label": "Formulario de contacto",
+      "lead": "Cuéntanos algunos detalles y un productor responderá en dos días laborables.",
+      "firstName": "Nombre",
+      "lastName": "Apellido",
+      "email": "Correo electrónico",
+      "message": "Mensaje",
+      "sent": "¡Gracias! Te responderemos pronto.",
+      "demo": "¡Gracias! Es un sitio de demostración, así que el mensaje no se ha enviado.",
+      "failed": "No se pudo enviar el mensaje. Inténtalo de nuevo.",
+      "check": "Revisa los campos resaltados."
+    },
+    "pinLabel": "{{city}}, {{country}}: {{role}}",
+    "pinDialog": "Oficina de {{city}}"
+  },
+  "errors": {
+    "firstName": {
+      "required": "Escribe tu nombre.",
+      "too_long": "El nombre es demasiado largo."
+    },
+    "lastName": {
+      "required": "Escribe tu apellido.",
+      "too_long": "El apellido es demasiado largo."
+    },
+    "email": {
+      "invalid_email": "Introduce un correo electrónico válido.",
+      "required": "Introduce un correo electrónico válido."
+    },
+    "message": {
+      "too_short": "El mensaje debe tener al menos 10 caracteres.",
+      "too_long": "El mensaje es demasiado largo (máximo 2000 caracteres).",
+      "required": "El mensaje debe tener al menos 10 caracteres."
+    },
+    "rate_limited": "Demasiadas solicitudes. Inténtalo de nuevo en un minuto.",
+    "server_error": "Algo ha salido mal por nuestra parte.",
+    "storage_full": "Ahora mismo no podemos recibir mensajes nuevos. Escríbenos por correo.",
+    "invalid_service": "Elige uno de los servicios.",
+    "payments_disabled": "Los pagos aún no están configurados en el servidor.",
+    "validation_failed": "Revisa los campos resaltados.",
+    "unknown": "Algo salió mal. Inténtalo de nuevo.",
+    "payment_provider_error": "El proveedor de pagos no está disponible. Inténtalo de nuevo más tarde."
+  },
+  "news": {
+    "title": "Noticias e historias del estudio",
+    "lead": "Notas de lanzamientos, un vistazo entre bambalinas y lecciones de nuestros equipos.",
+    "searchLabel": "Buscar artículos",
+    "search": "Buscar",
+    "empty": "No se encontraron artículos. Prueba con otra palabra.",
+    "minRead": "{{count}} min de lectura"
+  },
+  "notFound": {
+    "title": "Nivel no encontrado",
+    "text": "Esta página no existe o se ha movido. Vuelve al inicio e inténtalo de nuevo.",
+    "home": "Volver al inicio"
+  },
+  "oops": {
+    "title": "¡Ups!",
+    "hint": "Proyecto de portafolio: este enlace aún no lleva a ningún sitio.",
+    "ok": "Entendido",
+    "plugged": "«{{name}}» aún no está disponible.",
+    "pluggedPage": "Nuestra página de {{name}} todavía no está conectada.",
+    "fallbackName": "Esta página"
+  },
+  "order": {
+    "title": "Encargo: {{service}}",
+    "lead": "Paga un depósito para reservar un productor para tu proyecto. El resto se acuerda tras la primera llamada.",
+    "deposit": "Depósito del proyecto",
+    "email": "Correo para el recibo (opcional)",
+    "pay": "Pagar {{amount}} con Stripe",
+    "paying": "Abriendo Stripe…",
+    "testHint": "Modo de prueba: no se cobra dinero real. Usa la tarjeta 4242 4242 4242 4242, cualquier fecha futura y cualquier CVC.",
+    "offline": "Los pagos necesitan el servidor Node.js, que no está disponible en este alojamiento. Ejecuta el proyecto en local para probar el pago de prueba de Stripe.",
+    "failed": "No se pudo iniciar el pago. Inténtalo de nuevo.",
+    "cancel": "Cancelar"
+  },
+  "orderResult": {
+    "checking": "Comprobando tu pago…",
+    "paidTitle": "Pago recibido",
+    "paidText": "¡Gracias! Tu depósito de «{{service}}» está confirmado. Un productor te contactará en dos días laborables.",
+    "pendingTitle": "El pago se está procesando",
+    "pendingText": "Puede tardar un minuto. Actualiza la página para comprobarlo de nuevo.",
+    "expiredTitle": "La sesión de pago ha caducado",
+    "expiredText": "No se ha cobrado nada. Puedes empezar de nuevo desde la lista de servicios.",
+    "cancelTitle": "Pago cancelado",
+    "cancelText": "No se ha cobrado nada. Puedes intentarlo de nuevo cuando quieras.",
+    "errorTitle": "No pudimos comprobar este pedido",
+    "errorText": "No se encontró el pedido o el servidor no responde.",
+    "toServices": "Volver a los servicios"
+  },
+  "data": {
+    "news": {
+      "n1": {
+        "title": "Conoce al dragón de neón: así nació nuestro nuevo estilo artístico",
+        "alt": "Personaje estilizado con luz de neón",
+        "author": "Anna Petrova",
+        "p0": "Nuestra nueva dirección de arte empezó con un único paint-over un viernes por la tarde. En una semana todo el equipo dibujaba dragones luminosos y ese aspecto se convirtió pronto en la base del mundo del próximo juego. Mantuvimos las formas atrevidas, los colores saturados y la iluminación dramática, para que cada fotograma funcione como un póster.",
+        "p1": "Lo siguiente: convertir el concepto en personajes en tiempo real sin perder el aspecto pintado."
+      },
+      "n2": {
+        "title": "Calles de noche, lluvia de verdad: cómo construimos una ciudad en la que perderse",
+        "alt": "Personaje en una calle iluminada con neón",
+        "author": "Daniel Moreno",
+        "p0": "Construimos la calle a partir de fotos de mercados nocturnos y después pasamos semanas con superficies mojadas, reflejos de neón y detalles como el gato junto al escaparate. El objetivo era un lugar con vida, donde los jugadores se detienen solo para mirar."
+      },
+      "n3": {
+        "title": "Así son nuestros talleres de planificación: de las notas adhesivas a los objetivos del sprint",
+        "alt": "Equipo comentando notas adhesivas en una sala de reuniones",
+        "author": "Mei Tanaka"
+      },
+      "n4": {
+        "title": "Formamos a la próxima generación de desarrolladores de juegos",
+        "alt": "Compañeros trabajando juntos con portátiles",
+        "author": "Oliver Smith"
+      },
+      "n5": {
+        "title": "Lo que aprendimos al probar nuestro juego familiar con niños",
+        "alt": "Niño jugando en una habitación luminosa",
+        "author": "Sofía Reyes"
+      },
+      "n6": {
+        "title": "Diseño de puzles: por qué los mejores niveles enseñan sin palabras",
+        "alt": "Piezas de puzle de colores",
+        "author": "Luca Romano"
+      },
+      "n7": {
+        "title": "Abrimos una nueva planta de coworking en Londres",
+        "alt": "Equipo trabajando en un espacio de coworking",
+        "author": "Hana Kim"
+      },
+      "n8": {
+        "title": "Trabajo en equipo sobre el agua: nuestro día anual de remo",
+        "alt": "Equipo de remo visto desde arriba",
+        "author": "Oliver Smith"
+      },
+      "n9": {
+        "title": "Amanecer en el agua: una mañana con el equipo",
+        "alt": "Bote de remos sobre aguas oscuras",
+        "author": "Anna Petrova"
+      }
+    },
+    "offices": {
+      "sf": {
+        "city": "San Francisco",
+        "country": "EE. UU.",
+        "role": "Estudio y publicación",
+        "address": "548 Market Street, Suite 120"
+      },
+      "toronto": {
+        "city": "Toronto",
+        "country": "Canadá",
+        "role": "Diseño de niveles",
+        "address": "88 Queen Street West"
+      },
+      "ny": {
+        "city": "Nueva York",
+        "country": "EE. UU.",
+        "role": "Desarrollo de negocio",
+        "address": "120 Broadway, Floor 14"
+      },
+      "mexico": {
+        "city": "Ciudad de México",
+        "country": "México",
+        "role": "Laboratorio de QA",
+        "address": "Av. Reforma 222, Piso 9"
+      },
+      "saopaulo": {
+        "city": "São Paulo",
+        "country": "Brasil",
+        "role": "Arte y animación",
+        "address": "Av. Paulista 1000, Conj. 52"
+      },
+      "reykjavik": {
+        "city": "Reikiavik",
+        "country": "Islandia",
+        "role": "Diseño de sonido",
+        "address": "Laugavegur 18, 2nd floor"
+      },
+      "london": {
+        "city": "Londres",
+        "country": "Reino Unido",
+        "role": "Sede central",
+        "address": "21 Old Street, Shoreditch"
+      },
+      "berlin": {
+        "city": "Berlín",
+        "country": "Alemania",
+        "role": "Ingeniería",
+        "address": "Torstraße 112, 10119"
+      },
+      "istanbul": {
+        "city": "Estambul",
+        "country": "Turquía",
+        "role": "Juegos móviles",
+        "address": "İstiklal Caddesi 140"
+      },
+      "cairo": {
+        "city": "El Cairo",
+        "country": "Egipto",
+        "role": "Centro de soporte",
+        "address": "26th of July Street 15"
+      },
+      "lagos": {
+        "city": "Lagos",
+        "country": "Nigeria",
+        "role": "Equipo de comunidad",
+        "address": "12 Adeola Odeku Street"
+      },
+      "capetown": {
+        "city": "Ciudad del Cabo",
+        "country": "Sudáfrica",
+        "role": "Modelado 3D",
+        "address": "34 Long Street, Cape Town"
+      },
+      "dubai": {
+        "city": "Dubái",
+        "country": "EAU",
+        "role": "Alianzas",
+        "address": "Index Tower, DIFC"
+      },
+      "mumbai": {
+        "city": "Bombay",
+        "country": "India",
+        "role": "Portado y QA",
+        "address": "Bandra Kurla Complex, Tower B"
+      },
+      "singapore": {
+        "city": "Singapur",
+        "country": "Singapur",
+        "role": "Centro de Asia-Pacífico",
+        "address": "1 Raffles Place, #28-01"
+      },
+      "seoul": {
+        "city": "Seúl",
+        "country": "Corea del Sur",
+        "role": "Operaciones en vivo",
+        "address": "152 Teheran-ro, Gangnam"
+      },
+      "tokyo": {
+        "city": "Tokio",
+        "country": "Japón",
+        "role": "Estudio creativo",
+        "address": "2-1 Shibuya, Shibuya-ku"
+      },
+      "sydney": {
+        "city": "Sídney",
+        "country": "Australia",
+        "role": "Diseño de juegos",
+        "address": "200 George Street, Level 8"
+      }
+    }
+  }
+}

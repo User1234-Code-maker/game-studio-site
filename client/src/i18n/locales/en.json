@@ -1,0 +1,409 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About us",
+    "portfolio": "Portfolio",
+    "news": "News",
+    "contact": "Contact us"
+  },
+  "header": {
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "toLight": "Switch to light theme",
+    "toDark": "Switch to dark theme",
+    "lightTitle": "Light theme",
+    "darkTitle": "Dark theme",
+    "language": "Language"
+  },
+  "common": {
+    "breadcrumb": "Breadcrumb",
+    "seeAll": "SEE ALL",
+    "close": "Close",
+    "getInTouch": "Get in touch"
+  },
+  "meta": {
+    "brand": "Logo Games",
+    "home": "Game development studio: trending games, services and recent projects.",
+    "about": "About our game development studio: who we are, why clients work with us and meet the team.",
+    "contact": "Contact our game development studio: find us on the map, call us or send a message.",
+    "news": "Latest news from our game development studio: articles, stories and updates.",
+    "notFoundTitle": "Page not found"
+  },
+  "newsletter": {
+    "section": "Newsletter",
+    "title": "Join the community",
+    "lead": "Playtest invitations, release news and studio stories reach your inbox first.",
+    "heading": "Stay in the loop",
+    "text": "Subscribe to receive the latest news and updates from Logo. We promise not to spam you!",
+    "placeholder": "Enter email address",
+    "button": "Continue",
+    "label": "Email address",
+    "invalid": "Enter a valid email address.",
+    "demo": "Thanks! This is a demo site, so nothing was saved.",
+    "done": "Thanks! You are subscribed.",
+    "failed": "Could not subscribe. Please try again."
+  },
+  "footer": {
+    "tagline": "We design, build and ship 3D games for PC, mobile, console and VR.",
+    "address": "21 Old Street, Shoreditch, London",
+    "about": "About us",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "careers": "Careers",
+    "contact": "Contact us",
+    "copyright": "Copyright © 2026 Logo. All rights reserved."
+  },
+  "home": {
+    "kicker": "3D game Dev",
+    "title": "We build games people can't put down",
+    "lead": "From the first prototype to launch day, our team designs, builds and ships 3D games for PC, mobile and consoles.",
+    "cta": "Get more details",
+    "heroAlt": "White game controller",
+    "trending": {
+      "title": "Currently Trending Games",
+      "seeAll": "The full games list",
+      "followers": "{{count}} Followers",
+      "game": "Trending game {{n}}"
+    },
+    "bigText": "Artists, engineers and designers in 18 offices, making games together.",
+    "banner": {
+      "title": "Built for players, shaped by play",
+      "text": "Every project starts with a playable prototype. We test early with real players, keep what is fun and cut what is not, so the final game feels right from the very first minute.",
+      "alt": "Close-up of an anime character with snow in the hair"
+    },
+    "services": {
+      "title": "Everything a game needs, under one roof",
+      "text": "Art, code, sound and live operations are handled by one team, so nothing gets lost between hand-offs. Pick a single service or let us take the project from concept to release."
+    },
+    "projects": {
+      "title": "Our Recent Projects",
+      "text": "A selection of games and interactive experiences we have shipped with our partners over the last few years.",
+      "seeAll": "The full project list",
+      "alt": "Recent project {{n}}"
+    }
+  },
+  "services": {
+    "mobile": "Mobile Game Development",
+    "pc": "PC Game Development",
+    "ps4": "PS4 Game Development",
+    "ar-vr": "AR/VR Solutions",
+    "ar-vr-design": "AR/VR Design",
+    "3d": "3D Modelings",
+    "order": "Order {{service}}"
+  },
+  "about": {
+    "title": "A studio built by players, for players",
+    "lead": "Logo started in 2012 as five friends making mobile games after work. Today we are a global studio shipping 3D games on every major platform.",
+    "sliderLabel": "Studio showcase",
+    "slide1Alt": "Character standing in a neon-lit city street",
+    "slide2Alt": "Warrior with a glowing sword in a teal-lit hall",
+    "why": {
+      "title": "Why work with us",
+      "craft": {
+        "pill": "Craft",
+        "title": "Quality you can feel",
+        "text": "Every build goes through art, gameplay and performance reviews, so polish is part of the process and never a last-minute rush."
+      },
+      "people": {
+        "pill": "People",
+        "title": "Teams that stay together",
+        "text": "Most of our developers have been with us for years. Stable teams know the codebase, the pipeline and each other, and it shows in the result."
+      },
+      "reach": {
+        "pill": "Reach",
+        "title": "Global, yet close",
+        "text": "With 18 offices we work in your time zone and speak your language, while sharing tools and standards across every studio."
+      }
+    },
+    "story": {
+      "label": "Our story",
+      "title": "From a shared apartment to a global studio",
+      "text": "Logo began in 2012 with five friends and one very loud shared apartment. Our first mobile game found a loyal audience, and the studio grew one project at a time: PC, consoles, then AR and VR. Today we still start every project the same way, with a playable idea and honest feedback from players.",
+      "alt": "Stylised character in neon light"
+    },
+    "team": {
+      "title": "Our Team",
+      "label": "Our team",
+      "anna": {
+        "name": "Anna Petrova",
+        "role": "CEO"
+      },
+      "daniel": {
+        "name": "Daniel Moreno",
+        "role": "Creative Director"
+      },
+      "mei": {
+        "name": "Mei Tanaka",
+        "role": "Head of Engineering"
+      },
+      "oliver": {
+        "name": "Oliver Smith",
+        "role": "Art Director"
+      }
+    }
+  },
+  "contact": {
+    "title": "Let's talk about your game",
+    "lead": "Tell us about your idea, or find the office closest to you.",
+    "follow": "Follow us",
+    "chooseOffice": "Choose an office",
+    "stats": {
+      "offices": "offices",
+      "countries": "countries",
+      "people": "people"
+    },
+    "directions": "Get directions →",
+    "onSite": "people on site",
+    "form": {
+      "title": "Say hello",
+      "label": "Contact form",
+      "lead": "Share a few details and a producer will reply within two working days.",
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email Address",
+      "message": "Message",
+      "sent": "Thanks! We will get back to you soon.",
+      "demo": "Thanks! This is a demo site, so the message was not sent.",
+      "failed": "Could not send the message. Please try again.",
+      "check": "Please check the highlighted fields."
+    },
+    "pinLabel": "{{city}}, {{country}}: {{role}}",
+    "pinDialog": "{{city}} office"
+  },
+  "errors": {
+    "firstName": {
+      "required": "Please enter your first name.",
+      "too_long": "First name is too long."
+    },
+    "lastName": {
+      "required": "Please enter your last name.",
+      "too_long": "Last name is too long."
+    },
+    "email": {
+      "invalid_email": "Enter a valid email address.",
+      "required": "Enter a valid email address."
+    },
+    "message": {
+      "too_short": "Message should be at least 10 characters.",
+      "too_long": "Message is too long (2000 characters at most).",
+      "required": "Message should be at least 10 characters."
+    },
+    "rate_limited": "Too many requests. Please try again in a minute.",
+    "server_error": "Something went wrong on our side.",
+    "storage_full": "We cannot accept new messages right now. Please email us instead.",
+    "invalid_service": "Please choose one of the services.",
+    "payments_disabled": "Payments are not set up on the server yet.",
+    "validation_failed": "Please check the highlighted fields.",
+    "unknown": "Something went wrong. Please try again.",
+    "payment_provider_error": "The payment provider is unavailable. Please try again later."
+  },
+  "news": {
+    "title": "Studio news and stories",
+    "lead": "Release notes, behind-the-scenes looks and lessons learned by our teams.",
+    "searchLabel": "Search articles",
+    "search": "Search",
+    "empty": "No articles found. Try another keyword.",
+    "minRead": "{{count}} min read"
+  },
+  "notFound": {
+    "title": "Level not found",
+    "text": "This page doesn't exist or was moved. Head back to the start and try again.",
+    "home": "Back to home"
+  },
+  "oops": {
+    "title": "Oops!",
+    "hint": "Portfolio project: this link goes nowhere yet.",
+    "ok": "Got it",
+    "plugged": "{{name}} isn't plugged in yet.",
+    "pluggedPage": "Our {{name}} page isn't plugged in yet.",
+    "fallbackName": "This page"
+  },
+  "order": {
+    "title": "Order: {{service}}",
+    "lead": "Pay a deposit to book a producer for your project. The rest is agreed after the first call.",
+    "deposit": "Project deposit",
+    "email": "Email for the receipt (optional)",
+    "pay": "Pay {{amount}} with Stripe",
+    "paying": "Opening Stripe…",
+    "testHint": "Test mode: no real money is charged. Use card 4242 4242 4242 4242, any future date and any CVC.",
+    "offline": "Payments need the Node.js server, which is not available on this hosting. Run the project locally to try the Stripe test checkout.",
+    "failed": "Could not start the payment. Please try again.",
+    "cancel": "Cancel"
+  },
+  "orderResult": {
+    "checking": "Checking your payment…",
+    "paidTitle": "Payment received",
+    "paidText": "Thank you! Your deposit for {{service}} is confirmed. A producer will contact you within two working days.",
+    "pendingTitle": "Payment is being processed",
+    "pendingText": "This can take a minute. Refresh the page to check again.",
+    "expiredTitle": "Payment session expired",
+    "expiredText": "No money was charged. You can start again from the services list.",
+    "cancelTitle": "Payment cancelled",
+    "cancelText": "No money was charged. You can try again any time.",
+    "errorTitle": "We could not check this order",
+    "errorText": "The order was not found or the server is not reachable.",
+    "toServices": "Back to services"
+  },
+  "data": {
+    "news": {
+      "n1": {
+        "title": "Meet the neon dragon: how our newest art style came together",
+        "alt": "Stylised character in neon light",
+        "author": "Anna Petrova",
+        "p0": "Our new art direction began as a single paint-over on a Friday afternoon. Within a week the whole team was sketching glowing dragons, and the look quickly became the backbone of the next game's world. We kept the shapes bold, the colours saturated and the lighting dramatic, so that every frame works as a poster.",
+        "p1": "Next up: turning the concept into real-time characters without losing the painted feel."
+      },
+      "n2": {
+        "title": "Night streets, real rain: building a city players want to get lost in",
+        "alt": "Character standing in a neon-lit city street",
+        "author": "Daniel Moreno",
+        "p0": "We built the street from reference photos of night markets, then spent weeks on wet surfaces, neon reflections and small details such as the cat by the shop window. The goal was a place that feels lived in, where players slow down just to look around."
+      },
+      "n3": {
+        "title": "Inside our planning workshops: from sticky notes to sprint goals",
+        "alt": "Team discussing sticky notes in a meeting room",
+        "author": "Mei Tanaka"
+      },
+      "n4": {
+        "title": "Teaching the next generation of game developers",
+        "alt": "Colleagues working together at laptops",
+        "author": "Oliver Smith"
+      },
+      "n5": {
+        "title": "What we learned from kids play-testing our family game",
+        "alt": "Child playing in a bright room",
+        "author": "Sofia Reyes"
+      },
+      "n6": {
+        "title": "Puzzle design: why the best levels teach without words",
+        "alt": "Colourful jigsaw puzzle pieces",
+        "author": "Luca Romano"
+      },
+      "n7": {
+        "title": "Our new co-working floor opens in London",
+        "alt": "Team working in a co-working space",
+        "author": "Hana Kim"
+      },
+      "n8": {
+        "title": "Teamwork on the water: our annual rowing day",
+        "alt": "Rowing team seen from above",
+        "author": "Oliver Smith"
+      },
+      "n9": {
+        "title": "Dawn on the water: a morning with the team",
+        "alt": "Rowing boat on dark water",
+        "author": "Anna Petrova"
+      }
+    },
+    "offices": {
+      "sf": {
+        "city": "San Francisco",
+        "country": "USA",
+        "role": "Studio & publishing",
+        "address": "548 Market Street, Suite 120"
+      },
+      "toronto": {
+        "city": "Toronto",
+        "country": "Canada",
+        "role": "Level design",
+        "address": "88 Queen Street West"
+      },
+      "ny": {
+        "city": "New York",
+        "country": "USA",
+        "role": "Business development",
+        "address": "120 Broadway, Floor 14"
+      },
+      "mexico": {
+        "city": "Mexico City",
+        "country": "Mexico",
+        "role": "QA lab",
+        "address": "Av. Reforma 222, Piso 9"
+      },
+      "saopaulo": {
+        "city": "São Paulo",
+        "country": "Brazil",
+        "role": "Art & animation",
+        "address": "Av. Paulista 1000, Conj. 52"
+      },
+      "reykjavik": {
+        "city": "Reykjavik",
+        "country": "Iceland",
+        "role": "Sound design",
+        "address": "Laugavegur 18, 2nd floor"
+      },
+      "london": {
+        "city": "London",
+        "country": "United Kingdom",
+        "role": "Headquarters",
+        "address": "21 Old Street, Shoreditch"
+      },
+      "berlin": {
+        "city": "Berlin",
+        "country": "Germany",
+        "role": "Engineering",
+        "address": "Torstraße 112, 10119"
+      },
+      "istanbul": {
+        "city": "Istanbul",
+        "country": "Türkiye",
+        "role": "Mobile games",
+        "address": "İstiklal Caddesi 140"
+      },
+      "cairo": {
+        "city": "Cairo",
+        "country": "Egypt",
+        "role": "Support centre",
+        "address": "26th of July Street 15"
+      },
+      "lagos": {
+        "city": "Lagos",
+        "country": "Nigeria",
+        "role": "Community team",
+        "address": "12 Adeola Odeku Street"
+      },
+      "capetown": {
+        "city": "Cape Town",
+        "country": "South Africa",
+        "role": "3D modelling",
+        "address": "34 Long Street, Cape Town"
+      },
+      "dubai": {
+        "city": "Dubai",
+        "country": "UAE",
+        "role": "Partnerships",
+        "address": "Index Tower, DIFC"
+      },
+      "mumbai": {
+        "city": "Mumbai",
+        "country": "India",
+        "role": "Porting & QA",
+        "address": "Bandra Kurla Complex, Tower B"
+      },
+      "singapore": {
+        "city": "Singapore",
+        "country": "Singapore",
+        "role": "Asia-Pacific hub",
+        "address": "1 Raffles Place, #28-01"
+      },
+      "seoul": {
+        "city": "Seoul",
+        "country": "South Korea",
+        "role": "Live operations",
+        "address": "152 Teheran-ro, Gangnam"
+      },
+      "tokyo": {
+        "city": "Tokyo",
+        "country": "Japan",
+        "role": "Creative studio",
+        "address": "2-1 Shibuya, Shibuya-ku"
+      },
+      "sydney": {
+        "city": "Sydney",
+        "country": "Australia",
+        "role": "Game design",
+        "address": "200 George Street, Level 8"
+      }
+    }
+  }
+}

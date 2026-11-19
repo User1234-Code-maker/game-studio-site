@@ -1,0 +1,134 @@
+/* Order dialog (Stripe test checkout). It reuses the dark "oops" card. */
+
+.order {
+  text-align: left;
+}
+
+.order .oops__title {
+  margin: 0 0 6px;
+  padding-right: 36px;
+  font-size: 24px;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+.order__lead {
+  color: #b5aca5;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+.order__price {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 18px 0 14px;
+  padding: 14px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.order__price span {
+  color: #b5aca5;
+  font-size: 14px;
+}
+
+.order__price strong {
+  font-size: 24px;
+  font-weight: 700;
+  color: #fa8e1b;
+}
+
+.order__label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.order__input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 46px;
+  padding: 0 16px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  font: inherit;
+  font-size: 15px;
+}
+
+.order__input:focus {
+  outline: none;
+  border-color: #fa8e1b;
+  box-shadow: 0 0 0 3px rgba(250, 142, 27, 0.2);
+}
+
+.order__input[aria-invalid="true"] {
+  border-color: #ff6b6b;
+}
+
+.order__message {
+  min-height: 20px;
+  margin-top: 8px;
+  color: #ff8a8a;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.order__message--info {
+  color: #b5aca5;
+}
+
+.order__test {
+  margin-top: 10px;
+  color: #b5aca5;
+  font-size: 12.5px;
+  line-height: 19px;
+}
+
+.order__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.order .oops__ok {
+  margin-top: 0;
+  animation: none;
+}
+
+.order .oops__ok:disabled {
+  cursor: wait;
+  filter: grayscale(0.4) brightness(0.9);
+}
+
+.order__cancel {
+  height: 44px;
+  padding: 0 22px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 22px;
+  background: transparent;
+  color: #fff;
+  font: inherit;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.order__cancel:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Services are buttons that open the order dialog */
+.features .info .block[role="button"] {
+  cursor: pointer;
+}
+
+.features .info .block[role="button"]:focus-visible {
+  outline: 2px solid #fa8e1b;
+  outline-offset: 3px;
+}
