@@ -3,15 +3,15 @@
     {
       "id": "n1",
       "size": "big",
-      "title": "Lorem Ipsum is simply dummy text dummy text",
+      "title": "Meet the neon dragon: how our newest art style came together",
       "image": "img/kda.webp",
       "alt": "Stylised character in neon light",
       "tag": {
-        "label": "John smash",
+        "label": "Anna Petrova",
         "color": "blue"
       },
       "times": [
-        ".5min"
+        "6 min read"
       ],
       "keywords": [
         "game",
@@ -21,22 +21,22 @@
         "design"
       ],
       "paragraphs": [
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,",
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+        "Our new art direction began as a single paint-over on a Friday afternoon. Within a week the whole team was sketching glowing dragons, and the look quickly became the backbone of the next game's world. We kept the shapes bold, the colours saturated and the lighting dramatic, so that every frame works as a poster.",
+        "Next up: turning the concept into real-time characters without losing the painted feel."
       ]
     },
     {
       "id": "n2",
       "size": "big",
-      "title": "Lorem Ipsum is simply dummy text dummy text",
+      "title": "Night streets, real rain: building a city players want to get lost in",
       "image": "img/hero-neon.webp",
       "alt": "Character standing in a neon-lit city street",
       "tag": {
-        "label": "John smash",
+        "label": "Daniel Moreno",
         "color": "blue"
       },
       "times": [
-        ".5min"
+        "5 min read"
       ],
       "keywords": [
         "city",
@@ -46,21 +46,21 @@
         "game"
       ],
       "paragraphs": [
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,"
+        "We built the street from reference photos of night markets, then spent weeks on wet surfaces, neon reflections and small details such as the cat by the shop window. The goal was a place that feels lived in, where players slow down just to look around."
       ]
     },
     {
       "id": "n3",
       "size": "side",
-      "title": "Lorem Ipsum is simply dummy text dummy text ?",
+      "title": "Inside our planning workshops: from sticky notes to sprint goals",
       "image": "img/news-1.webp",
       "alt": "Team discussing sticky notes in a meeting room",
       "tag": {
-        "label": "John smash",
+        "label": "Mei Tanaka",
         "color": "pink"
       },
       "times": [
-        ".5min"
+        "4 min read"
       ],
       "keywords": [
         "office",
@@ -73,15 +73,15 @@
     {
       "id": "n4",
       "size": "side",
-      "title": "Lorem Ipsum is simply dummy text dummy text ?",
+      "title": "Teaching the next generation of game developers",
       "image": "img/news-2.webp",
       "alt": "Colleagues working together at laptops",
       "tag": {
-        "label": "John smash",
+        "label": "Oliver Smith",
         "color": "blue"
       },
       "times": [
-        ".5min"
+        "3 min read"
       ],
       "keywords": [
         "laptop",
@@ -93,15 +93,15 @@
     {
       "id": "n5",
       "size": "side",
-      "title": "Lorem Ipsum is simply dummy text dummy text ?",
+      "title": "What we learned from kids play-testing our family game",
       "image": "img/news-3.webp",
       "alt": "Child playing in a bright room",
       "tag": {
-        "label": "John smash",
+        "label": "Sofia Reyes",
         "color": "orange"
       },
       "times": [
-        ".5min"
+        "4 min read"
       ],
       "keywords": [
         "kids",
@@ -113,15 +113,15 @@
     {
       "id": "n6",
       "size": "side",
-      "title": "Lorem Ipsum is simply dummy text dummy text ?",
+      "title": "Puzzle design: why the best levels teach without words",
       "image": "img/news-4.webp",
       "alt": "Colourful jigsaw puzzle pieces",
       "tag": {
-        "label": "John smash",
+        "label": "Luca Romano",
         "color": "blue"
       },
       "times": [
-        ".5min"
+        "5 min read"
       ],
       "keywords": [
         "puzzle",
@@ -132,15 +132,15 @@
     {
       "id": "n7",
       "size": "side",
-      "title": "Lorem Ipsum is simply dummy text dummy text ?",
+      "title": "Our new co-working floor opens in London",
       "image": "img/news-5.webp",
       "alt": "Team working in a co-working space",
       "tag": {
-        "label": "John smash",
+        "label": "Hana Kim",
         "color": "green"
       },
       "times": [
-        ".5min"
+        "2 min read"
       ],
       "keywords": [
         "coworking",
@@ -151,15 +151,15 @@
     {
       "id": "n8",
       "size": "side",
-      "title": "Lorem Ipsum is simply dummy text dummy text ?",
+      "title": "Teamwork on the water: our annual rowing day",
       "image": "img/news-6.webp",
       "alt": "Rowing team seen from above",
       "tag": {
-        "label": "John smash",
+        "label": "Oliver Smith",
         "color": "blue"
       },
       "times": [
-        ".5min"
+        "3 min read"
       ],
       "keywords": [
         "rowing",
@@ -170,15 +170,15 @@
     {
       "id": "n9",
       "size": "side",
-      "title": "Lorem Ipsum is simply dummy text dummy text ?",
+      "title": "Dawn on the water: a morning with the team",
       "image": "img/news-7.webp",
       "alt": "Rowing boat on dark water",
       "tag": {
-        "label": "John smash",
+        "label": "Anna Petrova",
         "color": "purple"
       },
       "times": [
-        ".5min"
+        "2 min read"
       ],
       "keywords": [
         "rowing",

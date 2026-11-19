@@ -27,7 +27,10 @@ A multi-page, responsive website for a fictional game development studio. I buil
 - Pixel-checked against the mockup at a 1440px viewport
 - Interactive SVG world map: 18 office pins, popups with address / phone / directions, a route arc to HQ, city chips, keyboard and touch support
 - Dark and light themes: switch in the header, choice is remembered, no flash on load (dark is the default)
+- Three languages (English, Russian, Spanish): switcher next to the logo, the choice is remembered, the browser language is used the first time. The HTML stays in English; `js/i18n.js` holds one table of rows `[English, Русский, Español]` and swaps text, placeholders, alt texts, page title and messages. To fix or add a translation, edit a row in that table
 - "Oops" dialog with an animated controller for links that do not lead anywhere yet, and a matching 404 page
+- The theme switch is the letter "O" of the logo. Small line icons stand before the menu items and section titles (`img/icons/`, drawn with CSS masks so they follow the theme colour)
+- Hero artwork: the controller is a 2x image and the Unity / CryEngine / Unreal logos are separate vector files (`img/engines/`), so they stay sharp on any screen and are never cropped
 - Game stickers (coin, trophy, gem, controller…) in the side margins. `js/stickers.js` measures the free space next to the content and hides a sticker when there is no room, so they never cover text. Edit the `LAYOUT` list at the top of the file to add or move them
 - Calm, gaming-style motion: blocks fade in once as they enter the screen, headlines assemble from letters once (they never come apart), small hover feedback, one slow float on the 3D controller. Only `opacity` and `transform` are animated, with a single `IntersectionObserver` and no scroll listeners. Everything is disabled for `prefers-reduced-motion`
 - Node.js + Express backend: contact form and newsletter are stored on the server, news search runs through the API, offices and stats are served as JSON
@@ -35,7 +38,7 @@ A multi-page, responsive website for a fictional game development studio. I buil
 - Fast: images are WebP, fonts load without blocking, below-the-fold images are lazy, responses are gzip-compressed. Lighthouse (local): Performance 99, SEO 100, Best practices 100, page weight about 375 KB
 - SEO: canonical and Open Graph tags, share preview image, `sitemap.xml`, `robots.txt`
 - Responsive layout with breakpoints at 1024 / 768 / 480px and a burger menu
-- Image showcase that changes slides every 5 seconds with a fade (pauses in a hidden tab)
+- Image showcase that changes slides every 9 seconds with a fade (pauses in a hidden tab)
 
 ## Tech stack
 
@@ -75,7 +78,7 @@ Messages and subscribers are saved to `storage/*.jsonl` (ignored by git). Each f
 ├── index.html, about.html, contact.html, news.html
 ├── 404.html, sitemap.xml, robots.txt
 ├── css/        main.css, effects.css, theme.css (light theme), oops.css, stickers.css + one stylesheet per inner page
-├── js/         api.js, main.js, effects.js, theme.js, oops.js, stickers.js + page scripts
+├── js/         api.js, i18n.js, main.js, effects.js, theme.js, oops.js, stickers.js + page scripts
 ├── data/       news.json, offices.json
 ├── server/     app.js, index.js, config.js, routes/, services/, middleware/
 ├── scripts/    build.mjs (generates repeated HTML from data/)
@@ -105,7 +108,7 @@ GitHub Pages hosts the static front end only (Settings → Pages → `main` / ro
 ## Notes
 
 - The canonical URLs, `sitemap.xml` and share image use `https://user1234-code-maker.github.io/game-studio-site/`; change them if the site moves.
-- Several images are placeholders and will be replaced with final artwork.
+- Game artwork in `img/` is taken from the design mockup; replace with final artwork when ready.
 - Behind a reverse proxy (Render, Railway, Fly.io) set `TRUST_PROXY=1`; locally keep the default `0`, otherwise visitors could fake their IP and dodge the rate limit.
 - Contact messages and subscribers are capped at 5 MB per file in `storage/`; for a real site move them to a database (see `server/services/store.js`).
 - A Content-Security-Policy header is sent (`server/security.js`). Inline scripts are allowed only if they match the hashes of the ones in our own HTML files, so after editing an inline `<script>` just restart the server.

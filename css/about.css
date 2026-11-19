@@ -89,7 +89,7 @@
   max-width: none;
   object-fit: cover;
   opacity: 0;
-  transition: opacity 900ms ease;
+  transition: opacity 1600ms ease;
 }
 
 .slider__slide.is-active {
@@ -99,7 +99,7 @@
 /* Why work with us */
 .why {
   width: min(1219px, calc(100% - 40px));
-  padding: 148px 0 0;
+  padding: 96px 0 0;
 }
 
 .why h2,
@@ -111,15 +111,14 @@
 .why__cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 44px;
-  margin-top: 67px;
-  padding-bottom: 147px;
+  gap: 32px;
+  margin-top: 40px;
+  padding-bottom: 96px;
 }
 
 .why-card {
-  height: 348px;
   box-sizing: border-box;
-  padding: 65px 37px 0;
+  padding: 30px 30px 34px;
   border-radius: 24px;
   background: #1c140f;
 }
@@ -145,14 +144,14 @@
 }
 
 .why-card h3 {
-  margin-top: 22px;
+  margin-top: 18px;
   font-size: 20px;
   font-weight: 600;
 }
 
 .why-card p {
-  margin-top: 20px;
-  max-width: 304px;
+  margin-top: 12px;
+  max-width: 340px;
   font-size: 14px;
   line-height: 26px;
 }
@@ -163,26 +162,28 @@
 }
 
 .story__inner {
-  position: relative;
+  display: grid;
+  grid-template-columns: 496px minmax(0, 540px);
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
   width: min(1219px, calc(100% - 40px));
-  min-height: 603px;
   margin: 0 auto;
+  padding: 72px 0;
 }
 
 .story__img {
-  position: absolute;
-  left: 0;
-  bottom: 0;
+  display: block;
   width: 496px;
-  height: 490px;
-  max-width: none;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 496 / 490;
+  border-radius: 24px;
   object-fit: cover;
 }
 
 .story__text {
-  margin-left: 591px;
   max-width: 540px;
-  padding-top: 136px;
 }
 
 .story__label {
@@ -212,7 +213,7 @@
 .team {
   width: min(1266px, calc(100% - 40px));
   margin-left: max(20px, calc(50% - 610px));
-  padding-top: 152px;
+  padding-top: 96px;
 }
 
 .team__cards {
@@ -252,11 +253,11 @@
 }
 
 .team {
-  padding-bottom: 150px;
+  padding-bottom: 88px;
 }
 
 .about-bottom .email {
-  padding-bottom: 155px;
+  padding-bottom: 104px;
 }
 
 .about-bottom .email .block {
@@ -310,8 +311,7 @@
   }
 
   .why-card {
-    height: auto;
-    padding-bottom: 40px;
+    padding: 26px 24px 28px;
   }
 
   .why-card p {
@@ -319,19 +319,18 @@
   }
 
   .story__inner {
-    min-height: 0;
-    padding: 0 0 48px;
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 40px 0 48px;
   }
 
   .story__img {
-    position: static;
     width: 100%;
     height: 320px;
+    aspect-ratio: auto;
   }
 
   .story__text {
-    margin-left: 0;
-    padding-top: 32px;
     max-width: none;
   }
 

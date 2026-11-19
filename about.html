@@ -7,12 +7,12 @@
       name="description"
       content="About our game development studio: who we are, why clients work with us and meet the team."
     />
-    <title>About us | Game Website</title>
+    <title>About us | Logo Games</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="canonical" href="https://user1234-code-maker.github.io/game-studio-site/about.html" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Game Studio" />
-    <meta property="og:title" content="About us | Game Website" />
+    <meta property="og:title" content="About us | Logo Games" />
     <meta property="og:description" content="About our game development studio: who we are, why clients work with us and meet the team." />
     <meta property="og:url" content="https://user1234-code-maker.github.io/game-studio-site/about.html" />
     <meta property="og:image" content="https://user1234-code-maker.github.io/game-studio-site/img/og-image.jpg" />
@@ -24,7 +24,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
     />
     <link rel="preload" as="image" href="img/hero-neon.webp" fetchpriority="high" />
     <link rel="stylesheet" href="css/main.css" />
@@ -48,7 +48,7 @@
       <header class="container">
         <span class="logo">logo</span>
         <button
-          class="menu-toggle"
+          class="menu-toggle" data-i18n-skip
           type="button"
           aria-expanded="false"
           aria-label="Open menu"
@@ -76,11 +76,9 @@
               <span aria-hidden="true">›</span>
               <span class="breadcrumb__current" aria-current="page">About us</span>
             </nav>
-            <h1>Lorem Ipsum is simply dummy text of the printing and.</h1>
+            <h1>A studio built by players, for players</h1>
             <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s.
+              Logo started in 2012 as five friends making mobile games after work. Today we are a global studio shipping 3D games on every major platform.
             </p>
             <a href="contact.html" class="btn-pill">
               Get in touch
@@ -98,7 +96,7 @@
               <img loading="lazy" decoding="async" width="1600" height="900"
                 class="slider__slide"
                 src="img/slide-2.webp"
-                alt="Neon city skyline at dusk"
+                alt="Warrior with a glowing sword in a teal-lit hall"
               />
             </div>
           </div>
@@ -108,30 +106,24 @@
           <h2>Why work with us</h2>
           <div class="why__cards">
             <article class="why-card">
-              <span class="pill pill--violet">Lorem ipsum</span>
-              <h3>Lorem Ipsum</h3>
+              <span class="pill pill--violet">Craft</span>
+              <h3>Quality you can feel</h3>
               <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s,
+                Every build goes through art, gameplay and performance reviews, so polish is part of the process and never a last-minute rush.
               </p>
             </article>
             <article class="why-card">
-              <span class="pill pill--brown">Lorem ipsum</span>
-              <h3>Lorem Ipsum</h3>
+              <span class="pill pill--brown">People</span>
+              <h3>Teams that stay together</h3>
               <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s,
+                Most of our developers have been with us for years. Stable teams know the codebase, the pipeline and each other, and it shows in the result.
               </p>
             </article>
             <article class="why-card">
-              <span class="pill pill--green">Lorem ipsum</span>
-              <h3>Lorem Ipsum</h3>
+              <span class="pill pill--green">Reach</span>
+              <h3>Global, yet close</h3>
               <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s,
+                With 18 offices we work in your time zone and speak your language, while sharing tools and standards across every studio.
               </p>
             </article>
           </div>
@@ -139,7 +131,7 @@
       </main>
     </div>
 
-    <section class="story">
+    <section class="story" aria-label="Our story">
       <div class="story__inner">
         <img loading="lazy" decoding="async" width="1100" height="688"
           class="story__img"
@@ -147,58 +139,52 @@
           alt="Stylised character in neon light"
         />
         <div class="story__text">
-          <span class="story__label">Lorem ipsum</span>
-          <h2>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h2>
+          <span class="story__label">Our story</span>
+          <h2>From a shared apartment to a global studio</h2>
           <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries,
+            Logo began in 2012 with five friends and one very loud shared apartment. Our first mobile game found a loyal audience, and the studio grew one project at a time: PC, consoles, then AR and VR. Today we still start every project the same way, with a playable idea and honest feedback from players.
           </p>
         </div>
       </div>
     </section>
 
     <div class="about-bottom">
-      <section class="team container">
+      <section class="team container" aria-label="Our team">
         <h2>Our Team</h2>
         <div class="team__cards">
             <article class="team-card">
               <img loading="lazy" decoding="async" src="img/team-1.svg" alt="" width="63" height="86" />
-              <h3>John peter</h3>
-              <p>COO</p>
+              <h3>Anna Petrova</h3>
+              <p>CEO</p>
             </article>
             <article class="team-card">
               <img loading="lazy" decoding="async" src="img/team-2.svg" alt="" width="63" height="86" />
-              <h3>John peter</h3>
-              <p>COO</p>
+              <h3>Daniel Moreno</h3>
+              <p>Creative Director</p>
             </article>
             <article class="team-card">
               <img loading="lazy" decoding="async" src="img/team-3.svg" alt="" width="63" height="86" />
-              <h3>John peter</h3>
-              <p>COO</p>
+              <h3>Mei Tanaka</h3>
+              <p>Head of Engineering</p>
             </article>
             <article class="team-card">
               <img loading="lazy" decoding="async" src="img/team-4.svg" alt="" width="63" height="86" />
-              <h3>John peter</h3>
-              <p>COO</p>
+              <h3>Oliver Smith</h3>
+              <p>Art Director</p>
             </article>
         </div>
       </section>
 
-          <section class="container email">
-            <h3>Lorem Ipsum</h3>
+          <section class="container email" aria-label="Newsletter">
+            <h3>Join the community</h3>
             <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry.
+              Playtest invitations, release news and studio stories reach your inbox first.
             </p>
             <div class="block">
               <div>
                 <h4>Stay in the loop</h4>
                 <p>
-                  Subscribe to receive the latest news and updates about TDA. We
-                  promise not to spam you!
+                  Subscribe to receive the latest news and updates from Logo. We promise not to spam you!
                 </p>
               </div>
               <form class="email-form" novalidate>
@@ -206,6 +192,7 @@
                   <input
                     type="email"
                     id="emailField"
+                    aria-label="Email address"
                     placeholder="Enter email address"
                     aria-describedby="emailMessage"
                   />
@@ -223,15 +210,14 @@
           <div>
             <span class="logo">logo</span>
             <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry.
+              We design, build and ship 3D games for PC, mobile, console and VR.
             </p>
-            <p class="handle">@Lorem</p>
+            <p class="handle">@Logo</p>
           </div>
           <div>
             <h4>About us</h4>
             <ul>
-              <li>Zeux</li>
+              <li>Services</li>
               <li>Portfolio</li>
               <li>Careers</li>
               <li>Contact us</li>
@@ -241,8 +227,7 @@
             <h4>Contact us</h4>
             <ul>
               <li>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.
+                21 Old Street, Shoreditch, London
               </li>
               <li>+908 89097 890</li>
             </ul>
@@ -284,10 +269,11 @@
         </div>
       </div>
       <hr />
-      <p class="copyright">Copyright © 2026 Lorem. All rights reserved.</p>
+      <p class="copyright">Copyright © 2026 Logo. All rights reserved.</p>
     </footer>
 
     <script src="js/api.js"></script>
+    <script src="js/i18n.js"></script>
     <script src="js/main.js"></script>
     <script src="js/effects.js"></script>
     <script src="js/theme.js"></script>

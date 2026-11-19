@@ -7,35 +7,40 @@
   color-scheme: dark;
 }
 
-/* ---------- Toggle button ---------- */
+/* ---------- Toggle button: it is the letter "O" of the logo ---------- */
 .theme-toggle {
-  position: absolute;
-  top: 65px;
-  /* Next to the logo, so it can never collide with the nav at any width */
-  left: 160px;
-  z-index: 4;
-  display: grid;
-  place-items: center;
-  width: 36px;
-  height: 36px;
-  margin-top: -18px;
+  position: relative;
+  display: inline-block;
+  box-sizing: border-box;
+  width: 0.74em;
+  height: 0.74em;
+  margin: 0 0.04em;
   padding: 0;
-  border: 1px solid rgba(255, 255, 255, 0.22);
+  border: 0.1em solid currentColor;
   border-radius: 50%;
   background: transparent;
-  color: #fff;
+  color: inherit;
+  font: inherit;
+  vertical-align: -0.015em;
   cursor: pointer;
-  transition: border-color 200ms ease, color 200ms ease, background 200ms ease;
+  transition: color 200ms ease;
 }
 
 .theme-toggle:hover {
-  border-color: #fa8e1b;
-  color: #ffa94d;
+  color: #fa8e1b;
 }
 
 .theme-toggle svg {
-  width: 18px;
-  height: 18px;
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 68%;
+  height: 68%;
+  transition: transform 300ms ease;
+}
+
+.theme-toggle:hover svg {
+  transform: rotate(24deg);
 }
 
 .theme-toggle .icon-sun {
@@ -50,13 +55,6 @@ html[data-theme="light"] .theme-toggle .icon-moon {
   display: none;
 }
 
-@media (max-width: 1024px) {
-  .theme-toggle {
-    top: 46px;
-    left: auto;
-    right: 76px;
-  }
-}
 
 /* ---------- Readable text on orange and coloured chips (WCAG AA) ----------
    White on the bright orange fails the contrast check, so these use the
@@ -90,14 +88,8 @@ html[data-theme="light"] body {
   color: var(--t-text);
 }
 
-html[data-theme="light"] .theme-toggle {
-  border-color: var(--t-line);
-  color: var(--t-text);
-}
-
 html[data-theme="light"] .theme-toggle:hover {
-  border-color: #dc7000;
-  color: var(--t-accent);
+  color: #dc7000;
 }
 
 /* Page backgrounds */
@@ -144,8 +136,12 @@ html[data-theme="light"] .hero--info .hero--kicker {
 
 /* The controller artwork is white (logos included), so on a light page it is
    inverted to a dark controller; hue-rotate keeps the button colours. */
-html[data-theme="light"] .hero > img {
+html[data-theme="light"] .hero__art img {
   filter: invert(1) hue-rotate(180deg) drop-shadow(0 26px 30px rgba(27, 19, 13, 0.22));
+}
+
+html[data-theme="light"] .hero__art .eng {
+  color: #1b130d;
 }
 
 /* Cards and panels */
@@ -300,3 +296,134 @@ html[data-theme="light"] .news-side:hover h3 {
 html[data-theme="light"] :focus-visible {
   outline-color: #dc7000;
 }
+
+/* ---------- Language switcher (built by js/i18n.js): a small dropdown ---------- */
+.lang {
+  position: relative;
+  flex-shrink: 0;
+  margin-left: 14px;
+}
+
+.lang__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 36px;
+  padding: 0 9px 0 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  background: transparent;
+  color: inherit;
+  font: 600 12px/1 inherit;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: border-color 200ms ease, color 200ms ease;
+}
+
+.lang__btn:hover,
+.lang.is-open .lang__btn {
+  border-color: #fa8e1b;
+  color: #ffa94d;
+}
+
+.lang__btn svg {
+  width: 15px;
+  height: 15px;
+}
+
+.lang__chevron {
+  width: 12px !important;
+  height: 12px !important;
+  transition: transform 200ms ease;
+}
+
+.lang.is-open .lang__chevron {
+  transform: rotate(180deg);
+}
+
+.lang__list {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 20;
+  min-width: 160px;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  background: #1c140f;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: opacity 160ms ease, transform 160ms ease, visibility 160ms;
+}
+
+.lang.is-open .lang__list {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+.lang__list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 9px 10px;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  outline: none;
+}
+
+.lang__list li:hover,
+.lang__list li:focus-visible {
+  background: rgba(250, 142, 27, 0.16);
+}
+
+.lang__check {
+  width: 14px;
+  height: 14px;
+  opacity: 0;
+}
+
+.lang__list li[aria-selected="true"] {
+  color: #ffa94d;
+}
+
+.lang__list li[aria-selected="true"] .lang__check {
+  opacity: 1;
+}
+
+html[data-theme="light"] .lang__btn {
+  border-color: var(--t-line);
+}
+
+html[data-theme="light"] .lang__btn:hover,
+html[data-theme="light"] .lang.is-open .lang__btn {
+  border-color: #dc7000;
+  color: #b25f00;
+}
+
+html[data-theme="light"] .lang__list {
+  border-color: var(--t-line);
+  background: #fff;
+  box-shadow: 0 18px 40px rgba(27, 19, 13, 0.14);
+}
+
+html[data-theme="light"] .lang__list li {
+  color: var(--t-text);
+}
+
+html[data-theme="light"] .lang__list li:hover,
+html[data-theme="light"] .lang__list li:focus-visible {
+  background: rgba(220, 112, 0, 0.1);
+}
+
+html[data-theme="light"] .lang__list li[aria-selected="true"] {
+  color: #b25f00;
+}
+

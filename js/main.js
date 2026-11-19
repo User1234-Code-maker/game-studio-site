@@ -5,10 +5,12 @@ function setMenu(open) {
   if (!header || !menuToggle) return;
   header.classList.toggle("menu-open", open);
   menuToggle.setAttribute("aria-expanded", String(open));
-  menuToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+  menuToggle.setAttribute("aria-label", t(open ? "Close menu" : "Open menu"));
 }
 
 if (header && menuToggle) {
+  document.addEventListener("i18n:change", () => setMenu(header.classList.contains("menu-open")));
+  setMenu(false);
   menuToggle.addEventListener("click", () => {
     setMenu(!header.classList.contains("menu-open"));
   });
@@ -31,7 +33,7 @@ if (emailForm && emailField && emailMessage) {
     emailMessage.classList.remove("error", "success");
 
     if (!emailPattern.test(value)) {
-      emailMessage.textContent = "Enter a valid email address.";
+      emailMessage.textContent = t("Enter a valid email address.");
       emailMessage.classList.add("error");
       return;
     }
@@ -40,10 +42,10 @@ if (emailForm && emailField && emailMessage) {
     const failed = !reply.offline && !reply.ok;
 
     emailMessage.textContent = failed
-      ? reply.data?.error || "Could not subscribe. Please try again."
+      ? t(reply.data?.error || "Could not subscribe. Please try again.")
       : reply.offline
-        ? "Thanks! This is a demo site, so nothing was saved."
-        : reply.data.message;
+        ? t("Thanks! This is a demo site, so nothing was saved.")
+        : t(reply.data.message);
     emailMessage.classList.add(failed ? "error" : "success");
     if (!failed) emailField.value = "";
   });

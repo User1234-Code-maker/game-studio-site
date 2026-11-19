@@ -7,12 +7,12 @@
       name="description"
       content="Game development studio: trending games, services and recent projects."
     />
-    <title>Home | Game Website</title>
+    <title>Home | Logo Games</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="canonical" href="https://user1234-code-maker.github.io/game-studio-site/" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Game Studio" />
-    <meta property="og:title" content="Home | Game Website" />
+    <meta property="og:title" content="Home | Logo Games" />
     <meta property="og:description" content="Game development studio: trending games, services and recent projects." />
     <meta property="og:url" content="https://user1234-code-maker.github.io/game-studio-site/" />
     <meta property="og:image" content="https://user1234-code-maker.github.io/game-studio-site/img/og-image.jpg" />
@@ -34,7 +34,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
     />
     <link rel="preload" as="image" href="img/joystick.webp" fetchpriority="high" />
     <link rel="stylesheet" href="css/main.css" />
@@ -57,7 +57,7 @@
       <header class="container">
         <span class="logo">logo</span>
         <button
-          class="menu-toggle"
+          class="menu-toggle" data-i18n-skip
           type="button"
           aria-expanded="false"
           aria-label="Open menu"
@@ -81,14 +81,18 @@
         <section class="hero container">
           <div class="hero--info">
             <div class="hero--kicker">3D game Dev</div>
-            <h1>Work that we produce for our clients</h1>
+            <h1>We build games people can't put down</h1>
             <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard.
+              From the first prototype to launch day, our team designs, builds and ships 3D games for PC, mobile and consoles.
             </p>
             <button class="btn">Get more details</button>
           </div>
-          <img fetchpriority="high" width="791" height="761" src="img/joystick.webp" alt="White game controller" />
+          <div class="hero__art">
+            <img fetchpriority="high" width="740" height="951" src="img/joystick.webp" alt="White game controller" />
+            <span class="eng eng--unity" role="img" aria-label="Unity"></span>
+            <span class="eng eng--cry" role="img" aria-label="CryEngine"></span>
+            <span class="eng eng--unreal" role="img" aria-label="Unreal Engine"></span>
+          </div>
         </section>
 
         <section class="container trending">
@@ -120,31 +124,25 @@
 
         <section class="container big-text">
           <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry.
+            Artists, engineers and designers in 18 offices, making games together.
           </p>
         </section>
 
         <section class="container banner">
-          <h3>Lorem Ipsum</h3>
+          <h3>Built for players, shaped by play</h3>
           <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s,
+            Every project starts with a playable prototype. We test early with real players, keep what is fun and cut what is not, so the final game feels right from the very first minute.
           </p>
-          <img loading="lazy" decoding="async" width="1144" height="462" src="img/banner.webp" alt="Character running through a neon city" />
+          <img loading="lazy" decoding="async" width="1144" height="462" src="img/banner.webp" alt="Close-up of an anime character with snow in the hair" />
         </section>
 
         <section class="features">
           <div class="container">
             <h3>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry.
+              Everything a game needs, under one roof
             </h3>
             <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s,
+              Art, code, sound and live operations are handled by one team, so nothing gets lost between hand-offs. Pick a single service or let us take the project from concept to release.
             </p>
             <div class="info">
               <div class="block">
@@ -190,8 +188,7 @@
           <section class="container projects" id="projects">
             <h3>Our Recent Projects</h3>
             <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry.
+              A selection of games and interactive experiences we have shipped with our partners over the last few years.
             </p>
 
             <div class="images">
@@ -205,18 +202,16 @@
             <a href="#" class="see-all" data-oops="The full project list">SEE ALL</a>
           </section>
 
-          <section class="container email">
-            <h3>Lorem Ipsum</h3>
+          <section class="container email" aria-label="Newsletter">
+            <h3>Join the community</h3>
             <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry.
+              Playtest invitations, release news and studio stories reach your inbox first.
             </p>
             <div class="block">
               <div>
                 <h4>Stay in the loop</h4>
                 <p>
-                  Subscribe to receive the latest news and updates about TDA. We
-                  promise not to spam you!
+                  Subscribe to receive the latest news and updates from Logo. We promise not to spam you!
                 </p>
               </div>
               <form class="email-form" novalidate>
@@ -224,6 +219,7 @@
                   <input
                     type="email"
                     id="emailField"
+                    aria-label="Email address"
                     placeholder="Enter email address"
                     aria-describedby="emailMessage"
                   />
@@ -243,15 +239,14 @@
           <div>
             <span class="logo">logo</span>
             <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry.
+              We design, build and ship 3D games for PC, mobile, console and VR.
             </p>
             <p class="handle">@Logo</p>
           </div>
           <div>
             <h4>About us</h4>
             <ul>
-              <li>Zeux</li>
+              <li>Services</li>
               <li>Portfolio</li>
               <li>Careers</li>
               <li>Contact us</li>
@@ -261,8 +256,7 @@
             <h4>Contact us</h4>
             <ul>
               <li>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.
+                21 Old Street, Shoreditch, London
               </li>
               <li>+908 89097 890</li>
             </ul>
@@ -304,10 +298,11 @@
         </div>
       </div>
       <hr />
-      <p class="copyright">Copyright © 2026 Lorem. All rights reserved.</p>
+      <p class="copyright">Copyright © 2026 Logo. All rights reserved.</p>
     </footer>
 
     <script src="js/api.js"></script>
+    <script src="js/i18n.js"></script>
     <script src="js/main.js"></script>
     <script src="js/effects.js"></script>
     <script src="js/theme.js"></script>

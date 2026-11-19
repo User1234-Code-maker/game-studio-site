@@ -14,7 +14,7 @@ if (form) {
   function validate(input) {
     const message = rules[input.id](input.value.trim());
     const error = input.parentElement.querySelector(".field__error");
-    error.textContent = message;
+    error.textContent = t(message);
     input.classList.toggle("is-invalid", Boolean(message));
     input.setAttribute("aria-invalid", message ? "true" : "false");
     return !message;
@@ -55,23 +55,23 @@ if (form) {
 
     if (reply.offline) {
       // Static hosting: nothing can store the message, so say so honestly.
-      status.textContent = "Thanks! This is a demo site, so the message was not sent.";
+      status.textContent = t("Thanks! This is a demo site, so the message was not sent.");
       status.classList.add("success");
       form.reset();
     } else if (reply.ok) {
-      status.textContent = reply.data.message;
+      status.textContent = t(reply.data.message);
       status.classList.add("success");
       form.reset();
     } else if (reply.status === 422) {
       Object.entries(reply.data.details || {}).forEach(([key, message]) => {
         const input = document.getElementById(fieldIds[key]);
         if (!input) return;
-        input.parentElement.querySelector(".field__error").textContent = message;
+        input.parentElement.querySelector(".field__error").textContent = t(message);
         input.classList.add("is-invalid");
       });
       status.textContent = "";
     } else {
-      status.textContent = reply.data?.error || "Could not send the message. Please try again.";
+      status.textContent = t(reply.data?.error || "Could not send the message. Please try again.");
     }
   });
 }

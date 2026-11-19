@@ -26,7 +26,7 @@
       </div>`;
 
     const title = dialog.querySelector(".oops__title");
-    Array.from("Oops!").forEach((letter, i) => {
+    Array.from(t("Oops!")).forEach((letter, i) => {
       const span = document.createElement("span");
       span.className = "ch";
       span.setAttribute("aria-hidden", "true");
@@ -43,7 +43,8 @@
 
   const nameOf = (link) => {
     const label = link.dataset.oops || link.getAttribute("aria-label") || link.textContent.trim();
-    return label ? label.charAt(0).toUpperCase() + label.slice(1).toLowerCase() : "This page";
+    if (!label) return t("This page");
+    return link.dataset.oops ? t(label) : label.charAt(0).toUpperCase() + label.slice(1).toLowerCase();
   };
 
   function open(link) {
@@ -52,8 +53,8 @@
     const name = nameOf(link);
     // Network names are brands, so they stay capitalised as typed in the label.
     dialog.querySelector(".oops__text").textContent = link.dataset.oops
-      ? `${link.dataset.oops} isn't plugged in yet.`
-      : `Our ${name} page isn't plugged in yet.`;
+      ? t("{0} isn't plugged in yet.", name)
+      : t("Our {0} page isn't plugged in yet.", name);
 
     dialog.classList.remove("is-closing");
     dialog.hidden = false;
@@ -73,6 +74,13 @@
     dialog.classList.add("is-closing");
     setTimeout(finish, 180);
   }
+
+  // The dialog is rebuilt in the new language the next time it opens.
+  document.addEventListener("i18n:change", () => {
+    if (!dialog) return;
+    dialog.remove();
+    dialog = null;
+  });
 
   document.addEventListener("click", (event) => {
     const link = event.target.closest('a[href="#"]');

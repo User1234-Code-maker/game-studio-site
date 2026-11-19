@@ -2,7 +2,7 @@ const slider = document.querySelector("[data-slider]");
 
 if (slider) {
   const slides = Array.from(slider.querySelectorAll(".slider__slide"));
-  const INTERVAL = 5000;
+  const INTERVAL = 9000;
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   let index = 0;
   let timer = null;

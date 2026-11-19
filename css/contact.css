@@ -411,8 +411,8 @@
   display: grid;
   grid-template-columns: 280px 435px 1fr;
   width: min(1172px, calc(100% - 40px));
-  margin: 80px auto 0;
-  padding-bottom: 148px;
+  margin: 64px auto 0;
+  padding-bottom: 96px;
 }
 
 .contact-info__follow {
@@ -649,8 +649,8 @@
 }
 
 .contact-bottom .email {
-  padding-top: 144px;
-  padding-bottom: 150px;
+  padding-top: 96px;
+  padding-bottom: 104px;
 }
 
 /* Tablet and down */

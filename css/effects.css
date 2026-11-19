@@ -65,6 +65,10 @@ header nav ul li:not(.btn):not(.active) a::after {
   transition: transform 250ms ease;
 }
 
+header nav ul li:not(.btn):not(.active) a:hover {
+  border-bottom: 0; /* main.css draws a thick border; the thin line below replaces it */
+}
+
 header nav ul li:not(.btn):not(.active) a:hover::after {
   transform: scaleX(1);
 }
@@ -100,7 +104,6 @@ header nav ul li:not(.btn):not(.active) a:hover::after {
 
 /* Cards and images: a small lift, nothing more */
 .projects .images img,
-.trending .games .block > img,
 .features .info .block,
 .team-card,
 .why-card {
@@ -108,7 +111,6 @@ header nav ul li:not(.btn):not(.active) a:hover::after {
 }
 
 .projects .images img:hover,
-.trending .games .block:hover > img,
 .team-card:hover,
 .why-card:hover {
   transform: translateY(-4px);
@@ -141,7 +143,8 @@ header nav ul li:not(.btn):not(.active) a:hover::after {
 }
 
 /* Hero: one slow float, the only idle motion on the site */
-.hero > img {
+
+.hero__art {
   animation: float 9s ease-in-out infinite;
 }
 
@@ -195,7 +198,7 @@ header nav ul li:not(.btn):not(.active) a:hover::after {
     transition: none;
   }
 
-  .hero > img,
+  .hero__art,
   .field.is-error {
     animation: none;
   }
@@ -208,4 +211,20 @@ header nav ul li:not(.btn):not(.active) a:hover::after {
   ::view-transition-new(root) {
     animation-duration: 0.01ms;
   }
+}
+
+/* Trending cards: a gentle 3D tilt that follows the pointer (set in effects.js) */
+.trending .games .block {
+  perspective: 800px;
+}
+
+.trending .games .block > img {
+  transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) scale(var(--s, 1));
+  transition: transform 220ms ease-out, filter 300ms ease;
+  will-change: transform;
+}
+
+.trending .games .block:hover > img {
+  filter: brightness(1.08);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.45);
 }

@@ -73,6 +73,8 @@
   function splitHeading(el) {
     const label = el.textContent.replace(/\s+/g, " ").trim();
     if (!label || label.length > 110) return false;
+    // Remember the English text so the headline can be rebuilt in another language.
+    if (!el.dataset.en) el.dataset.en = window.i18n ? window.i18n.toEnglish(label) : label;
 
     let count = 0;
     const walk = (node) => {
@@ -130,6 +132,17 @@
       el.classList.remove("rv");
       if (splitHeading(el)) so.observe(el);
     });
+
+    // Language change: rebuild the letters from the new text, already assembled.
+    document.addEventListener("i18n:change", () => {
+      headings.forEach((el) => {
+        if (!el.dataset.en) return;
+        const wasIn = el.classList.contains("in");
+        el.classList.remove("fx-split", "in");
+        el.textContent = window.t(el.dataset.en);
+        if (splitHeading(el) && wasIn) el.classList.add("in");
+      });
+    });
   }
 
   /* Count-up numbers, run once when visible */
@@ -179,6 +192,33 @@
           void field.offsetWidth;
           field.classList.add("is-error");
         });
+      });
+    });
+  }
+
+  /* Trending cards: 3D tilt toward the pointer (mouse and pen only) */
+  if (!reduceMotion && matchMedia("(hover: hover)").matches) {
+    document.querySelectorAll(".trending .games .block").forEach((card) => {
+      const img = card.querySelector(":scope > img");
+      if (!img) return;
+      let frame = 0;
+      card.addEventListener("pointermove", (event) => {
+        if (event.pointerType === "touch") return;
+        cancelAnimationFrame(frame);
+        frame = requestAnimationFrame(() => {
+          const box = img.getBoundingClientRect();
+          const x = Math.max(-1, Math.min(1, ((event.clientX - box.left) / box.width) * 2 - 1));
+          const y = Math.max(-1, Math.min(1, ((event.clientY - box.top) / box.height) * 2 - 1));
+          img.style.setProperty("--ry", (x * 12).toFixed(2) + "deg");
+          img.style.setProperty("--rx", (-y * 10).toFixed(2) + "deg");
+          img.style.setProperty("--s", "1.03");
+        });
+      });
+      card.addEventListener("pointerleave", () => {
+        cancelAnimationFrame(frame);
+        img.style.removeProperty("--ry");
+        img.style.removeProperty("--rx");
+        img.style.removeProperty("--s");
       });
     });
   }

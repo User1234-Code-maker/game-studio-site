@@ -9,7 +9,7 @@ img {
 }
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", "Montserrat", sans-serif;
   font-weight: 400;
   color: #fff;
   font-size: 16px;
@@ -155,14 +155,39 @@ header nav ul li.btn a:hover,
   cursor: pointer;
 }
 
-.hero img {
+.hero__art {
+  --old-w: min(791px, calc(100% - 580px)); /* the width the old 989px-wide picture had */
   position: absolute;
   top: -150px;
-  right: 0;
-  width: min(791px, calc(100% - 580px));
-  height: auto;
+  right: calc(var(--old-w) * 0.252);
+  width: calc(var(--old-w) * 0.748);
+  aspect-ratio: 740 / 951;
   pointer-events: none;
+  /* the cable fades in under the header so it never crosses the menu */
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, transparent 105px, #000 165px);
+  mask-image: linear-gradient(to bottom, transparent 0, transparent 105px, #000 165px);
 }
+
+.hero__art img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Engine logos: crisp vector shapes that scale with the picture, never cropped */
+.eng {
+  position: absolute;
+  display: block;
+  aspect-ratio: var(--ar);
+  background-color: currentColor;
+  color: #fff;
+  -webkit-mask: var(--src) center / contain no-repeat;
+  mask: var(--src) center / contain no-repeat;
+}
+
+.eng--unity { --src: url(../img/engines/unity.svg); --ar: 138 / 74; left: 0; top: 51.84%; width: 18.65%; }
+.eng--cry { --src: url(../img/engines/cryengine.svg); --ar: 156 / 91; left: 28.24%; top: 28.29%; width: 21.08%; }
+.eng--unreal { --src: url(../img/engines/unreal.svg); --ar: 111 / 117; left: 85.14%; top: 26.71%; width: 15%; }
 
 /* Секция с играми */
 .trending {
@@ -183,15 +208,15 @@ header nav ul li.btn a:hover,
 .projects .see-all {
   color: #fff;
   background: #25211d;
-  border-radius: 5px;
-  padding: 13px 28px 13px 30px;
+  border-radius: 8px;
+  padding: 8px 18px;
   float: right;
   display: block;
-  font-size: 20px;
+  font-size: 14px;
   font-weight: 600;
-  line-height: 31px;
-  letter-spacing: 1.4px;
-  transition: all 500ms ease;
+  line-height: 20px;
+  letter-spacing: 1px;
+  transition: transform 250ms ease, background-color 250ms ease;
 }
 
 .trending .see-all {
@@ -202,7 +227,8 @@ header nav ul li.btn a:hover,
 
 .trending .see-all:hover,
 .projects .see-all:hover {
-  transform: scale(1.1);
+  transform: scale(1.04);
+  background: #332d27;
 }
 
 .trending .games {
@@ -210,7 +236,7 @@ header nav ul li.btn a:hover,
   justify-content: space-between;
   width: 100%;
   flex-basis: 100%;
-  padding: 56px 0 90px;
+  padding: 40px 0 64px;
 }
 
 .trending .games .block {
@@ -253,7 +279,7 @@ header nav ul li.btn a:hover,
 
 .banner {
   width: min(1144px, calc(100% - 40px));
-  padding: 29px 0 121px;
+  padding: 24px 0 80px;
 }
 
 .banner h3 {
@@ -300,7 +326,7 @@ header nav ul li.btn a:hover,
 .features > .container > p {
   max-width: 830px;
   line-height: 30px;
-  margin-bottom: 98px;
+  margin-bottom: 64px;
 }
 
 .features > .container {
@@ -336,7 +362,7 @@ header nav ul li.btn a:hover,
 
 .projects {
   width: min(1170px, calc(100% - 40px));
-  padding: 154px 0 100px;
+  padding: 96px 0 64px;
 }
 
 .projects h3 {
@@ -375,7 +401,7 @@ header nav ul li.btn a:hover,
 
 .email {
   width: min(1170px, calc(100% - 40px));
-  padding-bottom: 165px;
+  padding-bottom: 110px;
 }
 
 .email h3 {
@@ -428,7 +454,7 @@ header nav ul li.btn a:hover,
   height: 48px;
   max-width: 100%;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", "Montserrat", sans-serif;
   font-weight: 400;
   font-size: 13px;
   padding: 0 150px 0 35px;
@@ -620,8 +646,7 @@ footer .copyright {
   header.container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 44px 43px 58px 36px;
+    padding: 40px 40px 52px;
   }
 
   header .logo {
@@ -631,20 +656,27 @@ footer .copyright {
     line-height: 1;
   }
 
+  /* Menu, contact button and language sit together at the right edge */
   header nav {
     float: none;
     width: auto;
+    margin-left: auto;
   }
 
   header nav ul {
+    --nav-gap: clamp(20px, 2.3vw, 34px);
     align-items: center;
     justify-content: flex-start;
-    gap: 92px;
+    gap: var(--nav-gap);
+  }
+
+  header nav ul li a {
+    white-space: nowrap;
   }
 
   header nav ul li.btn {
     display: flex;
-    margin-left: calc(40px - 92px);
+    margin-left: 6px;
   }
 
   header nav ul li.btn a {
@@ -675,7 +707,7 @@ footer .copyright {
   }
 
   .hero {
-    padding-bottom: 141px;
+    padding-bottom: 96px;
   }
 
   .hero--info {
@@ -705,9 +737,9 @@ footer .copyright {
     line-height: 44px;
   }
 
-  .hero img {
+  .hero__art {
     top: -143px;
-    right: -20px;
+    right: calc(-20px + var(--old-w) * 0.252);
   }
 }
 
@@ -723,14 +755,28 @@ footer .copyright {
     padding-bottom: 24px;
   }
 
+  header .logo {
+    order: 1;
+  }
+
+  header .lang {
+    order: 2;
+    margin-left: auto;
+  }
+
+  header nav {
+    order: 4;
+  }
+
   .menu-toggle {
+    order: 3;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 5px;
     width: 44px;
     height: 44px;
-    margin-left: auto;
+    margin-left: 8px;
     padding: 0;
     border: 0;
     background: transparent;
@@ -801,10 +847,14 @@ footer .copyright {
     padding-top: 10px;
   }
 
-  .hero img {
-    position: static;
-    width: min(420px, 100%);
-    margin: 32px auto 0;
+  .hero__art {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: min(440px, 100%);
+    margin: 24px auto 0;
+    -webkit-mask-image: none;
+    mask-image: none;
   }
 
   .trending .games {
@@ -862,8 +912,8 @@ footer .copyright {
     font-size: 40px;
   }
 
-  .hero img {
-    width: min(320px, 80%);
+  .hero__art {
+    width: min(380px, 100%);
   }
 
   .big-text {
@@ -885,8 +935,8 @@ footer .copyright {
     font-size: 32px;
   }
 
-  .hero img {
-    width: min(220px, 70%);
+  .hero__art {
+    width: min(340px, 100%);
   }
 
   .big-text {

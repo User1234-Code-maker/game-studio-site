@@ -7,12 +7,12 @@
       name="description"
       content="Latest news from our game development studio: articles, stories and updates."
     />
-    <title>News | Game Website</title>
+    <title>News | Logo Games</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="canonical" href="https://user1234-code-maker.github.io/game-studio-site/news.html" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Game Studio" />
-    <meta property="og:title" content="News | Game Website" />
+    <meta property="og:title" content="News | Logo Games" />
     <meta property="og:description" content="Latest news from our game development studio: articles, stories and updates." />
     <meta property="og:url" content="https://user1234-code-maker.github.io/game-studio-site/news.html" />
     <meta property="og:image" content="https://user1234-code-maker.github.io/game-studio-site/img/og-image.jpg" />
@@ -24,7 +24,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
     />
     <link rel="preload" as="image" href="img/kda.webp" fetchpriority="high" />
     <link rel="stylesheet" href="css/main.css" />
@@ -48,7 +48,7 @@
       <header class="container">
         <span class="logo">logo</span>
         <button
-          class="menu-toggle"
+          class="menu-toggle" data-i18n-skip
           type="button"
           aria-expanded="false"
           aria-label="Open menu"
@@ -75,8 +75,8 @@
             <span aria-hidden="true">›</span>
             <span class="breadcrumb__current" aria-current="page">News</span>
           </nav>
-          <h1>Lorem Ipsum is simply dummy text of the printing and.</h1>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+          <h1>Studio news and stories</h1>
+          <p>Release notes, behind-the-scenes looks and lessons learned by our teams.</p>
           <span class="news-hero__dot" aria-hidden="true"></span>
 
           <form class="search" role="search" id="newsSearch" novalidate>
@@ -93,24 +93,24 @@
           <div class="news-main">
           <!-- build:news-main -->
           <article class="news-big" data-id="n1" data-search="game neon character art design">
-            <img fetchpriority="high" src="img/kda.webp" alt="Stylised character in neon light" width="588" height="295" />
+            <img src="img/kda.webp" alt="Stylised character in neon light" width="588" height="295" />
             <div class="news-meta">
-              <span class="tag tag--blue tag--big">John smash</span>
-              <span class="news-meta__time">.5min</span>
+              <span class="tag tag--blue tag--big">Anna Petrova</span>
+              <span class="news-meta__time">6 min read</span>
             </div>
-            <h2>Lorem Ipsum is simply dummy text dummy text</h2>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</p>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+            <h2>Meet the neon dragon: how our newest art style came together</h2>
+            <p>Our new art direction began as a single paint-over on a Friday afternoon. Within a week the whole team was sketching glowing dragons, and the look quickly became the backbone of the next game's world. We kept the shapes bold, the colours saturated and the lighting dramatic, so that every frame works as a poster.</p>
+            <p>Next up: turning the concept into real-time characters without losing the painted feel.</p>
           </article>
           <hr />
           <article class="news-big" data-id="n2" data-search="city street neon night game">
-            <img loading="lazy" decoding="async" src="img/hero-neon.webp" alt="Character standing in a neon-lit city street" width="588" height="295" />
+            <img src="img/hero-neon.webp" alt="Character standing in a neon-lit city street" width="588" height="295" />
             <div class="news-meta">
-              <span class="tag tag--blue tag--big">John smash</span>
-              <span class="news-meta__time">.5min</span>
+              <span class="tag tag--blue tag--big">Daniel Moreno</span>
+              <span class="news-meta__time">5 min read</span>
             </div>
-            <h2>Lorem Ipsum is simply dummy text dummy text</h2>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,</p>
+            <h2>Night streets, real rain: building a city players want to get lost in</h2>
+            <p>We built the street from reference photos of night markets, then spent weeks on wet surfaces, neon reflections and small details such as the cat by the shop window. The goal was a place that feels lived in, where players slow down just to look around.</p>
           </article>
           <!-- /build:news-main -->
           </div>
@@ -121,70 +121,70 @@
               <img src="img/news-1.webp" alt="Team discussing sticky notes in a meeting room" width="195" height="183" loading="lazy" />
               <div class="news-side__body">
                 <div class="news-meta">
-                  <span class="tag tag--pink">John smash</span>
-                  <span class="news-meta__time">.5min</span>
+                  <span class="tag tag--pink">Mei Tanaka</span>
+                  <span class="news-meta__time">4 min read</span>
                 </div>
-                <h3>Lorem Ipsum is simply dummy text dummy text ?</h3>
+                <h3>Inside our planning workshops: from sticky notes to sprint goals</h3>
               </div>
             </article>
             <article class="news-side" data-id="n4" data-search="laptop coding students class">
               <img src="img/news-2.webp" alt="Colleagues working together at laptops" width="195" height="183" loading="lazy" />
               <div class="news-side__body">
                 <div class="news-meta">
-                  <span class="tag tag--blue">John smash</span>
-                  <span class="news-meta__time">.5min</span>
+                  <span class="tag tag--blue">Oliver Smith</span>
+                  <span class="news-meta__time">3 min read</span>
                 </div>
-                <h3>Lorem Ipsum is simply dummy text dummy text ?</h3>
+                <h3>Teaching the next generation of game developers</h3>
               </div>
             </article>
             <article class="news-side" data-id="n5" data-search="kids playroom family fun">
               <img src="img/news-3.webp" alt="Child playing in a bright room" width="195" height="183" loading="lazy" />
               <div class="news-side__body">
                 <div class="news-meta">
-                  <span class="tag tag--orange">John smash</span>
-                  <span class="news-meta__time">.5min</span>
+                  <span class="tag tag--orange">Sofia Reyes</span>
+                  <span class="news-meta__time">4 min read</span>
                 </div>
-                <h3>Lorem Ipsum is simply dummy text dummy text ?</h3>
+                <h3>What we learned from kids play-testing our family game</h3>
               </div>
             </article>
             <article class="news-side" data-id="n6" data-search="puzzle game design">
               <img src="img/news-4.webp" alt="Colourful jigsaw puzzle pieces" width="195" height="183" loading="lazy" />
               <div class="news-side__body">
                 <div class="news-meta">
-                  <span class="tag tag--blue">John smash</span>
-                  <span class="news-meta__time">.5min</span>
+                  <span class="tag tag--blue">Luca Romano</span>
+                  <span class="news-meta__time">5 min read</span>
                 </div>
-                <h3>Lorem Ipsum is simply dummy text dummy text ?</h3>
+                <h3>Puzzle design: why the best levels teach without words</h3>
               </div>
             </article>
             <article class="news-side" data-id="n7" data-search="coworking office team">
               <img src="img/news-5.webp" alt="Team working in a co-working space" width="195" height="183" loading="lazy" />
               <div class="news-side__body">
                 <div class="news-meta">
-                  <span class="tag tag--green">John smash</span>
-                  <span class="news-meta__time">.5min</span>
+                  <span class="tag tag--green">Hana Kim</span>
+                  <span class="news-meta__time">2 min read</span>
                 </div>
-                <h3>Lorem Ipsum is simply dummy text dummy text ?</h3>
+                <h3>Our new co-working floor opens in London</h3>
               </div>
             </article>
             <article class="news-side" data-id="n8" data-search="rowing sport teamwork">
               <img src="img/news-6.webp" alt="Rowing team seen from above" width="195" height="183" loading="lazy" />
               <div class="news-side__body">
                 <div class="news-meta">
-                  <span class="tag tag--blue">John smash</span>
-                  <span class="news-meta__time">.5min</span>
+                  <span class="tag tag--blue">Oliver Smith</span>
+                  <span class="news-meta__time">3 min read</span>
                 </div>
-                <h3>Lorem Ipsum is simply dummy text dummy text ?</h3>
+                <h3>Teamwork on the water: our annual rowing day</h3>
               </div>
             </article>
             <article class="news-side" data-id="n9" data-search="rowing boat water sport">
               <img src="img/news-7.webp" alt="Rowing boat on dark water" width="195" height="183" loading="lazy" />
               <div class="news-side__body">
                 <div class="news-meta">
-                  <span class="tag tag--purple">John smash</span>
-                  <span class="news-meta__time">.5min</span>
+                  <span class="tag tag--purple">Anna Petrova</span>
+                  <span class="news-meta__time">2 min read</span>
                 </div>
-                <h3>Lorem Ipsum is simply dummy text dummy text ?</h3>
+                <h3>Dawn on the water: a morning with the team</h3>
               </div>
             </article>
             <!-- /build:news-side -->
@@ -193,18 +193,16 @@
         </section>
       </main>
 
-          <section class="container email">
-            <h3>Lorem Ipsum</h3>
+          <section class="container email" aria-label="Newsletter">
+            <h3>Join the community</h3>
             <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry.
+              Playtest invitations, release news and studio stories reach your inbox first.
             </p>
             <div class="block">
               <div>
                 <h4>Stay in the loop</h4>
                 <p>
-                  Subscribe to receive the latest news and updates about TDA. We
-                  promise not to spam you!
+                  Subscribe to receive the latest news and updates from Logo. We promise not to spam you!
                 </p>
               </div>
               <form class="email-form" novalidate>
@@ -212,6 +210,7 @@
                   <input
                     type="email"
                     id="emailField"
+                    aria-label="Email address"
                     placeholder="Enter email address"
                     aria-describedby="emailMessage"
                   />
@@ -229,15 +228,14 @@
           <div>
             <span class="logo">logo</span>
             <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry.
+              We design, build and ship 3D games for PC, mobile, console and VR.
             </p>
-            <p class="handle">@Lorem</p>
+            <p class="handle">@Logo</p>
           </div>
           <div>
             <h4>About us</h4>
             <ul>
-              <li>Zeux</li>
+              <li>Services</li>
               <li>Portfolio</li>
               <li>Careers</li>
               <li>Contact us</li>
@@ -247,8 +245,7 @@
             <h4>Contact us</h4>
             <ul>
               <li>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.
+                21 Old Street, Shoreditch, London
               </li>
               <li>+908 89097 890</li>
             </ul>
@@ -290,10 +287,11 @@
         </div>
       </div>
       <hr />
-      <p class="copyright">Copyright © 2026 Lorem. All rights reserved.</p>
+      <p class="copyright">Copyright © 2026 Logo. All rights reserved.</p>
     </footer>
 
     <script src="js/api.js"></script>
+    <script src="js/i18n.js"></script>
     <script src="js/main.js"></script>
     <script src="js/effects.js"></script>
     <script src="js/theme.js"></script>

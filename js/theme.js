@@ -14,15 +14,23 @@
   const button = document.createElement("button");
   button.type = "button";
   button.className = "theme-toggle";
+  button.dataset.i18nSkip = "";
   button.innerHTML = sun + moon;
-  header.append(button);
+  // The button takes the place of the first "O" in the logo: L [button] GO
+  const logo = header.querySelector(".logo");
+  if (logo) {
+    logo.textContent = "";
+    logo.append("l", button, "go");
+  } else {
+    header.append(button);
+  }
 
   const meta = document.querySelector('meta[name="theme-color"]');
 
   function paint() {
     const light = root.dataset.theme === "light";
-    button.setAttribute("aria-label", light ? "Switch to dark theme" : "Switch to light theme");
-    button.title = light ? "Dark theme" : "Light theme";
+    button.setAttribute("aria-label", t(light ? "Switch to dark theme" : "Switch to light theme"));
+    button.title = t(light ? "Dark theme" : "Light theme");
     if (meta) meta.content = light ? "#f6f3ef" : "#0b0601";
   }
 
@@ -46,5 +54,6 @@
     }
   });
 
+  document.addEventListener("i18n:change", paint);
   paint();
 })();
