@@ -1,6 +1,6 @@
 # Game Studio Website
 
-A multi-page, responsive website for a fictional game development studio. I built it from a Figma mockup as a learning project to practice HTML, CSS and vanilla JavaScript.
+A multi-page, responsive website for a fictional game development studio ("Logo"). It started as a hand-coded HTML/CSS/JS learning project built from a Figma mockup and now runs on **React + TypeScript** with a **Node.js (Express) API** and **Stripe test payments**.
 
 ![Home page](screenshots/home.jpg)
 
@@ -8,56 +8,90 @@ A multi-page, responsive website for a fictional game development studio. I buil
 
 | Page | What is on it |
 | --- | --- |
-| **Home** (`index.html`) | Hero, trending games, banner, services, recent projects, newsletter form |
-| **About us** (`about.html`) | Hero with an auto-rotating image showcase, "Why work with us" cards, story block, team |
-| **Contact us** (`contact.html`) | Interactive world map of offices, contact details, "Say hello" form with validation |
-| **News** (`news.html`) | Featured articles, article list and live search |
-
-<p>
-  <img src="screenshots/about.jpg" width="49%" alt="About page" />
-  <img src="screenshots/contact.jpg" width="49%" alt="Contact page" />
-</p>
-<p>
-  <img src="screenshots/news.jpg" width="49%" alt="News page" />
-  <img src="screenshots/home-light.jpg" width="49%" alt="Home page, light theme" />
-</p>
+| **Home** (`/`) | Hero, trending games, banner, services (each one can be ordered), recent projects, newsletter |
+| **About us** (`/about`) | Hero with an auto-rotating image showcase, "Why work with us", story, team |
+| **Contact us** (`/contact`) | Interactive world map of offices, contact details, "Say hello" form |
+| **News** (`/news`) | Featured articles, article list, live search |
+| `/order/success`, `/order/cancel` | Where Stripe sends the customer back |
 
 ## Features
 
-- Pixel-checked against the mockup at a 1440px viewport
-- Interactive SVG world map: 18 office pins, popups with address / phone / directions, a route arc to HQ, city chips, keyboard and touch support
-- Dark and light themes: switch in the header, choice is remembered, no flash on load (dark is the default)
-- Three languages (English, Russian, Spanish): switcher next to the logo, the choice is remembered, the browser language is used the first time. The HTML stays in English; `js/i18n.js` holds one table of rows `[English, Русский, Español]` and swaps text, placeholders, alt texts, page title and messages. To fix or add a translation, edit a row in that table
-- "Oops" dialog with an animated controller for links that do not lead anywhere yet, and a matching 404 page
-- The theme switch is the letter "O" of the logo. Small line icons stand before the menu items and section titles (`img/icons/`, drawn with CSS masks so they follow the theme colour)
-- Hero artwork: the controller is a 2x image and the Unity / CryEngine / Unreal logos are separate vector files (`img/engines/`), so they stay sharp on any screen and are never cropped
-- Game stickers (coin, trophy, gem, controller…) in the side margins. `js/stickers.js` measures the free space next to the content and hides a sticker when there is no room, so they never cover text. Edit the `LAYOUT` list at the top of the file to add or move them
-- Calm, gaming-style motion: blocks fade in once as they enter the screen, headlines assemble from letters once (they never come apart), small hover feedback, one slow float on the 3D controller. Only `opacity` and `transform` are animated, with a single `IntersectionObserver` and no scroll listeners. Everything is disabled for `prefers-reduced-motion`
-- Node.js + Express backend: contact form and newsletter are stored on the server, news search runs through the API, offices and stats are served as JSON
-- Works without the backend too: on static hosting (GitHub Pages) the forms switch to an honest demo mode and search runs in the browser
-- Fast: images are WebP, fonts load without blocking, below-the-fold images are lazy, responses are gzip-compressed. Lighthouse (local): Performance 99, SEO 100, Best practices 100, page weight about 375 KB
-- SEO: canonical and Open Graph tags, share preview image, `sitemap.xml`, `robots.txt`
-- Responsive layout with breakpoints at 1024 / 768 / 480px and a burger menu
-- Image showcase that changes slides every 9 seconds with a fade (pauses in a hidden tab)
+- React 19 + TypeScript (strict), Vite, React Router. Pixel-compared with the original static pages at 1440 / 820 / 390 px
+- Three languages (English, Russian, Spanish) with `react-i18next` and JSON dictionaries (`client/src/i18n/locales/`). A test checks that all languages have the same keys and placeholders
+- Dark and light themes. The theme switch is the letter "O" of the logo; the choice is remembered and applied before the first paint (no flash)
+- Interactive SVG world map: 18 office pins, popups, route arc to HQ, city chips, keyboard and touch support
+- Order a service: click a service, pay a project deposit in **Stripe Checkout (test mode)**
+- Contact form and newsletter stored by the API; honest demo mode on static hosting (no backend)
+- Calm motion: fade-ins, headlines assembling from letters, 3D tilt on game cards, count-up numbers. Everything respects `prefers-reduced-motion`
+- Accessible: axe-core reports 0 violations on every page in both themes; focus trap and Esc in dialogs, keyboard-operable language menu and map
+- Security: strict CSP (no inline scripts), helmet, rate limiting, server-side validation and prices, signed Stripe webhooks that are checked against our own price list, owner-only data files. See [`docs/backend-audit.md`](docs/backend-audit.md) and [`docs/security-review.md`](docs/security-review.md) (findings, accepted risks, production checklist)
+- Tested end to end: unit tests, security tests over real HTTP, and Playwright browser tests (smoke, user flows, the full payment cycle, XSS/CSP attacks, accessibility)
 
 ## Tech stack
 
-HTML5, CSS3 (Flexbox and Grid, no libraries), vanilla JavaScript, Node.js 20+ with Express, [Poppins](https://fonts.google.com/specimen/Poppins) font.
+React 19, TypeScript, Vite, React Router, i18next, Vitest + Testing Library, ESLint, Prettier. Node.js 22, Express 5, Stripe, helmet, `node:test`. Playwright + axe-core for browser tests.
 
-## Architecture
+## Run locally
 
+```bash
+npm run setup        # installs the server and the client
+npm run dev          # API on http://localhost:3000        (terminal 1)
+npm run dev:client   # React app on http://localhost:5173  (terminal 2, proxies /api to :3000)
 ```
-data/*.json  ──►  scripts/build.mjs ──►  news.html, contact.html   (static markup, works anywhere)
-     │
-     └─────────►  server/ (Express API)  ◄──  js/api.js  ◄──  forms and search in the browser
+
+One server for everything (like production):
+
+```bash
+npm run build        # builds client/dist
+npm start            # http://localhost:3000 serves the app and the API
 ```
 
-- **One source of truth.** News and offices live in `data/news.json` and `data/offices.json`. To add an article or an office, edit the JSON and run `npm run build`; the pages and the API both pick it up.
-- **Thin routes, logic in services.** `server/routes/api.js` only handles HTTP. Search and pagination are in `services/newsService.js`, storage is behind `services/store.js` (JSON Lines files today; swap that one file for a database later).
-- **The server never trusts the browser.** Validation is repeated in `server/validation.js`, request bodies are limited to 10 kB, write endpoints are rate limited, only whitelisted files are served.
-- **Progressive enhancement.** The pages are plain HTML. `js/api.js` talks to `/api`; if there is no backend it reports `offline` and each feature falls back.
+## Tests
 
-### API
+```bash
+npm test             # server tests (51): API, payments, security, routing
+npm run test:client  # front-end tests (41): components, validation, i18n parity
+npm run lint         # ESLint
+npm run audit        # npm audit for server and client
+npm run e2e          # builds the client and runs the browser tests (Playwright, 54 scenarios)
+npm run check        # everything above (except audit)
+```
+
+The first time, install the browser for the e2e tests: `npx playwright install chromium`.
+
+What the layers cover:
+
+| Layer | Where | What it proves |
+| --- | --- | --- |
+| Server unit/API | `test/api.test.js`, `test/payments.test.js` | Validation, storage, duplicates, order status, webhook idempotency (Stripe is faked) |
+| Server security | `test/security.test.js` | Headers and CSP, path traversal, hostile input, prototype pollution, error masking, log hygiene, file permissions, webhook forgery, wrong amounts, price tampering |
+| Front end | `client/src/**/*.test.*` | Components, forms, news search, validation, translations have the same keys, redirect URL check |
+| Browser smoke | `e2e/smoke.spec.js`, `e2e/layout.spec.js` | Every page loads with no console errors, CSP violations or broken images; real 404 status; no sideways scroll on mobile |
+| Browser flows | `e2e/flows.spec.js` | Language and theme, newsletter, contact form, news search, order dialog (focus trap, Esc), full payment cycle with a signed webhook |
+| Browser security | `e2e/security.spec.js` | CSP blocks injected scripts, XSS payloads in URL/search/forms/stored data, safe external links, no secrets or source maps in the build, rate limit |
+| Accessibility | `e2e/a11y.spec.js` | axe-core (WCAG 2 A/AA) on every page in both themes |
+
+The e2e server (`e2e/server.js`) is the real app with a fake Stripe client and a throw-away storage folder, so the tests never touch the network or your data. CI (`.github/workflows/ci.yml`) runs all of it, plus `npm audit`, on every push and pull request; Dependabot opens weekly update PRs.
+
+## Stripe test payments
+
+1. Create a free Stripe account and stay in **Test mode** (switch in the dashboard).
+2. Dashboard → Developers → API keys → copy the **Secret key** (`sk_test_...`).
+3. Copy `.env.example` to `.env` and set `STRIPE_SECRET_KEY=sk_test_...`.
+4. Start with `npm run start:env` (or `npm run dev:env`) so the `.env` file is read.
+5. Open the site, click a service, press the pay button. On the Stripe page use the test card `4242 4242 4242 4242`, any future date, any CVC.
+
+The success page asks the server for the order status, and the server confirms it with Stripe, so it works even without a webhook. To also receive Stripe's webhook locally, install the [Stripe CLI](https://docs.stripe.com/stripe-cli) and run:
+
+```bash
+stripe listen --forward-to localhost:3000/api/stripe/webhook
+```
+
+Copy the printed `whsec_...` into `STRIPE_WEBHOOK_SECRET` and restart. Orders are stored in `storage/orders.jsonl`.
+
+Live keys (`sk_live_...`) are refused unless `STRIPE_ALLOW_LIVE=true`.
+
+## API
 
 | Method | Route | Purpose |
 | --- | --- | --- |
@@ -67,50 +101,46 @@ data/*.json  ──►  scripts/build.mjs ──►  news.html, contact.html   (
 | GET | `/api/offices` | Office list for the map |
 | GET | `/api/stats` | Offices, countries, people |
 | POST | `/api/contact` | Save a message (`firstName`, `lastName`, `email`, `message`) |
-| POST | `/api/subscribe` | Subscribe an email |
+| POST | `/api/subscribe` | Subscribe an email (same answer for new and known addresses) |
+| GET | `/api/services` | Price list and whether payments are enabled |
+| POST | `/api/checkout` | Start a Stripe Checkout session (`serviceId`, optional `email`, `locale`) |
+| GET | `/api/orders/:sessionId` | Status of an order (`paid` / `pending` / `expired`) |
+| POST | `/api/stripe/webhook` | Stripe events (signature verified) |
 
-Messages and subscribers are saved to `storage/*.jsonl` (ignored by git). Each file stops accepting new records at 5 MB (the API answers 503), so a spam bot cannot fill the disk.
+Errors are JSON `{ "error", "code", "details?" }` with stable codes; the front end translates them. API answers are sent with `Cache-Control: no-store`. A payment provider outage is reported as `502 payment_provider_error`.
 
 ## Project structure
 
 ```
 .
-├── index.html, about.html, contact.html, news.html
-├── 404.html, sitemap.xml, robots.txt
-├── css/        main.css, effects.css, theme.css (light theme), oops.css, stickers.css + one stylesheet per inner page
-├── js/         api.js, i18n.js, main.js, effects.js, theme.js, oops.js, stickers.js + page scripts
-├── data/       news.json, offices.json
-├── server/     app.js, index.js, config.js, routes/, services/, middleware/
-├── scripts/    build.mjs (generates repeated HTML from data/)
-├── test/       API tests (node:test)
-├── img/        images and icons
-└── screenshots/
+├── client/              React + TypeScript app (Vite)
+│   ├── src/components/  Header, LanguageSwitcher, OfficeMap, ContactForm, OrderDialog, Modal, ...
+│   ├── src/pages/       Home, About, Contact, News, NotFound, OrderResult
+│   ├── src/hooks/       useReveal, useInView, useCountUp, useNewsSearch, useErrorText, ...
+│   ├── src/lib/         api client, validation, formatting, data, assets
+│   ├── src/i18n/        i18next setup + locales/{en,ru,es}.json
+│   ├── src/styles/      CSS (class-based, one file per area)
+│   └── src/img/         images and icons (bundled and cached with hashed names)
+├── data/                news.json, offices.json (used by the app and by the API)
+├── server/              Express API: routes/, services/, middleware/, lib/, config.js
+├── test/                API, payment and security tests (node:test)
+├── e2e/                 Playwright browser tests + the fake-Stripe test server
+├── docs/                backend-audit.md, security-review.md
+├── design/              mockup and original photos
+└── .github/             CI + GitHub Pages deploy, Dependabot
 ```
-
-## Run locally
-
-With the backend (recommended):
-
-```bash
-npm install
-npm start          # http://localhost:3000
-npm run dev        # restarts on file changes
-npm test           # API tests
-npm run build      # regenerate news and map markup from data/*.json
-```
-
-Front end only: open `index.html` or run `python3 -m http.server 8000`. The forms then run in demo mode.
 
 ## Deploy
 
-GitHub Pages hosts the static front end only (Settings → Pages → `main` / root). For the full version with the API, deploy the repo to any Node host (Render, Railway, Fly.io): the start command is `npm start` and the port comes from `PORT`.
+- **GitHub Pages** (front end only, forms in demo mode, payments off): Settings → Pages → Source: **GitHub Actions**. The workflow in `.github/workflows/ci.yml` runs the tests and publishes `client/dist` with `VITE_BASE=/game-studio-site/` on every push to `main`. Unknown addresses are served by `404.html`, a copy of the app shell, so `/about` works on reload.
+- **Full version with API and payments** (Render, Railway, Fly.io): build command `npm run setup && npm run build`, start command `npm start`. Set `NODE_ENV=production`, `PUBLIC_URL` (must be `https://` when Stripe is on), `TRUST_PROXY=1`, `STORAGE_DIR` on a persistent disk, `STRIPE_SECRET_KEY` and `STRIPE_WEBHOOK_SECRET` (create the webhook endpoint `https://your-site/api/stripe/webhook` in the Stripe dashboard for `checkout.session.completed`, `checkout.session.async_payment_succeeded` and `checkout.session.expired`). Go through the checklist in [`docs/security-review.md`](docs/security-review.md) before the first public deploy.
 
 ## Notes
 
-- The canonical URLs, `sitemap.xml` and share image use `https://user1234-code-maker.github.io/game-studio-site/`; change them if the site moves.
-- Game artwork in `img/` is taken from the design mockup; replace with final artwork when ready.
-- Behind a reverse proxy (Render, Railway, Fly.io) set `TRUST_PROXY=1`; locally keep the default `0`, otherwise visitors could fake their IP and dodge the rate limit.
-- Contact messages and subscribers are capped at 5 MB per file in `storage/`; for a real site move them to a database (see `server/services/store.js`).
-- A Content-Security-Policy header is sent (`server/security.js`). Inline scripts are allowed only if they match the hashes of the ones in our own HTML files, so after editing an inline `<script>` just restart the server.
-- Office locations, addresses and phone numbers on the map are fictional.
-- The world map is generated from [Natural Earth](https://www.naturalearthdata.com/) data (public domain) via the `world-atlas` package.
+- The canonical URL, `sitemap.xml` and share image use `https://user1234-code-maker.github.io/game-studio-site/`; change them if the site moves.
+- Behind a reverse proxy set `TRUST_PROXY=1`; locally keep `0`, otherwise visitors could fake their IP and dodge the rate limit.
+- Messages, subscribers and orders are saved to `storage/*.jsonl` (ignored by git), capped at 5 MB per file and readable by the server user only (`0600`). For a real site move them to a database (`server/services/store.js` is the only file to change) and add a privacy policy for the stored e-mail addresses.
+- Office locations, addresses and phone numbers on the map are fictional. The world map comes from [Natural Earth](https://www.naturalearthdata.com/) (public domain).
+- Prices in `server/services/catalog.js` are demo values in USD.
+- A paid webhook is accepted only for sessions this site created, and only when the amount and currency match the price list.
+- Unknown URLs get the app with a real `404` status when served by the Node server (on GitHub Pages `404.html` does the same job).
