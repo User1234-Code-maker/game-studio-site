@@ -12,7 +12,7 @@
 ![Stripe](https://img.shields.io/badge/Stripe-test%20mode-635bff?logo=stripe&logoColor=white)
 ![a11y](https://img.shields.io/badge/axe--core-0%20violations-2ea44f)
 
-[**Live demo (front end)**](https://user1234-code-maker.github.io/game-studio-site/) · [Security review](docs/security-review.md) · [Backend audit](docs/backend-audit.md)
+[**Live demo (full stack)**](https://game-studio-site.onrender.com) · [Front end only (GitHub Pages)](https://user1234-code-maker.github.io/game-studio-site/) · [Security review](docs/security-review.md) · [Backend audit](docs/backend-audit.md)
 
 <img src="screenshots/home.jpg" alt="Home page of the Logo game studio website" width="880">
 
