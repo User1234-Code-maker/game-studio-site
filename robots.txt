@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://user1234-code-maker.github.io/game-studio-site/sitemap.xml
