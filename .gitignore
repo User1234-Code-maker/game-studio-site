@@ -4,3 +4,6 @@ storage/
 .DS_Store
 test-results/
 playwright-report/
+.cursor/
+PROMPT.md
+design/
