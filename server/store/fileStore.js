@@ -5,16 +5,14 @@ import { config } from "../config.js";
 import { HttpError } from "../lib/httpError.js";
 import { withLock } from "../lib/mutex.js";
 
-// Safety net: a collection stops accepting new records at this size, so a spam
-// bot cannot fill the disk. Move to a database before this matters.
+// Safety net: a file stops accepting new records at this size, so a spam
+// bot cannot fill the disk. This store is meant for local development;
+// production uses PostgreSQL (see pgStore.js).
 const MAX_BYTES = 5 * 1024 * 1024;
 
-// Append-only JSON Lines storage: one record per line, trivial to inspect.
-// The interface is tiny (append / appendUnique / readAll), so replacing it with
-// a real database later only touches this file.
 const filePath = (name) => path.join(config.storageDir, `${name}.jsonl`);
 
-async function readFileLines(target) {
+async function readLines(target) {
   try {
     const text = await readFile(target, "utf8");
     return text.split("\n").filter(Boolean).map((line) => JSON.parse(line));
@@ -36,19 +34,34 @@ async function write(collection, record) {
   return entry;
 }
 
-export const append = (collection, record) => withLock(collection, () => write(collection, record));
+const append = (collection, record) => withLock(collection, () => write(collection, record));
 
-/**
- * Appends unless a record with the same key already exists.
- * The check and the write run under one lock, so two simultaneous requests
- * cannot both pass the check (which would store a duplicate).
- */
-export const appendUnique = (collection, record, keyOf) =>
+// Check and write under one lock, so two simultaneous requests cannot both pass the check.
+const appendUnique = (collection, record, keyOf) =>
   withLock(collection, async () => {
     const wanted = keyOf(record);
-    const existing = (await readFileLines(filePath(collection))).find((item) => keyOf(item) === wanted);
+    const existing = (await readLines(filePath(collection))).find((item) => keyOf(item) === wanted);
     if (existing) return { created: false, entry: existing };
     return { created: true, entry: await write(collection, record) };
   });
 
-export const readAll = (collection) => readFileLines(filePath(collection));
+/** JSON Lines files in STORAGE_DIR. Same interface as the PostgreSQL store. */
+export function createFileStore() {
+  return {
+    kind: "file",
+    init: async () => {},
+    ping: async () => {},
+    close: async () => {},
+    messages: {
+      add: (data) => append("messages", data),
+    },
+    subscribers: {
+      add: (email) => appendUnique("subscribers", { email }, (item) => item.email.toLowerCase()),
+    },
+    orders: {
+      record: (event) => appendUnique("orders", event, (item) => `${item.sessionId}:${item.type}`),
+      bySession: async (sessionId) => (await readLines(filePath("orders"))).filter((item) => item.sessionId === sessionId),
+    },
+  };
+}
+

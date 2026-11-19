@@ -1,7 +1,7 @@
 import { test, expect } from "./fixtures.js";
 
 test("no page scrolls sideways", async ({ page }) => {
-  for (const path of ["/", "/about", "/news", "/contact"]) {
+  for (const path of ["/", "/about", "/services", "/news", "/contact"]) {
     await page.goto(path);
     await page.waitForLoadState("networkidle");
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);

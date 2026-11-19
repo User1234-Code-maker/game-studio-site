@@ -5,7 +5,7 @@ import { cx } from "@/lib/cx";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 import { ThemeToggle } from "./ThemeToggle";
 
-type Page = "home" | "about" | "news" | "contact";
+type Page = "home" | "about" | "services" | "news" | "contact";
 
 /** Site header. `page` marks the current menu item. */
 export function Header({ page }: { page?: Page }) {
@@ -42,6 +42,11 @@ export function Header({ page }: { page?: Page }) {
           <li data-nav="about" className={cx(page === "about" && "active")}>
             <Link to="/about" onClick={closeMenu}>
               {t("nav.about")}
+            </Link>
+          </li>
+          <li data-nav="services" className={cx(page === "services" && "active")}>
+            <Link to="/services" onClick={closeMenu}>
+              {t("nav.services")}
             </Link>
           </li>
           <li data-nav="portfolio">

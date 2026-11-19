@@ -4,7 +4,8 @@
     "about": "About us",
     "portfolio": "Portfolio",
     "news": "News",
-    "contact": "Contact us"
+    "contact": "Contact us",
+    "services": "Services"
   },
   "header": {
     "openMenu": "Open menu",
@@ -27,7 +28,8 @@
     "about": "About our game development studio: who we are, why clients work with us and meet the team.",
     "contact": "Contact our game development studio: find us on the map, call us or send a message.",
     "news": "Latest news from our game development studio: articles, stories and updates.",
-    "notFoundTitle": "Page not found"
+    "notFoundTitle": "Page not found",
+    "services": "Game development services: mobile, PC, console, AR/VR and 3D modelling. See what is included and book a producer with a deposit."
   },
   "newsletter": {
     "section": "Newsletter",
@@ -73,7 +75,8 @@
     },
     "services": {
       "title": "Everything a game needs, under one roof",
-      "text": "Art, code, sound and live operations are handled by one team, so nothing gets lost between hand-offs. Pick a single service or let us take the project from concept to release."
+      "text": "Art, code, sound and live operations are handled by one team, so nothing gets lost between hand-offs. Pick a single service or let us take the project from concept to release.",
+      "all": "All services"
     },
     "projects": {
       "title": "Our Recent Projects",
@@ -403,6 +406,81 @@
         "country": "Australia",
         "role": "Game design",
         "address": "200 George Street, Level 8"
+      }
+    }
+  },
+  "servicesPage": {
+    "title": "Game development services",
+    "lead": "Pick the service you need, see what is included and book a producer with a deposit. The rest is agreed after the first call.",
+    "listLabel": "Services",
+    "included": "What you get",
+    "deposit": "Deposit",
+    "order": "Order",
+    "stepsTitle": "How an order works",
+    "steps": {
+      "choose": {
+        "title": "Choose a service",
+        "text": "Pick the closest match. You can add more services on the call."
+      },
+      "pay": {
+        "title": "Pay a deposit",
+        "text": "A secure Stripe payment books a producer for your project."
+      },
+      "call": {
+        "title": "Talk to a producer",
+        "text": "We contact you within two working days to agree scope, timeline and the final price."
+      }
+    },
+    "faqTitle": "Questions before you order",
+    "faq": {
+      "q1": "What does the deposit cover?",
+      "a1": "It reserves a producer for your project. Scope and the final price are agreed after the first call.",
+      "q2": "Can I combine several services?",
+      "a2": "Yes. Order the main one now and mention the rest on the call, we plan them as a single project.",
+      "q3": "What happens after I pay?",
+      "a3": "You get a receipt by email, and a producer contacts you within two working days."
+    },
+    "cta": {
+      "title": "Not sure which service fits?",
+      "text": "Tell us about your game and we will suggest where to start.",
+      "button": "Talk to us"
+    },
+    "items": {
+      "mobile": {
+        "text": "iOS and Android games that run smoothly on flagship phones and budget devices alike.",
+        "a": "Builds for iOS and Android",
+        "b": "Touch controls and performance tuning",
+        "c": "Store release and first-month support"
+      },
+      "pc": {
+        "text": "Games for Windows, macOS and Linux with the polish players expect on Steam.",
+        "a": "Steam-ready builds with controller support",
+        "b": "Graphics settings and profiling",
+        "c": "Launch patches and updates"
+      },
+      "ps4": {
+        "text": "Console games built to pass certification on the first submission.",
+        "a": "Development against the certification checklist",
+        "b": "Gamepad-first controls and interface",
+        "c": "Submission and release support"
+      },
+      "ar-vr": {
+        "text": "Immersive apps and games for headsets and phones, from prototype to release.",
+        "a": "Headset and mobile AR builds",
+        "b": "Comfort-tested interaction design",
+        "c": "Testing on real devices"
+      },
+      "ar-vr-design": {
+        "text": "Spaces, interfaces and interactions designed for 3D from day one.",
+        "a": "Environment and interface concepts",
+        "b": "Prototypes you can try in a headset",
+        "c": "Design files ready for engineers"
+      },
+      "3d": {
+        "text": "Characters, props and environments modelled, textured and ready for your engine.",
+        "a": "Models with PBR textures",
+        "b": "Optimised for real-time engines",
+        "c": "Rigging and animation on request"
       }
     }
   }

@@ -3,6 +3,7 @@ import { test, expect } from "./fixtures.js";
 const PAGES = [
   { path: "/", title: /Logo Games/, heading: /./ },
   { path: "/about", title: /About/i, heading: /./ },
+  { path: "/services", title: /Services/i, heading: /./ },
   { path: "/news", title: /News/i, heading: /./ },
   { path: "/contact", title: /Contact/i, heading: /./ },
 ];
@@ -37,7 +38,7 @@ test("smoke: unknown URL shows the 404 page with a real 404 status", async ({ pa
 });
 
 test("smoke: images on every page have alt text and actually load", async ({ page }) => {
-  for (const path of ["/", "/about", "/news", "/contact"]) {
+  for (const path of ["/", "/about", "/services", "/news", "/contact"]) {
     await page.goto(path);
     await page.evaluate(async () => {
       document.querySelectorAll("img[loading=lazy]").forEach((img) => img.setAttribute("loading", "eager"));
@@ -55,7 +56,9 @@ test("smoke: images on every page have alt text and actually load", async ({ pag
 test("smoke: health, services and news APIs answer with JSON", async ({ request }) => {
   const health = await request.get("/api/health");
   expect(health.ok()).toBe(true);
-  expect((await health.json()).status).toBe("ok");
+  const body = await health.json();
+  expect(body.status).toBe("ok");
+  expect(body.storage).toBe("postgres"); // the browser tests run on a real PostgreSQL engine
 
   const services = await (await request.get("/api/services")).json();
   expect(services.enabled).toBe(true);

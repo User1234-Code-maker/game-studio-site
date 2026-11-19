@@ -91,7 +91,7 @@ test("stored XSS: a message saved by the API is not turned into markup anywhere 
     data: { firstName: payload, lastName: payload, email: "x@example.com", message: payload + " long enough" },
   });
   expect(res.status()).toBe(201);
-  for (const path of ["/", "/about", "/news", "/contact"]) {
+  for (const path of ["/", "/about", "/services", "/news", "/contact"]) {
     await page.goto(path);
     await page.waitForLoadState("networkidle");
     expect(await page.evaluate(() => window.__xss), path).toBeUndefined();

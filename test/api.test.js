@@ -110,7 +110,7 @@ test("unknown API route is JSON 404, bad JSON is 400, big body is 413", async ()
 });
 
 test("front end: app shell for any page, hashed assets cached, private files not served", async () => {
-  for (const page of ["/", "/about", "/news", "/contact", "/about/"]) {
+  for (const page of ["/", "/about", "/services", "/news", "/contact", "/about/"]) {
     const res = await fetch(base + page);
     assert.equal(res.status, 200, page);
     assert.match(await res.text(), /id=root/);

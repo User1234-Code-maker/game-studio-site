@@ -10,6 +10,7 @@ import "./styles/main.css";
 import "./styles/about.css";
 import "./styles/contact.css";
 import "./styles/news.css";
+import "./styles/services.css";
 import "./styles/effects.css";
 import "./styles/theme.css";
 import "./styles/oops.css";

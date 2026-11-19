@@ -97,6 +97,7 @@ header nav ul li.btn a::before {
 
 header nav ul li[data-nav="home"] a { --ic: url(../img/icons/home.svg); }
 header nav ul li[data-nav="about"] a { --ic: url(../img/icons/user.svg); }
+header nav ul li[data-nav="services"] a { --ic: url(../img/icons/services.svg); }
 header nav ul li[data-nav="portfolio"] a { --ic: url(../img/icons/briefcase.svg); }
 header nav ul li[data-nav="news"] a { --ic: url(../img/icons/newspaper.svg); }
 header nav ul li[data-nav="contact"] a { --ic: url(../img/icons/message.svg); }

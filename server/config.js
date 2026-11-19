@@ -41,6 +41,13 @@ export function loadConfig(env = process.env) {
     trustProxy: int(env.TRUST_PROXY, 0),
     rateLimitPerMinute: int(env.RATE_LIMIT_PER_MINUTE, 10),
     publicUrl,
+    // PostgreSQL. Leave DATABASE_URL empty to use JSON files (local development only).
+    database: {
+      url: env.DATABASE_URL || "",
+      // "true" = encrypted and certificate checked (managed databases), "no-verify" = encrypted only.
+      ssl: env.DATABASE_SSL || "false",
+      max: int(env.DATABASE_POOL_MAX, 10),
+    },
     stripe: {
       secretKey,
       webhookSecret: env.STRIPE_WEBHOOK_SECRET || "",

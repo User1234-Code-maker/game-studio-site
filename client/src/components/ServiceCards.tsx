@@ -2,18 +2,10 @@ import { useState, type KeyboardEvent } from "react";
 import { useTranslation } from "react-i18next";
 import { img } from "@/lib/assets";
 import { cx } from "@/lib/cx";
+import { SERVICES } from "@/lib/services";
 import { useDynamicT } from "@/hooks/useDynamicT";
 import { useReveal } from "@/hooks/useReveal";
 import { OrderDialog } from "./OrderDialog";
-
-const SERVICES = [
-  { id: "mobile", icon: "service-mobile.svg" },
-  { id: "pc", icon: "service-pc.png" },
-  { id: "ps4", icon: "service-ps4.svg" },
-  { id: "ar-vr", icon: "service-ar-vr.svg" },
-  { id: "ar-vr-design", icon: "service-ar-vr-design.svg" },
-  { id: "3d", icon: "service-3d.svg" },
-] as const;
 
 /** The six services. Each opens the order dialog (Stripe test checkout). */
 export function ServiceCards() {

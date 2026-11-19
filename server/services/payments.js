@@ -1,6 +1,6 @@
 import Stripe from "stripe";
 import { CURRENCY, findService } from "./catalog.js";
-import { appendUnique, readAll } from "./store.js";
+import { createFileStore } from "../store/fileStore.js";
 import { HttpError } from "../lib/httpError.js";
 
 const LOCALES = new Set(["en", "ru", "es"]);
@@ -14,8 +14,8 @@ export function createStripeClient(secretKey) {
  * Payment use cases. The Stripe client is passed in, so tests use a fake one
  * and never call the network.
  */
-export function createPayments({ stripe, publicUrl, webhookSecret }) {
-  const record = (event) => appendUnique("orders", event, (item) => `${item.sessionId}:${item.type}`);
+export function createPayments({ stripe, publicUrl, webhookSecret, store = createFileStore() }) {
+  const record = (event) => store.orders.record(event);
 
   async function createCheckout({ serviceId, email, locale }) {
     const service = findService(serviceId);
@@ -59,7 +59,7 @@ export function createPayments({ stripe, publicUrl, webhookSecret }) {
     if (!isPaidEvent && event.type !== "checkout.session.expired") return { received: true };
 
     // Only sessions this site created count (the Stripe account may serve other products).
-    const created = (await readAll("orders")).find((item) => item.sessionId === object.id && item.type === "created");
+    const created = (await store.orders.bySession(object.id)).find((item) => item.type === "created");
     if (!created) return { received: true, ignored: true };
 
     if (isPaidEvent) {
@@ -86,7 +86,7 @@ export function createPayments({ stripe, publicUrl, webhookSecret }) {
   async function getOrderStatus(sessionId) {
     if (!SESSION_ID.test(sessionId)) throw new HttpError(400, "invalid_session", "Invalid session id");
 
-    const events = (await readAll("orders")).filter((item) => item.sessionId === sessionId);
+    const events = await store.orders.bySession(sessionId);
     if (events.length === 0) throw new HttpError(404, "order_not_found", "Order not found");
 
     let paid = events.find((item) => item.type === "paid");

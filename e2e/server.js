@@ -1,6 +1,6 @@
 // Test server for the browser tests: the real Express app serving the real
 // production build, with a fake Stripe client (the network is never touched)
-// and a throw-away storage folder.
+// and an in-memory PostgreSQL.
 import { mkdtemp } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import path from "node:path";
@@ -14,6 +14,13 @@ process.env.STORAGE_DIR = await mkdtemp(path.join(tmpdir(), "site-e2e-"));
 
 const { createApp } = await import("../server/app.js");
 const { createPayments } = await import("../server/services/payments.js");
+const { createPgStore } = await import("../server/store/pgStore.js");
+const { createPgliteDb } = await import("../test/backends.js");
+
+// The data goes into a real PostgreSQL engine (in memory), so the browser tests
+// exercise the same SQL as production.
+const store = createPgStore(await createPgliteDb());
+await store.init();
 
 const WEBHOOK_SECRET = "whsec_e2e";
 const sessions = new Map();
@@ -41,7 +48,8 @@ const fakeStripe = {
 };
 
 const app = createApp({
-  payments: createPayments({ stripe: fakeStripe, publicUrl: process.env.PUBLIC_URL, webhookSecret: WEBHOOK_SECRET }),
+  store,
+  payments: createPayments({ stripe: fakeStripe, publicUrl: process.env.PUBLIC_URL, webhookSecret: WEBHOOK_SECRET, store }),
   logRequests: false,
 });
 

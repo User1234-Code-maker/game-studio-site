@@ -103,6 +103,9 @@ export function HomePage() {
               <SplitHeading as="h3">{t("home.services.title")}</SplitHeading>
               <p>{t("home.services.text")}</p>
               <ServiceCards />
+              <Link to="/services" className="services-all">
+                {t("home.services.all")}
+              </Link>
             </div>
             <Stickers items={FEATURES_STICKERS} />
           </section>

@@ -1,50 +1,18 @@
-import { useEffect, useId, useRef, useState, type FormEvent } from "react";
+import { useId, useState, type FormEvent } from "react";
 import { useTranslation } from "react-i18next";
 import { Modal } from "./Modal";
-import { api, type CheckoutResponse, type ServicesResponse } from "@/lib/api";
+import { api, type CheckoutResponse } from "@/lib/api";
 import { isStripeCheckoutUrl } from "@/lib/checkout";
 import { formatMoney } from "@/lib/format";
 import { isEmail } from "@/lib/validation";
 import { useErrorText } from "@/hooks/useErrorText";
+import { useCatalog } from "@/hooks/useCatalog";
 import { useDynamicT } from "@/hooks/useDynamicT";
 
 interface Props {
   /** Service id ("pc", "3d"...) or null when the dialog is closed. */
   serviceId: string | null;
   onClose: () => void;
-}
-
-type Catalog =
-  | { state: "loading" }
-  | { state: "offline" }
-  | { state: "disabled" }
-  | { state: "ready"; currency: string; deposits: Record<string, number> };
-
-/** Loads the price list from the server once, the first time the dialog opens. */
-function useCatalog(needed: boolean): Catalog {
-  const [catalog, setCatalog] = useState<Catalog>({ state: "loading" });
-  const requested = useRef(false);
-
-  useEffect(() => {
-    if (!needed || requested.current) return;
-    requested.current = true;
-    api
-      .get<ServicesResponse>("/services")
-      .then((reply) => {
-        if (reply.kind !== "ok") return setCatalog({ state: "offline" });
-        if (!reply.data.enabled) return setCatalog({ state: "disabled" });
-        setCatalog({
-          state: "ready",
-          currency: reply.data.currency,
-          deposits: Object.fromEntries(
-            reply.data.items.map((item) => [item.id, item.depositCents]),
-          ),
-        });
-      })
-      .catch(() => setCatalog({ state: "offline" }));
-  }, [needed]);
-
-  return catalog;
 }
 
 /** Order a service: shows the deposit and sends the visitor to Stripe Checkout (test mode). */

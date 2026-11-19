@@ -11,10 +11,12 @@ import { isKnownRoute } from "./routes/spa.js";
 import { permissionsPolicy, securityHeaders } from "./security.js";
 import { config } from "./config.js";
 import { createPayments, createStripeClient } from "./services/payments.js";
+import { createStoreFromConfig } from "./store/index.js";
 
-function defaultPayments() {
+function defaultPayments(store) {
   if (!config.stripe.secretKey) return null;
   return createPayments({
+    store,
     stripe: createStripeClient(config.stripe.secretKey),
     publicUrl: config.publicUrl,
     webhookSecret: config.stripe.webhookSecret,
@@ -23,9 +25,14 @@ function defaultPayments() {
 
 /**
  * Builds the app without listening, so tests can call it directly.
- * `payments` can be injected (tests pass a fake Stripe); pass null to disable.
+ * `store` (PostgreSQL or files) and `payments` can be injected: tests pass a fake
+ * Stripe and an in-memory database; pass payments: null to disable payments.
  */
-export function createApp({ payments = defaultPayments(), logRequests = config.env !== "test" } = {}) {
+export function createApp({
+  store = createStoreFromConfig(config),
+  payments = defaultPayments(store),
+  logRequests = config.env !== "test",
+} = {}) {
   const app = express();
   app.disable("x-powered-by");
   app.set("trust proxy", config.trustProxy);
@@ -46,7 +53,7 @@ export function createApp({ payments = defaultPayments(), logRequests = config.e
 
   // Webhook first: it needs the raw body that express.json() would consume.
   app.use("/api", webhookRouter(payments));
-  app.use("/api", express.json({ limit: "10kb" }), createApiRouter({ payments }), notFound);
+  app.use("/api", express.json({ limit: "10kb" }), createApiRouter({ payments, store }), notFound);
 
   // React build. Hashed files in /assets are cached for a year; index.html never.
   const dist = config.clientDir;
@@ -67,5 +74,7 @@ export function createApp({ payments = defaultPayments(), logRequests = config.e
   }
 
   app.use(errorHandler);
+  // The server entry point starts and stops the store through these.
+  app.locals.store = store;
   return app;
 }

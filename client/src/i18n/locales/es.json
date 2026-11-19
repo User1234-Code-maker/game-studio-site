@@ -4,7 +4,8 @@
     "about": "Nosotros",
     "portfolio": "Portafolio",
     "news": "Noticias",
-    "contact": "Contáctanos"
+    "contact": "Contáctanos",
+    "services": "Servicios"
   },
   "header": {
     "openMenu": "Abrir menú",
@@ -27,7 +28,8 @@
     "about": "Sobre nuestro estudio de desarrollo de juegos: quiénes somos, por qué los clientes confían en nosotros y nuestro equipo.",
     "contact": "Contacta con nuestro estudio: encuéntranos en el mapa, llámanos o envía un mensaje.",
     "news": "Últimas noticias de nuestro estudio: artículos, historias y novedades.",
-    "notFoundTitle": "Página no encontrada"
+    "notFoundTitle": "Página no encontrada",
+    "services": "Servicios de desarrollo de videojuegos: móvil, PC, consola, AR/VR y modelado 3D. Mira qué incluye cada uno y reserva un productor con un depósito."
   },
   "newsletter": {
     "section": "Boletín",
@@ -73,7 +75,8 @@
     },
     "services": {
       "title": "Todo lo que un juego necesita, bajo un mismo techo",
-      "text": "Arte, código, sonido y operación en vivo están en manos de un solo equipo, así que nada se pierde entre traspasos. Elige un solo servicio o deja que llevemos el proyecto del concepto al lanzamiento."
+      "text": "Arte, código, sonido y operación en vivo están en manos de un solo equipo, así que nada se pierde entre traspasos. Elige un solo servicio o deja que llevemos el proyecto del concepto al lanzamiento.",
+      "all": "Todos los servicios"
     },
     "projects": {
       "title": "Nuestros proyectos recientes",
@@ -403,6 +406,81 @@
         "country": "Australia",
         "role": "Diseño de juegos",
         "address": "200 George Street, Level 8"
+      }
+    }
+  },
+  "servicesPage": {
+    "title": "Servicios de desarrollo de videojuegos",
+    "lead": "Elige el servicio que necesitas, mira qué incluye y reserva un productor con un depósito. El resto se acuerda tras la primera llamada.",
+    "listLabel": "Servicios",
+    "included": "Qué recibes",
+    "deposit": "Depósito",
+    "order": "Pedir",
+    "stepsTitle": "Cómo funciona un pedido",
+    "steps": {
+      "choose": {
+        "title": "Elige un servicio",
+        "text": "Escoge el más cercano. Puedes añadir más servicios en la llamada."
+      },
+      "pay": {
+        "title": "Paga un depósito",
+        "text": "Un pago seguro con Stripe reserva un productor para tu proyecto."
+      },
+      "call": {
+        "title": "Habla con un productor",
+        "text": "Te contactamos en dos días laborables para acordar el alcance, los plazos y el precio final."
+      }
+    },
+    "faqTitle": "Preguntas antes de pedir",
+    "faq": {
+      "q1": "¿Qué cubre el depósito?",
+      "a1": "Reserva un productor para tu proyecto. El alcance y el precio final se acuerdan tras la primera llamada.",
+      "q2": "¿Puedo combinar varios servicios?",
+      "a2": "Sí. Pide el principal ahora y cuéntanos el resto en la llamada: lo planificamos como un solo proyecto.",
+      "q3": "¿Qué pasa después de pagar?",
+      "a3": "Recibes un recibo por correo y un productor te contacta en dos días laborables."
+    },
+    "cta": {
+      "title": "¿No sabes qué servicio encaja?",
+      "text": "Cuéntanos sobre tu juego y te sugeriremos por dónde empezar.",
+      "button": "Hablar con nosotros"
+    },
+    "items": {
+      "mobile": {
+        "text": "Juegos para iOS y Android que funcionan con fluidez tanto en móviles de gama alta como básicos.",
+        "a": "Compilaciones para iOS y Android",
+        "b": "Controles táctiles y optimización",
+        "c": "Publicación en tiendas y soporte el primer mes"
+      },
+      "pc": {
+        "text": "Juegos para Windows, macOS y Linux con el acabado que los jugadores esperan en Steam.",
+        "a": "Compilaciones para Steam con soporte de mando",
+        "b": "Ajustes gráficos y perfilado",
+        "c": "Parches y actualizaciones tras el lanzamiento"
+      },
+      "ps4": {
+        "text": "Juegos de consola pensados para pasar la certificación en el primer envío.",
+        "a": "Desarrollo según la lista de certificación",
+        "b": "Controles e interfaz pensados para mando",
+        "c": "Envío y soporte del lanzamiento"
+      },
+      "ar-vr": {
+        "text": "Apps y juegos inmersivos para visores y móviles, del prototipo al lanzamiento.",
+        "a": "Compilaciones para visores y AR móvil",
+        "b": "Interacción probada en comodidad",
+        "c": "Pruebas en dispositivos reales"
+      },
+      "ar-vr-design": {
+        "text": "Espacios, interfaces e interacciones diseñados para 3D desde el primer día.",
+        "a": "Conceptos de entorno e interfaz",
+        "b": "Prototipos que puedes probar en un visor",
+        "c": "Archivos listos para los ingenieros"
+      },
+      "3d": {
+        "text": "Personajes, objetos y entornos modelados, texturizados y listos para tu motor.",
+        "a": "Modelos con texturas PBR",
+        "b": "Optimizados para motores en tiempo real",
+        "c": "Rigging y animación bajo petición"
       }
     }
   }

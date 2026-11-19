@@ -3,7 +3,7 @@ import { test, expect } from "./fixtures.js";
 
 // Automated accessibility check (WCAG 2 A/AA + best practices) on every page, in both themes.
 // Scroll-reveal animations are switched to their final state first, so faded-out text is not judged.
-const PAGES = ["/", "/about", "/news", "/contact", "/order/cancel", "/not-a-page"];
+const PAGES = ["/", "/about", "/services", "/news", "/contact", "/order/cancel", "/not-a-page"];
 
 for (const theme of ["dark", "light"]) {
   for (const path of PAGES) {

@@ -1,8 +1,24 @@
 import { createApp } from "./app.js";
 import { config } from "./config.js";
 
-const server = createApp().listen(config.port, () => {
+const app = createApp();
+const store = app.locals.store;
+
+// Create the tables (or apply new migrations) before the first request arrives.
+// If the database cannot be reached the process exits, and the host shows the error in its logs.
+try {
+  await store.init();
+} catch (error) {
+  console.error("Cannot start: the database is not ready:", error.code ?? error.message);
+  process.exit(1);
+}
+
+const server = app.listen(config.port, () => {
   console.log(`Site and API running at http://localhost:${config.port} (${config.env})`);
+  console.log(`Storage: ${store.kind}`);
+  if (store.kind === "file" && config.isProduction) {
+    console.warn("WARNING: production is running on JSON files. Set DATABASE_URL to use PostgreSQL.");
+  }
   if (!config.stripe.secretKey) console.log("Stripe: not configured (set STRIPE_SECRET_KEY to enable test payments)");
 });
 
@@ -17,7 +33,9 @@ function shutdown(reason, code = 0) {
   if (closing) return;
   closing = true;
   console.log(`Shutting down (${reason})`);
-  server.close(() => process.exit(code));
+  server.close(() => {
+    Promise.resolve(store.close()).finally(() => process.exit(code));
+  });
   setTimeout(() => process.exit(code || 1), 10_000).unref();
 }
 
