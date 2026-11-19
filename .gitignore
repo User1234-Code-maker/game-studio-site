@@ -2,6 +2,5 @@ node_modules/
 storage/
 .env
 .DS_Store
-design/
-PROMPT.md
-.cursor/
+test-results/
+playwright-report/

@@ -1,0 +1,92 @@
+name: CI and GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            client/package-lock.json
+      - run: npm ci
+      - run: npm ci --prefix client
+      - name: Server tests
+        run: npm test
+      - name: Front-end type check, lint and tests
+        run: |
+          npm run typecheck --prefix client
+          npm run lint --prefix client
+          npm test --prefix client
+      - name: Dependency audit (fails on high severity)
+        run: |
+          npm audit --omit=dev --audit-level=high
+          npm audit --prefix client --audit-level=high
+
+  e2e:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            client/package-lock.json
+      - run: npm ci
+      - run: npm ci --prefix client
+      - run: npx playwright install --with-deps chromium
+      - name: Build the front end
+        run: npm run build
+      - name: Browser tests (smoke, flows, security, accessibility)
+        run: npx playwright test
+      - name: Keep the report when something fails
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: |
+            test-results/
+            playwright-report/
+          retention-days: 7
+
+  deploy-pages:
+    needs: [test, e2e]
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: client/package-lock.json
+      - run: npm ci --prefix client
+      - name: Build the site for GitHub Pages
+        run: npm run build --prefix client
+        env:
+          VITE_BASE: /game-studio-site/
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: client/dist
+      - id: deployment
+        uses: actions/deploy-pages@v4
