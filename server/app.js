@@ -1,46 +1,71 @@
 import express from "express";
+import helmet from "helmet";
 import compression from "compression";
 import path from "node:path";
-import api from "./routes/api.js";
+import { existsSync } from "node:fs";
+import { createApiRouter } from "./routes/api.js";
+import { webhookRouter } from "./routes/payments.js";
 import { errorHandler, notFound } from "./middleware/errorHandler.js";
+import { requestLogger } from "./middleware/requestLogger.js";
+import { isKnownRoute } from "./routes/spa.js";
+import { permissionsPolicy, securityHeaders } from "./security.js";
 import { config } from "./config.js";
-import { contentSecurityPolicy } from "./security.js";
+import { createPayments, createStripeClient } from "./services/payments.js";
 
-// createApp() builds the app without listening, so tests can call it directly.
-export function createApp() {
+function defaultPayments() {
+  if (!config.stripe.secretKey) return null;
+  return createPayments({
+    stripe: createStripeClient(config.stripe.secretKey),
+    publicUrl: config.publicUrl,
+    webhookSecret: config.stripe.webhookSecret,
+  });
+}
+
+/**
+ * Builds the app without listening, so tests can call it directly.
+ * `payments` can be injected (tests pass a fake Stripe); pass null to disable.
+ */
+export function createApp({ payments = defaultPayments(), logRequests = config.env !== "test" } = {}) {
   const app = express();
   app.disable("x-powered-by");
   app.set("trust proxy", config.trustProxy);
 
-  const csp = contentSecurityPolicy();
-  app.use((_req, res, next) => {
-    res.set({
-      "Content-Security-Policy": csp,
-      "X-Content-Type-Options": "nosniff",
-      "X-Frame-Options": "DENY",
-      "Referrer-Policy": "strict-origin-when-cross-origin",
-    });
+  app.use(requestLogger({ enabled: logRequests }));
+  app.use(securityHeaders());
+  if (config.isProduction) {
+    app.use(helmet.hsts({ maxAge: 15_552_000, includeSubDomains: true }));
+  }
+  app.use(permissionsPolicy);
+  app.use(compression());
+
+  // API answers are never cached (order status, errors).
+  app.use("/api", (_req, res, next) => {
+    res.set("Cache-Control", "no-store");
     next();
   });
 
-  app.use(compression());
-  app.use("/api", express.json({ limit: "10kb" }), api, notFound);
+  // Webhook first: it needs the raw body that express.json() would consume.
+  app.use("/api", webhookRouter(payments));
+  app.use("/api", express.json({ limit: "10kb" }), createApiRouter({ payments }), notFound);
 
-  // Static front end: whitelisted files and folders only.
-  config.publicDirs.forEach((dir) =>
-    app.use(
-      `/${dir}`,
-      express.static(path.join(config.rootDir, dir), { maxAge: { data: 0, css: "1h", js: "1h" }[dir] ?? "7d", etag: true }),
-    ),
-  );
-  config.publicFiles.forEach((name) =>
-    app.get(name === "index.html" ? ["/", "/index.html"] : `/${name}`, (_req, res) =>
-      res.sendFile(path.join(config.rootDir, name)),
-    ),
-  );
+  // React build. Hashed files in /assets are cached for a year; index.html never.
+  const dist = config.clientDir;
+  if (existsSync(dist)) {
+    app.use("/assets", express.static(path.join(dist, "assets"), { immutable: true, maxAge: "1y", fallthrough: false }));
+    app.use(express.static(dist, { index: false, maxAge: "1h" }));
+    // Single-page app: any other GET shows the app (React Router renders the 404 itself).
+    // Unknown URLs still get the app (it draws its own 404 page) but with a real 404
+    // status, so search engines do not index them.
+    app.get(/.*/, (req, res) => {
+      res.set("Cache-Control", "no-cache");
+      res.status(isKnownRoute(req.path) ? 200 : 404).sendFile(path.join(dist, "index.html"));
+    });
+  } else {
+    app.get("/", (_req, res) =>
+      res.status(503).type("text").send("Front end is not built yet. Run: npm run build"),
+    );
+  }
 
-  // Unknown address: the same friendly page GitHub Pages shows.
-  app.use((_req, res) => res.status(404).sendFile(path.join(config.rootDir, "404.html")));
   app.use(errorHandler);
   return app;
 }

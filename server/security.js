@@ -1,34 +1,38 @@
-import { readFileSync } from "node:fs";
-import { createHash } from "node:crypto";
-import path from "node:path";
-import { config } from "./config.js";
+import helmet from "helmet";
 
-// Content-Security-Policy. Inline scripts are allowed only if they are exactly
-// the ones written in our own HTML files (their hashes are computed at start-up),
-// so an injected <script> would be blocked.
-function inlineScriptHashes() {
-  const hashes = new Set();
-  for (const name of config.publicFiles.filter((file) => file.endsWith(".html"))) {
-    const html = readFileSync(path.join(config.rootDir, name), "utf8");
-    for (const match of html.matchAll(/<script(?![^>]*\b(?:src|type)=)[^>]*>([\s\S]*?)<\/script>/g)) {
-      hashes.add(`'sha256-${createHash("sha256").update(match[1]).digest("base64")}'`);
-    }
-  }
-  return [...hashes];
+// Security headers. The React build ships only external scripts, so
+// script-src needs no hashes and no 'unsafe-inline'. Inline style="" attributes
+// (pin positions, letter animations) need style-src 'unsafe-inline'; that is
+// the one deliberate trade-off. Stripe Checkout is a full-page redirect, so no
+// Stripe domains are needed here.
+export function securityHeaders() {
+  return helmet({
+    contentSecurityPolicy: {
+      useDefaults: false,
+      directives: {
+        "default-src": ["'self'"],
+        "script-src": ["'self'"],
+        "style-src": ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
+        "font-src": ["'self'", "https://fonts.gstatic.com"],
+        "img-src": ["'self'", "data:"],
+        "connect-src": ["'self'"],
+        "base-uri": ["'self'"],
+        "form-action": ["'self'", "https://checkout.stripe.com"],
+        "frame-ancestors": ["'none'"],
+        "object-src": ["'none'"],
+        ...(process.env.NODE_ENV === "production" ? { "upgrade-insecure-requests": [] } : {}),
+      },
+    },
+    referrerPolicy: { policy: "strict-origin-when-cross-origin" },
+    frameguard: { action: "deny" },
+    crossOriginOpenerPolicy: { policy: "same-origin" },
+    // Fonts and images come from other origins, so do not require CORP.
+    crossOriginResourcePolicy: false,
+    crossOriginEmbedderPolicy: false,
+  });
 }
 
-export function contentSecurityPolicy() {
-  return [
-    "default-src 'self'",
-    `script-src 'self' ${inlineScriptHashes().join(" ")}`,
-    // Inline style="" attributes position pins and stickers.
-    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-    "font-src https://fonts.gstatic.com",
-    "img-src 'self' data:",
-    "connect-src 'self'",
-    "base-uri 'self'",
-    "form-action 'self'",
-    "frame-ancestors 'none'",
-    "object-src 'none'",
-  ].join("; ");
-}
+export const permissionsPolicy = (_req, res, next) => {
+  res.set("Permissions-Policy", "camera=(), microphone=(), geolocation=(), payment=(self)");
+  next();
+};
