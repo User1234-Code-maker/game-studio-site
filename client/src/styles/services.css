@@ -572,3 +572,14 @@ html[data-theme="light"] .features .services-all {
     animation: none;
   }
 }
+
+/* Phones: the tiles above have no bottom margin, so the button needs its own gap */
+@media (max-width: 768px) {
+  .services-all {
+    margin: 28px auto 0;
+  }
+
+  .services-cta {
+    margin-bottom: 48px;
+  }
+}

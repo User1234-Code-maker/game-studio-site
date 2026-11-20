@@ -1075,6 +1075,10 @@ html {
     padding-bottom: 0;
   }
 
+  .hero--info h1 {
+    margin-top: 8px;
+  }
+
   .hero__art {
     --art: min(440px, 100cqw);
     width: var(--art);
@@ -1156,7 +1160,7 @@ html {
 
   /* Services: a tidy grid of tiles instead of six tall rows */
   .features {
-    padding: var(--sec) 0 24px;
+    padding: var(--sec) 0;
   }
 
   .features h3,

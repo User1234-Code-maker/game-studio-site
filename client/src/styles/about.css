@@ -381,3 +381,10 @@
     font-size: 0.875rem;
   }
 }
+
+/* Phones: the gap before the newsletter follows the same rhythm as the home page */
+@media (max-width: 768px) {
+  .team {
+    padding-bottom: 56px;
+  }
+}
