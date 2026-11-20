@@ -367,6 +367,7 @@
 }
 
 .services-cta {
+  box-sizing: border-box;
   margin-bottom: 96px;
   padding: 48px 32px;
   border: 1px solid rgba(255, 255, 255, 0.1);

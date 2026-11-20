@@ -279,8 +279,8 @@
 
   .about-hero h1 {
     margin-top: 24px;
-    font-size: 28px;
-    line-height: 40px;
+    font-size: clamp(1.75rem, 1.4rem + 1.5vw, 2.25rem);
+    line-height: 1.2;
   }
 
   .about-hero__info p {
@@ -295,7 +295,8 @@
     position: relative;
     left: auto;
     height: 420px;
-    margin-top: 40px;
+    margin: 40px 20px 0;
+    border-radius: 20px;
   }
 
   .why {
@@ -355,15 +356,28 @@
 
 @media (max-width: 480px) {
   .about-hero h1 {
-    font-size: 24px;
-    line-height: 34px;
+    font-size: 1.75rem;
   }
 
   .slider {
-    height: 280px;
+    height: 300px;
   }
 
+  /* two team cards per row, like the trending games on the home page */
   .team__cards {
-    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .team-card {
+    height: auto;
+    padding: 28px 10px 24px;
+  }
+
+  .team-card h3 {
+    font-size: 1rem;
+  }
+
+  .team-card p {
+    font-size: 0.875rem;
   }
 }

@@ -1057,6 +1057,211 @@ html {
   }
 }
 
-p {
+:lang(ru) p,
+:lang(es) p {
   hyphens: auto;
+}
+
+/* ==========================================================================
+   Phones and tablets: one calm rhythm from the hero to the footer.
+   Written last on purpose, so these rules win over the desktop ones above.
+   ========================================================================== */
+@media (max-width: 1024px) {
+  /* The 3D pad is a stage under the text. Its cable fades in from nothing
+     instead of starting with a hard edge in the middle of the page, and the
+     empty strip under the pad is trimmed (the sizes use the hero's width). */
+  .hero {
+    container-type: inline-size;
+    padding-bottom: 0;
+  }
+
+  .hero__art {
+    --art: min(440px, 100cqw);
+    width: var(--art);
+    margin: 8px auto calc(var(--art) * -0.24);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 38%);
+    mask-image: linear-gradient(to bottom, transparent 0, #000 38%);
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --sec: 56px; /* space between sections */
+  }
+
+  .hero__art {
+    --art: min(380px, 100cqw);
+  }
+
+  /* Trending games: heading and button on one line, two cards per row */
+  .trending {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .trending h3 {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .trending .see-all {
+    flex: none;
+  }
+
+  .trending .games {
+    gap: 20px 14px;
+    padding: 16px 0 var(--sec);
+  }
+
+  .trending .games .block {
+    flex: 0 0 calc(50% - 7px);
+    max-width: calc(50% - 7px);
+  }
+
+  .trending .games span {
+    margin-top: 14px;
+    font-size: 0.9375rem;
+  }
+
+  .trending .games span img {
+    height: 16px;
+    width: auto;
+    top: 3px;
+    margin-right: 5px;
+  }
+
+  .big-text {
+    padding-top: 0;
+  }
+
+  /* Banner */
+  .banner {
+    padding: 8px 0 var(--sec);
+  }
+
+  .banner p {
+    max-width: none;
+    margin-bottom: 28px;
+  }
+
+  .banner img {
+    aspect-ratio: 5 / 4;
+    object-fit: cover;
+    border-radius: 16px;
+    margin-bottom: 0;
+  }
+
+  /* Services: a tidy grid of tiles instead of six tall rows */
+  .features {
+    padding: var(--sec) 0 24px;
+  }
+
+  .features h3,
+  .features p {
+    margin-left: 0;
+    margin-right: 0;
+    text-align: left;
+  }
+
+  .features > .container > p {
+    margin-bottom: 28px;
+  }
+
+  .features .info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .features .info .block {
+    width: auto;
+    margin: 0;
+    padding: 22px 10px 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.07);
+    border-radius: 20px;
+  }
+
+  .features .info .block > img:first-child {
+    width: 52px;
+    height: 52px;
+  }
+
+  .features .info .block p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.7em; /* one- and two-line names sit on the same baseline */
+    margin: 14px 0 12px;
+    max-width: none;
+    font-size: 0.875rem;
+    line-height: 1.35;
+    text-align: center;
+  }
+
+  /* Projects: a wide picture, a 2 x 2 grid, a wide picture */
+  .projects {
+    padding: var(--sec) 0 32px;
+  }
+
+  .projects h3 {
+    text-align: left;
+  }
+
+  .projects p {
+    max-width: none;
+    margin: 12px 0 0;
+    text-align: left;
+  }
+
+  .projects .images {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin: 28px 0;
+  }
+
+  .projects .images img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 16px;
+  }
+
+  .projects .images img:first-child,
+  .projects .images img:last-child {
+    grid-column: 1 / -1;
+    aspect-ratio: 16 / 9;
+  }
+
+  /* Newsletter and footer */
+  .email {
+    padding-bottom: 48px;
+  }
+
+  .email .block {
+    margin-top: 28px;
+  }
+
+  footer .container {
+    padding-top: 48px;
+    padding-bottom: 36px;
+  }
+
+  .social {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero__art {
+    --art: min(340px, 100cqw);
+  }
 }
